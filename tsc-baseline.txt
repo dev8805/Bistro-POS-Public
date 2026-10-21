@@ -1,0 +1,42 @@
+﻿components/DashboardPDFReport.tsx(427,65): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: PropsWithChildren<TextProps> | SVGTextProps): Text', gave the following error.
+    Type '{ children: string; style: ({ fontSize: number; color: string; } | { flex: number; })[]; numberOfLines: number; }' is not assignable to type 'IntrinsicAttributes & (IntrinsicClassAttributes<Text> & Readonly<PropsWithChildren<TextProps> | SVGTextProps>)'.
+      Property 'numberOfLines' does not exist on type 'IntrinsicAttributes & (IntrinsicClassAttributes<Text> & Readonly<PropsWithChildren<TextProps> | SVGTextProps>)'.
+  Overload 2 of 2, '(props: PropsWithChildren<TextProps> | SVGTextProps, context: any): Text', gave the following error.
+    Type '{ children: string; style: ({ fontSize: number; color: string; } | { flex: number; })[]; numberOfLines: number; }' is not assignable to type 'IntrinsicAttributes & (IntrinsicClassAttributes<Text> & Readonly<PropsWithChildren<TextProps> | SVGTextProps>)'.
+      Property 'numberOfLines' does not exist on type 'IntrinsicAttributes & (IntrinsicClassAttributes<Text> & Readonly<PropsWithChildren<TextProps> | SVGTextProps>)'.
+lib/exportDashboardPDF.ts(17,31): error TS2345: Argument of type 'FunctionComponentElement<Props>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'Props' has no properties in common with type 'DocumentProps'.
+lib/paymentMethods.ts(103,5): error TS2322: Type '{ id: string; label: string; mappedId: string; reportLine: string; isCustom: boolean; }[]' is not assignable to type 'BusinessPaymentMethod[]'.
+  Type '{ id: string; label: string; mappedId: string; reportLine: string; isCustom: boolean; }' is not assignable to type 'BusinessPaymentMethod'.
+    Types of property 'reportLine' are incompatible.
+      Type 'string' is not assignable to type 'ReportLine'.
+lib/shareReceiptPDF.ts(72,39): error TS2345: Argument of type 'FunctionComponentElement<ReceiptPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'ReceiptPDFProps' has no properties in common with type 'DocumentProps'.
+lib/shareReceiptPDF.ts(128,35): error TS2345: Argument of type 'FunctionComponentElement<ReceiptThermalPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'ReceiptThermalPDFProps' has no properties in common with type 'DocumentProps'.
+lib/shareReceiptPDF.ts(292,35): error TS2345: Argument of type 'FunctionComponentElement<ReceiptPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'ReceiptPDFProps' has no properties in common with type 'DocumentProps'.
+lib/shareReceiptPDF.ts(370,31): error TS2345: Argument of type 'FunctionComponentElement<ReceiptPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'ReceiptPDFProps' has no properties in common with type 'DocumentProps'.
+lib/shareTransactionHistory.ts(191,31): error TS2345: Argument of type 'FunctionComponentElement<TransactionHistoryPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'TransactionHistoryPDFProps' has no properties in common with type 'DocumentProps'.
+lib/shareTransactionHistory.ts(215,31): error TS2345: Argument of type 'FunctionComponentElement<TransactionHistoryPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'TransactionHistoryPDFProps' has no properties in common with type 'DocumentProps'.
+lib/shiftReport.ts(175,22): error TS2345: Argument of type 'FunctionComponentElement<ShiftReportThermalPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'ShiftReportThermalPDFProps' has no properties in common with type 'DocumentProps'.
+screens/PublicClientHistoryScreen.tsx(75,36): error TS2345: Argument of type 'FunctionComponentElement<TransactionHistoryPDFProps>' is not assignable to parameter of type 'ReactElement<DocumentProps, string | JSXElementConstructor<any>>'.
+  Types of property 'props' are incompatible.
+    Type 'TransactionHistoryPDFProps' has no properties in common with type 'DocumentProps'.
+screens/TablesScreen.tsx(94,51): error TS2345: Argument of type '{ title: string; confirmText: string; variant: "danger"; }' is not assignable to parameter of type 'ConfirmOptions'.
+  Property 'message' is missing in type '{ title: string; confirmText: string; variant: "danger"; }' but required in type 'ConfirmOptions'.
+screens/TablesScreen.tsx(141,47): error TS2345: Argument of type '{ title: string; confirmText: string; variant: "danger"; }' is not assignable to parameter of type 'ConfirmOptions'.
+  Property 'message' is missing in type '{ title: string; confirmText: string; variant: "danger"; }' but required in type 'ConfirmOptions'.
