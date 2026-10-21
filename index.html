@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/192px_fondoBlanco.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/512px_transparente.png" />
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/180px_fondoBlanco.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/192px_fondoBlanco.png" />
+
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" id="pwa-manifest" />
+  <script>
+    if (window.location.pathname === '/gastos') {
+      document.title = "Gastos - Bistro";
+      var mLink = document.getElementById('pwa-manifest');
+      if (mLink) mLink.setAttribute('href', '/manifest-gastos.json');
+    } else if (window.location.pathname === '/foto-venta') {
+      document.title = "Foto Venta - Bistro";
+      var mLink = document.getElementById('pwa-manifest');
+      if (mLink) mLink.setAttribute('href', '/manifest-fotoventa.json');
+    } else if (window.location.pathname === '/compra-inventario') {
+      document.title = "Compra Inventario - Bistro";
+      var mLink = document.getElementById('pwa-manifest');
+      if (mLink) mLink.setAttribute('href', '/manifest-compra.json');
+    }
+    window.__bistroInstallPrompt = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      window.__bistroInstallPrompt = e;
+      window.dispatchEvent(new CustomEvent('bistro-install-prompt-ready'));
+    });
+    window.addEventListener('appinstalled', function () {
+      window.__bistroInstallPrompt = null;
+      window.dispatchEvent(new CustomEvent('bistro-app-installed'));
+    });
+  </script>
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Bistro POS" />
+
+  <title>Bistro POS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+  <script>
+    tailwind.config = {
+      future: {
+        hoverOnlyWhenSupported: true,
+      },
+      darkMode: "class",
+      theme: {
+        screens: {
+          'xs': '400px',
+          'sm': '640px',
+          'md': '768px',
+          'lg': '1024px',
+          'xl': '1280px',
+          '2xl': '1536px',
+        },
+        extend: {
+          colors: {
+            // Marca Principal (Ámbar - Warm Bistro)
+            primary: {
+              DEFAULT: "#fbbf24", // amber-400
+              hover: "#f59e0b",   // amber-500
+              active: "#d97706",  // amber-600
+              light: "#fffbeb",   // amber-50
+              text: "#78350f",    // amber-900
+            },
+
+            // Layout (Fondos y Superficies)
+            background: {
+              light: "#f8fafc",   // slate-50 (Unificado para toda la app)
+              dark: "#102218",    // green-950 (Mantenemos la identidad oscura Bistro)
+            },
+            surface: {
+              light: "#ffffff",
+              dark: "#1c2e24",    // green-900
+            },
+
+            // Texto
+            text: {
+              main: "#0f172a",    // slate-900 (Alto contraste)
+              secondary: "#64748b", // slate-500
+              onPrimary: "#102218", // Texto oscuro sobre fondo ámbar
+            },
+
+            // Semántica de Estado (Tokens funcionales)
+            status: {
+              success: "#10b981", // emerald-500
+              warning: "#f59e0b", // amber-500
+              error: "#ef4444",   // red-500
+              info: "#3b82f6",    // blue-500
+            },
+
+            // Compatibilidad legacy (mientras se refactoriza)
+            "background-light": "#f8fafc",
+            "background-dark": "#102218",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1c2e24",
+            "text-main": "#0f172a",
+            "text-secondary": "#64748b",
+          },
+          fontSize: {
+            '2xs': ['0.625rem', { lineHeight: '0.75rem' }], // 10px
+            'caption': ['0.75rem', { lineHeight: '1rem' }],  // 12px
+            'sm': ['0.875rem', { lineHeight: '1.25rem' }],   // 14px
+            'base': ['1rem', { lineHeight: '1.5rem' }],      // 16px
+            'lg': ['1.125rem', { lineHeight: '1.75rem' }],   // 18px
+            'xl': ['1.25rem', { lineHeight: '1.75rem' }],    // 20px
+            '2xl': ['1.5rem', { lineHeight: '2rem' }],       // 24px
+          },
+          boxShadow: {
+            'card': '0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.02)',
+            'card-hover': '0 8px 16px -4px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04)',
+          },
+          fontFamily: {
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Noto Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            "2xl": "1rem",
+            full: "9999px",
+          },
+          keyframes: {
+            slideInRight: {
+              '0%': { transform: 'translateX(100%)' },
+              '100%': { transform: 'translateX(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(100%)' },
+              '100%': { transform: 'translateY(0)' },
+            },
+            slideInUpSubtle: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          },
+          animation: {
+            slideInRight: 'slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+            fadeIn: 'fadeIn 0.2s ease-out',
+            slideUp: 'slideUp 0.3s ease-out',
+            slideInUpSubtle: 'slideInUpSubtle 0.4s cubic-bezier(0.16, 1, 0.3, 1) both',
+          }
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="/index.css">
+  <script src="https://accounts.google.com/gsi/client" async></script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased"
+  style="background-color: #f6f8f7;">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
