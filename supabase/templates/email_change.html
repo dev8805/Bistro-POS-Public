@@ -1,0 +1,90 @@
+<!--
+  Plantilla de Supabase Auth: "Change Email Address" (email_change)
+  Marca Bistro POS. Variables disponibles: {{ .ConfirmationURL }}, {{ .NewEmail }}, {{ .Email }}
+  Pegar este HTML en: Supabase Dashboard > Authentication > Emails > Change Email Address.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Confirma tu correo</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f3f4f6; padding:24px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px; background-color:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+
+          <!-- Encabezado de marca -->
+          <tr>
+            <td style="background-color:#fbbf24; padding:28px 32px; text-align:center;">
+              <span style="display:inline-block; font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#102218;">
+                Bistro<span style="color:#7c4a03;">POS</span>
+              </span>
+            </td>
+          </tr>
+
+          <!-- Cuerpo -->
+          <tr>
+            <td style="padding:36px 32px 8px 32px; text-align:center;">
+              <div style="display:inline-block; background-color:#fef3c7; border-radius:50%; width:56px; height:56px; line-height:56px; margin-bottom:18px;">
+                <span style="font-size:26px;">✉️</span>
+              </div>
+              <h1 style="margin:0 0 10px; font-size:21px; font-weight:700; color:#111827;">Confirma tu correo</h1>
+              <p style="margin:0; font-size:15px; line-height:1.6; color:#6b7280;">
+                Solo falta un paso para vincular
+                <strong style="color:#111827;">{{ .NewEmail }}</strong>
+                a tu cuenta. Toca el botón para confirmar que este correo es tuyo.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Botón -->
+          <tr>
+            <td style="padding:28px 32px 8px 32px; text-align:center;">
+              <a href="{{ .ConfirmationURL }}"
+                 style="display:inline-block; background-color:#fbbf24; color:#102218; text-decoration:none; font-size:15px; font-weight:700; padding:14px 36px; border-radius:12px;">
+                Confirmar mi correo
+              </a>
+            </td>
+          </tr>
+
+          <!-- Enlace alternativo -->
+          <tr>
+            <td style="padding:18px 32px 32px 32px; text-align:center;">
+              <p style="margin:0 0 6px; font-size:12px; color:#9ca3af;">
+                Si el botón no funciona, copia y pega este enlace en tu navegador:
+              </p>
+              <p style="margin:0; font-size:12px; word-break:break-all;">
+                <a href="{{ .ConfirmationURL }}" style="color:#b45309; text-decoration:underline;">{{ .ConfirmationURL }}</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- Separador -->
+          <tr>
+            <td style="padding:0 32px;">
+              <div style="height:1px; background-color:#f0f0f0;"></div>
+            </td>
+          </tr>
+
+          <!-- Pie -->
+          <tr>
+            <td style="padding:20px 32px 28px 32px; text-align:center;">
+              <p style="margin:0; font-size:12px; line-height:1.6; color:#9ca3af;">
+                Si no solicitaste este cambio, puedes ignorar este mensaje sin problema.
+              </p>
+              <p style="margin:10px 0 0; font-size:12px; color:#c0c4cc;">
+                Bistro POS · Gestiona tu negocio
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
