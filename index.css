@@ -1,0 +1,470 @@
+/* Base CSS for Bistro POS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth focus transitions for inputs */
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/*
+ * Los campos de formulario NUNCA muestran el outline del navegador en ningún
+ * estado — incluido el frame de blur, que causaba un parpadeo de borde oscuro
+ * (3px gray-900) al hacer clic fuera de un input con autoFocus.
+ * El foco se indica con ring/box-shadow (focus:ring-*), así que la accesibilidad
+ * para teclado se conserva.
+ */
+input,
+input:focus,
+input:focus-visible,
+textarea,
+textarea:focus,
+textarea:focus-visible,
+select,
+select:focus,
+select:focus-visible {
+    outline: none !important;
+    outline-offset: 0 !important;
+}
+
+/*
+ * Foco accesible (patrón recomendado por web.dev / MDN):
+ * Oculta el outline negro del navegador cuando el foco NO viene del teclado
+ * (clic de mouse, touch o foco programático como autoFocus), y lo conserva
+ * para navegación por teclado vía :focus-visible.
+ * Cubre botones, enlaces y contenedores clickables (backdrop, flechas, etc.).
+ */
+:focus:not(:focus-visible) {
+    outline: none !important;
+}
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 20px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #334b40;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Animation for mobile drawer slide in from left */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Animation for fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation for slide down from top (notifications) */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for slide in from right (for modals) */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Animation for slide up */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Animation for subtle slide up */
+@keyframes slideInUpSubtle {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideInUpSubtle {
+    animation: slideInUpSubtle 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Animación profesional de entrada para modales centrados (fade + leve scale) */
+@keyframes modalIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-modalIn {
+    animation: modalIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Bar chart rise animation — escala desde la base, ideal para barras verticales */
+@keyframes barRise {
+    0% {
+        transform: scaleY(0);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.animate-barRise {
+    transform-origin: bottom;
+    animation: barRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Card entry — fade + slide-up sutil para grids escalonados */
+@keyframes cardEntry {
+    0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-cardEntry {
+    animation: cardEntry 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Donut chart entrada — crece desde el centro con un fade suave */
+@keyframes donutDraw {
+    0% {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-donutDraw {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: donutDraw 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Mobile header padding utility */
+.pt-mobile-header {
+    padding-top: 3.5rem;
+    /* 56px = h-14 */
+}
+
+/* Safe area for mobile bottom navigation */
+.pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Skeleton shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.skeleton-shimmer {
+    background: linear-gradient(90deg,
+            rgb(226 232 240 / 0.8) 25%,
+            rgb(241 245 249 / 0.9) 50%,
+            rgb(226 232 240 / 0.8) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.dark .skeleton-shimmer {
+    background: linear-gradient(90deg,
+            rgb(30 41 59 / 0.8) 25%,
+            rgb(51 65 85 / 0.6) 50%,
+            rgb(30 41 59 / 0.8) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* Transición de apertura suave y enfocada para el visor de recorte (estilo iOS / Instagram, sin parpadeos) */
+@keyframes cropperBackdropFade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes cropperFocusZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes cropperHeaderSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cropperDockSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-cropperBackdrop {
+    animation: cropperBackdropFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: opacity;
+}
+
+.animate-cropperFocus {
+    animation: cropperFocusZoom 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
+}
+
+.animate-cropperHeader {
+    animation: cropperHeaderSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
+}
+
+.animate-cropperDock {
+    animation: cropperDockSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
+}
+
+/* Escaneo IA del documento: láser ámbar que barre el recorte de arriba a abajo.
+   El wrapper mide la altura del recorte (h-full) y la barra vive en su borde
+   superior; moviendo el wrapper con translateY de -100% a 0% la barra viaja de
+   arriba a abajo. translateY es más fiable que animar top:% (que no se veía). */
+/* ── Análisis IA estilo Gemini / Apple Intelligence ──
+   En vez de una línea láser dura, un resplandor difuso ancho que recorre la
+   imagen de arriba a abajo (y vuelve), combinado con un borde que respira y un
+   velo multicolor muy sutil. Transmite "la IA está pensando", no "escáner". */
+
+/* 1) Aura cónica multicolor que gira lento (estilo "IA pensando" de Google/Gemini).
+      No es un barrido lineal: es un halo que rota de forma orgánica. */
+@keyframes aiAuraSpin {
+    0% {
+        transform: rotate(0deg) scale(1.05);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.05);
+    }
+}
+
+.animate-aiAuraSpin {
+    /* Gradiente oficial Gemini: Google Blue #4285F4 → violeta #9B72CB → coral #D96570 */
+    background: conic-gradient(from 0deg,
+        rgba(66, 133, 244, 0.0),
+        rgba(66, 133, 244, 0.40),
+        rgba(155, 114, 203, 0.40),
+        rgba(217, 101, 112, 0.38),
+        rgba(66, 133, 244, 0.0));
+    animation: aiAuraSpin 4.5s linear infinite;
+    will-change: transform;
+}
+
+/* Streaming shimmer: banda que recorre la imagen "leyéndola" (el gesto de
+   análisis). El color pasa de azul → violeta → coral mientras baja, estilo el
+   leading-edge shimmer de Gemini cuando genera. */
+/* Posición: una bajada completa = un ciclo. */
+@keyframes aiReadSweep {
+    0% {
+        transform: translateY(-80px);
+    }
+    100% {
+        transform: translateY(var(--ai-read-h, 440px));
+    }
+}
+
+/* Color: cambia en bloque por cada bajada (azul → violeta → coral → repite).
+   El período es 3× el de la bajada y usa steps(1) para que cada bajada tenga
+   un color fijo distinto, en vez de transicionar dentro de una misma bajada. */
+@keyframes aiReadHue {
+    0%   { background-image: linear-gradient(to bottom, transparent, rgba(66,133,244,0.42), transparent); }  /* azul */
+    33%  { background-image: linear-gradient(to bottom, transparent, rgba(155,114,203,0.42), transparent); } /* violeta */
+    66%  { background-image: linear-gradient(to bottom, transparent, rgba(217,101,112,0.40), transparent); } /* coral */
+}
+
+.animate-aiReadSweep {
+    top: 0;
+    /* La posición dura 1.9s por bajada; el color dura 5.7s (3 bajadas) con
+       steps(3) → un color por bajada, cambiando en cada una. */
+    animation: aiReadSweep 1.9s ease-in-out infinite,
+               aiReadHue 5.7s steps(3) infinite;
+    will-change: transform;
+}
+
+/* 2) Respiración: el resplandor crece y se atenúa suave desde el centro. */
+@keyframes aiBreathe {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.55;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+.animate-aiBreathe {
+    animation: aiBreathe 2.8s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* 3) Borde que respira con el gradiente Gemini (azul ↔ coral), limpio y sutil. */
+@keyframes aiBorderGlow {
+    0%, 100% {
+        box-shadow: inset 0 0 0 1.5px rgba(66, 133, 244, 0.5),
+                    0 0 16px rgba(66, 133, 244, 0.2);
+    }
+    50% {
+        box-shadow: inset 0 0 0 1.5px rgba(217, 101, 112, 0.7),
+                    0 0 26px rgba(155, 114, 203, 0.35);
+    }
+}
+
+.animate-aiBorderGlow {
+    animation: aiBorderGlow 3s ease-in-out infinite;
+    will-change: box-shadow;
+}
+
+/* Shimmer del texto "Analizando..." con paleta IA (índigo → cian → violeta) */
+@keyframes aiShimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.animate-aiShimmer {
+    /* Gradiente Gemini: azul → violeta → coral → violeta → azul */
+    background-image: linear-gradient(90deg, #4285f4 0%, #9b72cb 25%, #d96570 50%, #9b72cb 75%, #4285f4 100%);
+    animation: aiShimmer 2.6s linear infinite;
+    will-change: background-position;
+}
+
+/* Ocultar flechas en inputs numéricos */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}

@@ -1,0 +1,84 @@
+{
+    "id": "/",
+    "name": "Bistro POS",
+    "short_name": "Bistro POS",
+    "description": "Sistema de gestión de ventas e inventario",
+    "icons": [
+        {
+            "src": "/180px_fondoBlanco.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/192px_fondoBlanco.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/512px_transparente.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/192px_fondoBlanco.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/512px_fondoBlanco.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f6f8f7",
+    "theme_color": "#ffffff",
+    "orientation": "natural",
+    "shortcuts": [
+        {
+            "name": "Foto Venta",
+            "short_name": "Foto Venta",
+            "description": "Escanear y registrar ventas rápidamente con foto o comanda",
+            "url": "/foto-venta",
+            "icons": [
+                {
+                    "src": "/foto-venta-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Gastos",
+            "short_name": "Gastos",
+            "description": "Registrar gastos y pagos rápidamente",
+            "url": "/gastos",
+            "icons": [
+                {
+                    "src": "/gasto-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Compra Inventario",
+            "short_name": "Compra Inventario",
+            "description": "Registrar compras de inventario rápidamente",
+            "url": "/compra-inventario",
+            "icons": [
+                {
+                    "src": "/compra-192.png?v=2",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ]
+}

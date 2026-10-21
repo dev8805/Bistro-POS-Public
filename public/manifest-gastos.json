@@ -1,0 +1,38 @@
+{
+    "id": "bistro-pos-gastos",
+    "name": "Gastos Bistro",
+    "short_name": "Gastos",
+    "description": "Registro directo de gastos y compras en Bistro POS",
+    "icons": [
+        {
+            "src": "/gasto-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/gasto-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/gasto-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/gasto-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "start_url": "/gastos",
+    "scope": "/gastos",
+    "display": "standalone",
+    "background_color": "#f6f8f7",
+    "theme_color": "#ffffff",
+    "orientation": "natural"
+}

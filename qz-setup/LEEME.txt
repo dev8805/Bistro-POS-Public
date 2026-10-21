@@ -1,0 +1,38 @@
+============================================================
+  BISTRO POS - Configurar impresora termica (3 pasos)
+============================================================
+
+Para imprimir recibos sin que aparezcan avisos cada vez,
+sigue estos pasos UNA sola vez en este computador:
+
+------------------------------------------------------------
+PASO 1: Instalar QZ Tray
+------------------------------------------------------------
+  - Si aun no lo tienes, descarga e instala QZ Tray desde:
+        https://qz.io/download/
+  - Es gratis. Instalalo con "Siguiente" hasta el final.
+  - Al terminar veras un icono verde junto al reloj de Windows.
+
+------------------------------------------------------------
+PASO 2: Ejecutar el configurador
+------------------------------------------------------------
+  - Haz doble clic en el archivo:
+        Configurar-Impresora-Bistro.bat
+  - Windows mostrara un aviso pidiendo permiso: presiona "Si".
+  - Espera el mensaje "LISTO" y cierra la ventana.
+
+  IMPORTANTE: el archivo "override.crt" debe estar SIEMPRE
+  en la misma carpeta que el .bat. No los separes.
+
+------------------------------------------------------------
+PASO 3: Elegir tu impresora en la app
+------------------------------------------------------------
+  - Abre Bistro POS.
+  - Ve a Ajustes > Impresora y presiona "Conectar".
+  - Elige tu impresora de la lista.
+  - Imprime un recibo de prueba: ya NO deben aparecer avisos.
+
+------------------------------------------------------------
+Problemas? Vuelve a ejecutar el configurador (Paso 2) o
+contacta a soporte.
+============================================================
