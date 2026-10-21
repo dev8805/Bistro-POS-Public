@@ -1,0 +1,838 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Escribir migración `add_custom_plan_support`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932624101
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932647121
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932741304
+      }
+    ],
+    "1.2 [Manual] Aplicar la migración vía MCP `apply_migration` contra el proyecto `hjjmwipqquynjopkswvu`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932624364
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932745598
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932781955
+      }
+    ],
+    "1.3 [Manual] Correr `get_advisors` (security y performance) para verificar que no aparecen warnings nuevos.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932624996
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932787474
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932831113
+      }
+    ],
+    "1.4 [Manual] Sincronizar al filesystem con `supabase migration fetch --yes` para dejar el archivo local versionado.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932625275
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932788896
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932832325
+      }
+    ],
+    "2.1 Escribir migración `restrict_custom_plans_rls`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932625510
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932789981
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932833409
+      }
+    ],
+    "2.2 [Manual] Aplicar la migración vía MCP `apply_migration`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932625740
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932838528
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932854533
+      }
+    ],
+    "2.3 [Manual] Correr verificación de RLS (después de la task 3): con un JWT de un negocio distinto al 10001, `SELECT id FROM subscription_plans WHERE assigned_business_id IS NOT NULL` debe devolver 0 filas. Con un JWT del 10001, debe devolver 1 fila.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932625951
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932924663
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932953921
+      }
+    ],
+    "3.1 [Manual] Ejecutar vía MCP `execute_sql`:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932626147
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932855629
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932890283
+      }
+    ],
+    "3.2 [Manual] Verificar que la fila quedó correctamente:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932626345
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932877251
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932891295
+      }
+    ],
+    "4.1 [Manual] Ejecutar vía MCP `execute_sql` una transacción atómica con verificación previa y posterior:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932626586
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932889533
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932921271
+      }
+    ],
+    "4.2 [Manual] Confirmar que `current_period_end` sigue siendo `2026-08-18 02:09:33.185893+00`, que `status = 'active'` y que `next_billing_date` no cambió. Si algún valor difiere, ejecutar `ROLLBACK` inmediato.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932626790
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932923288
+      }
+    ],
+    "5.1 En `context/AuthContext.tsx`, modificar la query de `checkSubscription()` para hacer join con `subscription_plans`:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932627118
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932963775
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933186039
+      }
+    ],
+    "5.2 Exponer `subscription` con el `plan` anidado en el value del context. No agregar campos derivados aquí; se derivan en `useCustomPlan`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932627391
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933187127
+      }
+    ],
+    "5.3 Compilar el proyecto (`npm run build`) y verificar que ningún consumidor del context queda con errores de tipo.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932627576
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933188184
+      }
+    ],
+    "6.1 Crear `hooks/useCustomPlan.ts` con la firma definida en el design:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932627758
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933193102
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933490264
+      }
+    ],
+    "6.2 Verificación runtime con el negocio 10001: debe devolver `hasCustomPlan = true` y `customPlanAmount = 170000` una vez la task 4 esté aplicada. Antes de la task 4, debe devolver `hasCustomPlan = false` sin errores.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932627954
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933491444
+      }
+    ],
+    "7.1 Crear el archivo con la firma definida en el design. Copiar y generalizar la lógica actual de `SubscriptionPlansScreen.handleOpenWompiWidget` para recibir `plan` como parámetro.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932628168
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933499486
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934030520
+      }
+    ],
+    "7.2 Generar la referencia Wompi como `'custom-<business_id>-<timestamp>'` para poder distinguir en logs.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932628452
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934031821
+      }
+    ],
+    "7.3 Implementar los callbacks `onApproved`, `onPending`, `onDeclined`, `onError` según el design.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932628679
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934032825
+      }
+    ],
+    "7.4 Manejo de idempotencia: si el INSERT en `subscription_invoices` devuelve código `23505`, retornar `{ alreadyProcessed: true }` sin tocar `business_subscriptions`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932628866
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934034522
+      }
+    ],
+    "7.5 Refactor: `SubscriptionPlansScreen.handleOpenWompiWidget` pasa a delegar en este helper.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932629147
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934035732
+      }
+    ],
+    "8.1 Crear `components/CustomPlanCard.tsx` con las props definidas en el design.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932629456
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933500655
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934036753
+      }
+    ],
+    "8.2 Formato de precio con `Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 })`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932629655
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934037911
+      }
+    ],
+    "8.3 OCULTAR el botón cuando `canPay = false` (no solo deshabilitar) para no dar señal visual de acción.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932629861
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934039113
+      }
+    ],
+    "8.4 Accesibilidad: `aria-label` descriptivo en el botón, `onKeyDown` que dispare la misma acción que `onClick`, `tabindex=\"0\"` si es necesario.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932630056
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934041588
+      }
+    ],
+    "9.1 Cambiar la firma a `canSeeSubscriptionMenu(businessId, hasCustomPlan, hasAdminSettings)`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932630270
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934056710
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934380127
+      }
+    ],
+    "9.2 Actualizar los dos consumidores: `components/Sidebar.tsx` y `screens/HomeScreen.tsx` para pasar los tres argumentos (obteniendo `hasCustomPlan` desde `useCustomPlan()` y `hasAdminSettings` desde `usePermissions()`).": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932630467
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934382192
+      }
+    ],
+    "9.3 Verificar con TypeScript que no queda ningún otro consumidor con firma vieja.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932630662
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934379049
+      }
+    ],
+    "10.1 Consumir `useCustomPlan()` y `usePermissions()` dentro del componente.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932630852
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934383888
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934811059
+      }
+    ],
+    "10.2 Reglas de renderizado:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932631112
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934808710
+      }
+    ],
+    "10.3 Callbacks del checkout: `onApproved` → `checkSubscription()` + ocultar banner; `onPending` → toast + polling 60s (delegado al helper); `onDeclined`/`onError` → toast, banner sigue visible.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932631322
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934809973
+      }
+    ],
+    "11.1 Si `hasCustomPlan`, renderizar `<CustomPlanCard>` en lugar del `<SubscriptionPlansScreen>` embebido.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932631573
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934384476
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934813636
+      }
+    ],
+    "11.2 Confirmar que las tabs Resumen, Pagos e Historial siguen aplicando la regla de precios ocultos para el 10001 usando `HIDDEN_PRICES_BUSINESS_ID`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932631828
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934812383
+      }
+    ],
+    "12.1 Agregar `.filter('assigned_business_id', 'is', null)` a la query `fetchPlans()` para excluir planes personalizados del catálogo público. (La RLS ya los oculta, pero el filtro explícito es defensivo.)": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932632040
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934386253
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934816543
+      }
+    ],
+    "12.2 Refactor de `handleOpenWompiWidget` para delegar en `lib/customPlanCheckout.ts` (compartido con `GracePeriodBanner` y `CustomPlanBlockedScreen`).": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932632255
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934814721
+      }
+    ],
+    "13.1 Reemplazar el bloque `isNegocio10001` (~línea 2983) por lógica basada en `useCustomPlan` + `hasPermission('admin_settings')`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932632444
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934387612
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934820613
+      }
+    ],
+    "13.2 Crear `components/CustomPlanBlockedScreen.tsx` (componente delgado) que renderiza `<CustomPlanCard>` con `canPay={hasAdminSettings}` más un botón \"Cerrar sesión\".": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932632640
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934818058
+      }
+    ],
+    "13.3 Fallback: si `hasCustomPlan && !hasAdminSettings`, mostrar la pantalla actual \"contacta a soporte\" tal cual está hoy.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932632868
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934820216
+      }
+    ],
+    "14.1 En `lib/customPlanCheckout.ts`, cuando el widget devuelve estado `PENDING`, arrancar un polling contra `GET https://production.wompi.co/v1/transactions/<id>`, cada 5 s hasta un máximo de 12 intentos (60 s).": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932633072
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934827793
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935151073
+      }
+    ],
+    "14.2 Cancelar el polling si el componente que lo inició se desmonta, usando `AbortController`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932633281
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935149131
+      }
+    ],
+    "14.3 Si el polling detecta APPROVED, ejecutar la misma lógica de `handlePaymentApproved` (INSERT en `subscription_invoices` idempotente + UPDATE `current_period_end` + `checkSubscription()`).": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932633497
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935148131
+      }
+    ],
+    "14.4 Si el polling detecta DECLINED, mostrar toast; no tocar BD.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932633703
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935147017
+      }
+    ],
+    "14.5 Si agota los 60 s sin resolución, mostrar toast \"El pago sigue en proceso, revisa más tarde\".": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932633905
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935145434
+      }
+    ],
+    "15. Checkpoint — build limpio y no regresión visual": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932634112
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935152127
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935163342
+      }
+    ],
+    "16.1 Con usuario admin del 10001: ver entrada \"Suscripciones\" en el sidebar, abrir `SubscriptionManagementScreen`; la tab Planes muestra `CustomPlanCard` con monto $170.000. Las otras tabs mantienen precios ocultos (`HIDDEN_PRICES_BUSINESS_ID`).": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932634335
+      }
+    ],
+    "16.2 Con usuario cajero del 10001: no ve la entrada \"Suscripciones\". Forzar vencimiento a estado de gracia (47 h antes de bloqueo total): ve el banner sin botón \"Pagar\".": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932634550
+      }
+    ],
+    "16.3 Con usuario mesero del 10001: no ve la entrada \"Suscripciones\". No ve el banner de gracia en ningún estado.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932634763
+      }
+    ],
+    "16.4 Con un negocio distinto al 10001 (por ejemplo el 10000): no ve el plan personalizado en el catálogo público. Consulta directa vía cliente autenticado confirma que RLS oculta el plan del 10001.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932634969
+      }
+    ],
+    "16.5 Simular un pago aprobado con tarjeta de prueba de Wompi. Verificar: `subscription_invoices` tiene 1 fila con `wompi_transaction_id` no nulo, `business_subscriptions.current_period_end` se extendió 1 mes y `status = 'active'`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932635327
+      }
+    ],
+    "16.6 Simular idempotencia: reintentar aplicar dos veces el mismo `wompi_transaction_id`. El segundo INSERT debe fallar con `23505`; la suscripción NO debe extenderse dos veces.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932635636
+      }
+    ],
+    "17.1 [Manual] Después de aplicar la task 4, ejecutar:": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932635853
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935276712
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935293987
+      }
+    ],
+    "17.2 Loguearse como usuario del 10001 y confirmar que la app opera con normalidad: puede vender por POS, entrar a inventario, ver reportes, cerrar turno, etc.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932636057
+      }
+    ],
+    "18.1 Actualizar `docs/caracteristicas/suscripciones_pagos.md`: documentar el concepto de plan personalizado, el uso de `assigned_business_id`, la nueva firma de `canSeeSubscriptionMenu`, el hook `useCustomPlan` y los componentes `CustomPlanCard`/`CustomPlanBlockedScreen`.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932636263
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935203097
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935270573
+      }
+    ],
+    "18.2 Actualizar `.kiro/steering/suscripciones.md` para reflejar que la excepción del negocio 10001 se resuelve ahora por dato (`assigned_business_id`) en vez de comparación literal contra un UUID en código.": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932636470
+      },
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935272547
+      }
+    ],
+    "1. Migración estructural: agregar `assigned_business_id` a `subscription_plans` e índices de soporte": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932832903
+      }
+    ],
+    "3. Seed del plan personalizado del negocio 10001": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932891497
+      }
+    ],
+    "4. Migración de la suscripción del 10001 al nuevo plan (SIN alterar la vigencia)": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932923632
+      }
+    ],
+    "2. Migración de políticas RLS de `subscription_plans`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784932954411
+      }
+    ],
+    "5. Extender `AuthContext.checkSubscription()` para exponer el plan completo": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933188394
+      }
+    ],
+    "6. Crear hook `useCustomPlan`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784933492003
+      }
+    ],
+    "7. Extraer `openCustomPlanCheckout` a `lib/customPlanCheckout.ts`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934036036
+      }
+    ],
+    "8. Crear componente `CustomPlanCard`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934041830
+      }
+    ],
+    "9. Extender `lib/specialBusinesses.ts` con la nueva firma de `canSeeSubscriptionMenu`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934382760
+      }
+    ],
+    "10. Refactor de `GracePeriodBanner`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934811528
+      }
+    ],
+    "11. Refactor de la tab \"Planes\" en `SubscriptionManagementScreen`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934814067
+      }
+    ],
+    "12. Refactor de `SubscriptionPlansScreen` (catálogo público)": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934817052
+      }
+    ],
+    "13. Refactor de la pantalla de bloqueo fuera de gracia en `App.tsx`": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784934821052
+      }
+    ],
+    "14. Implementar polling breve del cliente para transacciones PENDING": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935151649
+      }
+    ],
+    "18. Actualizar documentación del proyecto": [
+      {
+        "executionId": "27321782-ffe6-4dbc-ab7a-90b4fe9a49a7",
+        "chatSessionId": "sess_e9ee43cc-c4e4-49a3-813d-127f0e60472c",
+        "timestamp": 1784935273084
+      }
+    ]
+  }
+}

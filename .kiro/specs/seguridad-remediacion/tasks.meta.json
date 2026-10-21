@@ -1,0 +1,354 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Reemplazar el decodificado por verificación criptográfica con JWKS": [
+      {
+        "executionId": "501b8880-6998-45fa-b35d-3d8232812ec7",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785202433242
+      },
+      {
+        "executionId": "a8718244-8549-470d-8689-e4d202f9b9d5",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785208517936
+      },
+      {
+        "executionId": "a8718244-8549-470d-8689-e4d202f9b9d5",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785208838652
+      }
+    ],
+    "1. Verificación de firma del JWT de Firebase (Req 1, Crítico)": [
+      {
+        "executionId": "a8718244-8549-470d-8689-e4d202f9b9d5",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785208839056
+      }
+    ],
+    "2.1 Sacar `.env` del control de versiones": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210064529
+      },
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210090057
+      },
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210472874
+      }
+    ],
+    "2.2 Documentar clasificación de claves y procedimiento operativo": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210064873
+      },
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210090966
+      },
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210473553
+      }
+    ],
+    "3.1 Migración: revocar EXECUTE y bloquear esquemas no públicos": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210065080
+      },
+      {
+        "executionId": "3843a053-0d6d-42cb-be20-7026c96ce37c",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785212175607
+      },
+      {
+        "executionId": "3843a053-0d6d-42cb-be20-7026c96ce37c",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785212683811
+      }
+    ],
+    "4.1 Paso A.1 — Extender `wompi-webhook` con la lógica de periodos del catálogo": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210065490
+      },
+      {
+        "executionId": "ea5695dc-21c0-44a7-956a-5d1f0cdb5332",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785252437058
+      },
+      {
+        "executionId": "ea5695dc-21c0-44a7-956a-5d1f0cdb5332",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785253279667
+      }
+    ],
+    "4.2 Paso A.2 — Crear edge function `start-trial-subscription`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210065934
+      },
+      {
+        "executionId": "ea5695dc-21c0-44a7-956a-5d1f0cdb5332",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785252437919
+      },
+      {
+        "executionId": "ea5695dc-21c0-44a7-956a-5d1f0cdb5332",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785253280576
+      }
+    ],
+    "4.3 Paso A.1 — Emitir la referencia canónica en el checkout del cliente": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210066531
+      },
+      {
+        "executionId": "ea5695dc-21c0-44a7-956a-5d1f0cdb5332",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785253285354
+      },
+      {
+        "executionId": "ea5695dc-21c0-44a7-956a-5d1f0cdb5332",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785253769844
+      }
+    ],
+    "4.7 Paso B — Verificar la activación en vivo con MCP (gate antes de cerrar el cliente)": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210066740
+      }
+    ],
+    "4.8 Paso C.1 — Migración: autoridad de escritura única del servidor": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210067357
+      }
+    ],
+    "4.9 Paso C.2 — El cliente deja de escribir y pasa a observar": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210067742
+      }
+    ],
+    "5.1 Agregar chequeo interno de pertenencia y fijar `search_path`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210068106
+      },
+      {
+        "executionId": "59805859-2ebd-46f8-9222-0c943b5ff726",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785213527651
+      },
+      {
+        "executionId": "59805859-2ebd-46f8-9222-0c943b5ff726",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785214197540
+      }
+    ],
+    "5.2 Migración: revocar EXECUTE al acceso público": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210068460
+      },
+      {
+        "executionId": "59805859-2ebd-46f8-9222-0c943b5ff726",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785214203875
+      },
+      {
+        "executionId": "59805859-2ebd-46f8-9222-0c943b5ff726",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785214665862
+      }
+    ],
+    "6. Checkpoint — Validar el bloque crítico (Req 1-5)": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210068808
+      }
+    ],
+    "7.1 Longitud mínima de 6 dígitos al crear/cambiar PIN": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210069475
+      }
+    ],
+    "7.2 Tabla `pin_login_attempts` y lógica de bloqueo": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210069786
+      }
+    ],
+    "7.3 Rate limit de enumeración y protección de contraseñas filtradas": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210070089
+      }
+    ],
+    "8.1 Validar admin y coherencia de identificadores en `create-employee`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210070469
+      }
+    ],
+    "8.2 Extender el endurecimiento a `update-employee` y `delete-employee`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210070825
+      }
+    ],
+    "9.1 `debt-evidence` privado con URL firmada": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210071193
+      }
+    ],
+    "9.2 Deshabilitar listado y restringir escritura en buckets de imágenes": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210071576
+      }
+    ],
+    "10. Checkpoint — Validar el bloque alto (Req 6-8)": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210071931
+      }
+    ],
+    "11.1 Crear edge functions proxy para Gemini, Go-UPC y Google CSE": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210072307
+      }
+    ],
+    "11.2 Migrar el cliente a los proxys y quitar `VITE_*` del bundle": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210072676
+      }
+    ],
+    "11.3 Eliminar el fallback Gemini hardcodeado en `ai-chat`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210073051
+      }
+    ],
+    "11.4 QZ opción A — provisioning por equipo (preservar impresión offline)": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210073427
+      }
+    ],
+    "12.1 Aplicar RLS por rol para operaciones sensibles": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210073811
+      }
+    ],
+    "12.2 Quitar el fallback permisivo de `isSuperAdmin`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210074215
+      }
+    ],
+    "13.1 Tratar la caché como presentación y revalidar al reconectar": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210074956
+      }
+    ],
+    "13.2 Validar la identidad del servidor al sincronizar la cola": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210075278
+      }
+    ],
+    "14.1 Endurecer `evaluateCostFormula`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210075637
+      }
+    ],
+    "14.2 Mover la extensión `pg_net` fuera de `public`": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210076033
+      }
+    ],
+    "14.3 Fijar `search_path` inmutable en las funciones SECURITY DEFINER restantes": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210076391
+      }
+    ],
+    "15. Checkpoint final — No-regresión integral": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210076615
+      }
+    ],
+    "2. Gestión y rotación de secretos (Req 2, Crítico)": [
+      {
+        "executionId": "a4b49e01-1a5b-4c2e-b242-3df954c0fa43",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785210474227
+      }
+    ],
+    "3. Endurecer `execute_readonly_query` y revocar acceso público (Req 3, Crítico)": [
+      {
+        "executionId": "3843a053-0d6d-42cb-be20-7026c96ce37c",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785212684165
+      }
+    ],
+    "5. Restringir RPCs mutantes SECURITY DEFINER (Req 5, Crítico)": [
+      {
+        "executionId": "59805859-2ebd-46f8-9222-0c943b5ff726",
+        "chatSessionId": "sess_1eda208a-1f5f-4063-8d3a-4b67259b5d8c",
+        "timestamp": 1785214666227
+      }
+    ]
+  }
+}

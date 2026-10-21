@@ -1,0 +1,166 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Implementar el plugin de build en `vite.config.ts`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955070967
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955087712
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955192150
+      }
+    ],
+    "2.1 Ajustar la configuración de `VitePWA`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955071248
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955226403
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955339172
+      }
+    ],
+    "3.1 Añadir la sección `headers`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955071563
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955226664
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955341933
+      }
+    ],
+    "4.1 Implementar el hook `useVersionCheck`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955072006
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955226962
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955342336
+      }
+    ],
+    "5.1 Reescribir el componente sobre `useVersionCheck`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955072636
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955351592
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955441335
+      }
+    ],
+    "6.1 Conservar los montajes y actualizar comentarios": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955072979
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955442796
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955514226
+      }
+    ],
+    "7. Checkpoint final — asegurar que todas las pruebas pasan": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955073326
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955527912
+      },
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955720079
+      }
+    ],
+    "1. Infraestructura de build: resolver `buildId`, hornear `__BUILD_ID__` y publicar `version.json`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955192454
+      }
+    ],
+    "2. Configuración PWA en `vite.config.ts` (autoUpdate + exclusión de `version.json`)": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955339497
+      }
+    ],
+    "3. Cabeceras de caché en `firebase.json`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955342626
+      }
+    ],
+    "4. Hook de detección `hooks/useVersionCheck.ts`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955342995
+      }
+    ],
+    "5. Reescribir el componente `components/UpdateNotification.tsx`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955441827
+      }
+    ],
+    "6. Ajuste de montaje en `App.tsx`": [
+      {
+        "executionId": "8baf5345-cb26-4e7f-9c7d-949f751bf974",
+        "chatSessionId": "sess_10d0f70e-0fcc-4873-b36f-760c4bfd15f3",
+        "timestamp": 1785955514587
+      }
+    ]
+  }
+}

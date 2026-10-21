@@ -1,0 +1,29 @@
+{
+  "pbtResults": {
+    "2.2 Property test — suscripción vigente ancla en fin de vigencia": {
+      "status": "passed",
+      "lastRunTimestamp": 1788036566016
+    },
+    "2.3 Property test — vencimiento dentro de la gracia ancla en fin de vigencia": {
+      "status": "passed",
+      "lastRunTimestamp": 1788036567456
+    },
+    "2.4 Property test — vencimiento fuera de la gracia ancla en el momento del pago": {
+      "status": "passed",
+      "lastRunTimestamp": 1788036568867
+    },
+    "2.5 Property test — sin anclaje válido ancla en el momento del pago": {
+      "status": "passed",
+      "lastRunTimestamp": 1788036570240
+    },
+    "2.6 Property test — determinismo": {
+      "status": "passed",
+      "lastRunTimestamp": 1788036571240
+    },
+    "2.7 Property test — pureza (no mutación y tipo de retorno)": {
+      "status": "passed",
+      "lastRunTimestamp": 1788036572235
+    }
+  },
+  "executionHistory": {}
+}

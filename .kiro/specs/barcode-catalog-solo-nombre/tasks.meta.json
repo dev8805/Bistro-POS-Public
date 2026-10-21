@@ -1,0 +1,210 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Quitar auditoría de imágenes en `screens/ProductsScreen.tsx`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516717121
+      },
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516734576
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518123260
+      }
+    ],
+    "1.2 Quitar `onError` de auditoría en el `<img>` de preview de `screens/SimpleProductScreen.tsx`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516717748
+      },
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516735583
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518124115
+      }
+    ],
+    "2.1 Devolver `imageUrl: null` desde `lookupInSupabase`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516718117
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518129395
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518306938
+      }
+    ],
+    "2.2 Descartar `product.imageUrl` de Go-UPC en `lookupInGoUPC`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516718713
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518312384
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518727376
+      }
+    ],
+    "2.3 Documentar `BarcodeResult.imageUrl` como siempre `null` (voto 1)": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516719400
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518733031
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518890250
+      }
+    ],
+    "2.4 Cambiar la firma de `saveProductToBarcodeCatalog`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516719881
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518897120
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519065544
+      }
+    ],
+    "3.1 Quitar `downloadAndCompressExternalImage` de la destructuración de `useImageUpload`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516720423
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519071529
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519522676
+      }
+    ],
+    "3.2 Simplificar `handleBarcodeLookup` (eliminar rama de descarga de imagen externa)": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516720936
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519528935
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519718768
+      }
+    ],
+    "3.3 Ajustar la llamada a `saveProductToBarcodeCatalog` en `handleSave`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516721708
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519725176
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519909605
+      }
+    ],
+    "4.1 Agregar comentario sobre `downloadAndCompressExternalImage`": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516722478
+      },
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516736286
+      },
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518124338
+      }
+    ],
+    "5. Checkpoint funcional (verificación manual)": [
+      {
+        "executionId": "f3a2d0b1-e055-4e88-a32a-9a6a78831005",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784516722940
+      }
+    ],
+    "1. Limpieza de logs debug (pre-condición)": [
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518124511
+      }
+    ],
+    "4. Documentar código huérfano en `hooks/useImageUpload.ts`": [
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784518124726
+      }
+    ],
+    "2. Cortar lectura y persistencia de `image_url` en `lib/barcodeLookup.ts`": [
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519065790
+      }
+    ],
+    "3. Actualizar consumidor en `screens/SimpleProductScreen.tsx`": [
+      {
+        "executionId": "a0baf92b-105e-4d83-abde-79197b2c3bb1",
+        "chatSessionId": "sess_a65daa51-2f17-4d4a-a2c7-e883fae8360c",
+        "timestamp": 1784519909817
+      }
+    ]
+  }
+}

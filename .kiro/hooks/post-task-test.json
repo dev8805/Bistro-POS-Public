@@ -1,0 +1,12 @@
+{
+  "name": "Build check después de task",
+  "version": "1.0.0",
+  "description": "Después de completar una tarea de Spec, ejecuta build para verificar que no hay errores de compilación",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "npm run build"
+  }
+}

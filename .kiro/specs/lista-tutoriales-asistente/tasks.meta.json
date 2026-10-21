@@ -1,0 +1,62 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Implementar `components/rag/tutorials.ts` con datos, validación y helpers dev-only": [
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479352885
+      },
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479370494
+      },
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479964367
+      }
+    ],
+    "2.1 Añadir `kind` a `RagMessage` e implementar `showTutorial`": [
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479353060
+      },
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786480000786
+      }
+    ],
+    "3.1 Integrar lista de tutoriales, control de header y botón dev": [
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479353208
+      }
+    ],
+    "4.1 Implementar `components/rag/TutorialDevManager.tsx`": [
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479353471
+      }
+    ],
+    "5.1 Ejecutar build y suite de tests": [
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479353690
+      }
+    ],
+    "1. Crear el módulo de configuración de tutoriales": [
+      {
+        "executionId": "697fc0c9-4a09-46a9-a418-f130fe53adeb",
+        "chatSessionId": "sess_86e8e2c8-c86a-4068-808a-9d43e145fbcd",
+        "timestamp": 1786479964713
+      }
+    ]
+  }
+}

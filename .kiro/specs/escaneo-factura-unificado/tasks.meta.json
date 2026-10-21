@@ -1,0 +1,567 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Crear `lib/invoiceScan/types.ts` con los tipos del borrador y de los payloads": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552303709
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552341594
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552920235
+      }
+    ],
+    "1.2 Crear `lib/invoiceScan/numbers.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552304492
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785553407368
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785556411660
+      }
+    ],
+    "1.4 Crear `lib/invoiceScan/discount.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552305093
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785556419536
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785557017032
+      }
+    ],
+    "1.6 Crear `lib/invoiceScan/unitMatch.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552305864
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785553408260
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785556412696
+      }
+    ],
+    "1.9 Crear `lib/invoiceScan/productMatch.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552306369
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785553410020
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785556413738
+      }
+    ],
+    "1.11 Crear `lib/invoiceScan/supplierMatch.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552307200
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785553410787
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785556415247
+      }
+    ],
+    "1.13 Crear `lib/invoiceScan/scanResponse.ts` (normalizador de la respuesta de la edge function)": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552307751
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785559028788
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559282376
+      }
+    ],
+    "1.14 Crear `lib/invoiceScan/buildPurchasePayload.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552308310
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785559030224
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559282770
+      }
+    ],
+    "1.16 Crear `lib/invoiceScan/buildExpensePayload.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552308815
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785559032832
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559284042
+      }
+    ],
+    "2.1 Migración: extender el CHECK de `cash_movements.reference_type` para admitir `'purchase'`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552309371
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785553165821
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785553401264
+      }
+    ],
+    "2.2 Migración: crear la tabla `register_idempotency`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552310010
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552343020
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552921281
+      }
+    ],
+    "2.3 Crear la función `public.register_purchase(p_payload jsonb) RETURNS jsonb`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552310608
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785557066530
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785559005303
+      }
+    ],
+    "2.4 Crear la función `public.register_expense(p_payload jsonb) RETURNS jsonb`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552311158
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785557067897
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785559005585
+      }
+    ],
+    "2.5 Endurecer los permisos de ejecución de los dos motores": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552311886
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785559033489
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559284473
+      }
+    ],
+    "3. Checkpoint — lógica pura y motores verificados": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552312507
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559284933
+      }
+    ],
+    "4.1 Implementar el borrador en memoria y la máquina de estados": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552313273
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559285992
+      }
+    ],
+    "4.2 Implementar captura, recorte y escaneo": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552313626
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559286598
+      }
+    ],
+    "4.3 Implementar la resolución de proveedor, líneas y equivalencias": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552314170
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559287187
+      }
+    ],
+    "4.4 Implementar `finalize()`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552314721
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559287855
+      }
+    ],
+    "5.1 Crear `components/invoiceScan/ScanStepShell.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552315294
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559288406
+      }
+    ],
+    "5.2 Crear los pasos de captura: `ScanDestinationStep.tsx`, `ScanCaptureStep.tsx`, `ScanCropStep.tsx`, `ScanProcessingStep.tsx`, `ScanErrorStep.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552315811
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559288906
+      }
+    ],
+    "5.3 Crear `components/invoiceScan/ScanSupplierStep.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552316322
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559289325
+      }
+    ],
+    "5.4 Crear los pasos de resolución: `ScanLineResolverStep.tsx`, `ScanQuickProductForm.tsx`, `ScanProductPickerSheet.tsx`, `ScanUnitEquivalenceForm.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552316819
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559290031
+      }
+    ],
+    "5.5 Crear `components/invoiceScan/ScanReviewStep.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552317363
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559290405
+      }
+    ],
+    "5.6 Crear `components/invoiceScan/ScanPaymentStep.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552317890
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559291155
+      }
+    ],
+    "5.7 Crear `components/invoiceScan/ScanExpenseFieldsStep.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552318391
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559291793
+      }
+    ],
+    "5.8 Crear `screens/InvoiceScanScreen.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552318912
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559292242
+      }
+    ],
+    "6.1 Crear `supabase/functions/scan-invoice-unified/index.ts`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552319402
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552346722
+      },
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552922390
+      }
+    ],
+    "7.1 Crear `components/expense/ExpenseActionsMenu.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552319955
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559292637
+      }
+    ],
+    "7.2 Integrar `ExpenseActionsMenu` en las cuatro pantallas de entrada": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552320493
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559293093
+      }
+    ],
+    "8. Checkpoint — flujo de escaneo completo y funcional": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552321488
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559293433
+      }
+    ],
+    "9.1 Migrar el camino online de `components/expense/InventoryPurchase.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552321780
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559293841
+      }
+    ],
+    "9.2 Migrar el camino offline y el sincronizador": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552322322
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559294506
+      }
+    ],
+    "10.1 Quitar `evaluateCostFormula` de `components/expense/InvoiceReviewPanel.tsx`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552322854
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559295101
+      }
+    ],
+    "10.2 Eliminar los componentes de configuración de factura": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552323322
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559295636
+      }
+    ],
+    "10.3 Eliminar la API de configuración por proveedor": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552323824
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559296136
+      }
+    ],
+    "10.4 Eliminar la edge function `generate-cost-formula`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552324310
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559296452
+      }
+    ],
+    "11.1 Ejecutar el build y la suite completa": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552324830
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559296862
+      }
+    ],
+    "11.2 Verificación de seguridad tipo smoke": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552325327
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559297300
+      }
+    ],
+    "11.3 Verificación de paridad del flujo manual": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552325835
+      },
+      {
+        "executionId": "9096d265-6c03-4527-b6e7-da5254bfe631",
+        "chatSessionId": "sess_268b124b-2476-42e4-ac19-d03d8cb88d5b",
+        "timestamp": 1785559297636
+      }
+    ],
+    "6. Edge function `scan-invoice-unified`": [
+      {
+        "executionId": "7fdf5080-c1fc-4e7e-b009-f599e7b21b4d",
+        "chatSessionId": "sess_f25de90d-f586-445e-adab-7302e4bcc7e4",
+        "timestamp": 1785552922758
+      }
+    ]
+  }
+}

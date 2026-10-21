@@ -1,0 +1,248 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Agregar `CREATE_FROM_INVOICE` al enum Screen y crear ruta en App.tsx": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330872933
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330887553
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331182824
+      }
+    ],
+    "1.2 Agregar opción \"Desde factura\" al menú de creación en ProductsScreen": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330873153
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331189859
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331363972
+      }
+    ],
+    "2.1 Crear `lib/invoiceCreate/detectExisting.ts` con función `detectExistingProducts`": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330873335
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331371021
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331732378
+      }
+    ],
+    "3.1 Crear `components/invoiceCreate/InvoiceCreateSummaryStep.tsx`": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330873497
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331751870
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787332037737
+      }
+    ],
+    "3.2 Crear `components/invoiceCreate/InvoiceCreateDoneStep.tsx`": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330873708
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787332044813
+      }
+    ],
+    "4.1 Crear `hooks/useInvoiceCreate.ts`": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330874094
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787332053190
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787332583627
+      }
+    ],
+    "4.3 Crear `screens/InvoiceCreateScreen.tsx` (reemplazar placeholder)": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330874312
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787332590257
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333007965
+      }
+    ],
+    "5. Checkpoint - Verificar componentes base": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330874510
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787334153648
+      }
+    ],
+    "6.1 Leer prefill de sessionStorage al montar": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330874690
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333015513
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333380061
+      }
+    ],
+    "6.2 Botones condicionales y escritura de resultado": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330874916
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333386423
+      }
+    ],
+    "7.1 Integrar navegación de retorno SimpleProductScreen → InvoiceCreateScreen": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330875240
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333394134
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787334051985
+      }
+    ],
+    "7.2 Verificación de build y lint": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330875429
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787334058764
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787334146777
+      }
+    ],
+    "8. Checkpoint final": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787330875612
+      },
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787334160167
+      }
+    ],
+    "1. Infraestructura de navegación y enum Screen": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331364148
+      }
+    ],
+    "2. Utilidad de detección de duplicados": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787331732791
+      }
+    ],
+    "3. Componentes de UI del flujo": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787332045094
+      }
+    ],
+    "4. Hook orquestador y pantalla principal": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333008335
+      }
+    ],
+    "6. Modificaciones a SimpleProductScreen": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787333386814
+      }
+    ],
+    "7. Integración y verificación de build": [
+      {
+        "executionId": "de9f93f4-e9d8-4b9e-ae21-cb9df035e685",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787334146972
+      }
+    ]
+  }
+}

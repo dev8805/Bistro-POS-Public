@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aviso post-pago — 3 opciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animaciones */
+        @keyframes slideInRight {
+            from { transform: translateX(120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeInScale {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes checkPop {
+            0% { transform: scale(0); }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        @keyframes progressBar {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+        .anim-toast { animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        .anim-modal { animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .anim-banner { animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        .anim-check { animation: checkPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .anim-progress { animation: progressBar 5s linear forwards; }
+
+        /* Fondo simulado de la app */
+        .app-mock-bg {
+            background:
+                linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(148, 163, 184, 0.08) 30px,
+                    rgba(148, 163, 184, 0.08) 60px
+                );
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen p-4 md:p-8 font-sans">
+    <div class="max-w-6xl mx-auto space-y-8">
+
+        <!-- Header -->
+        <header class="text-center space-y-2">
+            <h1 class="text-3xl font-bold text-slate-800">3 opciones de aviso "pago exitoso"</h1>
+            <p class="text-slate-600">Aparece cuando el usuario vuelve a Bistro tras pagar la suscripción en Wompi.</p>
+            <p class="text-sm text-slate-500">Paleta: amber-400 (primary) + emerald-dark #102218 (secondary) + slate-50 (fondo)</p>
+        </header>
+
+        <!-- ============================================================
+             OPCIÓN A — Toast flotante (esquina inferior derecha)
+             ============================================================ -->
+        <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">Opción A · Toast flotante</h2>
+                    <p class="text-sm text-slate-500">Aparece abajo a la derecha, se cierra solo en 5s. Discreto, no interrumpe.</p>
+                </div>
+                <button onclick="replayToast()" class="px-4 py-2 bg-amber-400 hover:bg-amber-500 text-slate-900 font-semibold rounded-lg transition">Reproducir</button>
+            </div>
+            <div id="mock-a" class="app-mock-bg relative h-96 overflow-hidden">
+                <!-- Mock del contenido de la app detrás -->
+                <div class="p-8 space-y-3 opacity-40">
+                    <div class="h-6 bg-slate-300 rounded w-1/3"></div>
+                    <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                    </div>
+                </div>
+
+                <!-- El toast -->
+                <div id="toast-a" class="anim-toast absolute bottom-6 right-6 max-w-sm w-80 bg-white rounded-2xl shadow-2xl ring-1 ring-slate-200 overflow-hidden">
+                    <div class="p-4 flex items-start gap-3">
+                        <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-semibold text-slate-900">¡Gracias por tu pago!</p>
+                            <p class="text-sm text-slate-600 mt-0.5">Tu suscripción está activa. Seguí disfrutando de Bistro.</p>
+                            <p class="text-xs text-slate-500 mt-2">Próximo pago: 25 ago 2026</p>
+                        </div>
+                        <button class="text-slate-400 hover:text-slate-600 flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="h-1 bg-amber-400 anim-progress"></div>
+                </div>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 text-xs text-slate-600 flex gap-4">
+                <span>✓ No bloquea la UI</span>
+                <span>✓ Auto-dismiss 5s</span>
+                <span>✓ Puede cerrarse con X</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             OPCIÓN B — Modal celebratorio centrado
+             ============================================================ -->
+        <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">Opción B · Modal celebratorio</h2>
+                    <p class="text-sm text-slate-500">Centro de pantalla, con animación grande. Se cierra al presionar "Entendido".</p>
+                </div>
+                <button onclick="replayModal()" class="px-4 py-2 bg-amber-400 hover:bg-amber-500 text-slate-900 font-semibold rounded-lg transition">Reproducir</button>
+            </div>
+            <div id="mock-b" class="app-mock-bg relative h-[520px] overflow-hidden">
+                <!-- Mock del contenido de la app detrás -->
+                <div class="p-8 space-y-3 opacity-30">
+                    <div class="h-6 bg-slate-300 rounded w-1/3"></div>
+                    <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                    </div>
+                </div>
+
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-6">
+                    <div id="modal-b" class="anim-modal bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden">
+                        <!-- Header con color emerald -->
+                        <div class="bg-[#102218] px-8 py-8 relative overflow-hidden">
+                            <!-- Decoración -->
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 bg-amber-400/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+                            <div class="relative flex justify-center">
+                                <div class="anim-check w-20 h-20 bg-amber-400 rounded-full flex items-center justify-center shadow-lg">
+                                    <svg class="w-12 h-12 text-[#102218]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="px-8 py-6 text-center space-y-3">
+                            <h3 class="text-2xl font-bold text-slate-900">¡Gracias por tu pago!</h3>
+                            <p class="text-slate-600 leading-relaxed">Tu suscripción quedó activa. Seguí disfrutando de Bistro sin interrupciones.</p>
+
+                            <div class="bg-slate-50 rounded-xl p-4 mt-4 space-y-1">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Monto pagado</span>
+                                    <span class="font-semibold text-slate-900">$170.000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Próximo cobro</span>
+                                    <span class="font-semibold text-slate-900">25 ago 2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="px-8 pb-6">
+                            <button class="w-full bg-amber-400 hover:bg-amber-500 text-slate-900 font-semibold py-3 rounded-xl transition">
+                                Entendido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 text-xs text-slate-600 flex gap-4 flex-wrap">
+                <span>✓ Sensación de "pago celebrado"</span>
+                <span>✓ Muestra detalles del pago</span>
+                <span>⚠ Bloquea la UI hasta cerrar</span>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             OPCIÓN C — Banner arriba (donde estaba el de gracia)
+             ============================================================ -->
+        <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">Opción C · Banner superior</h2>
+                    <p class="text-sm text-slate-500">Reemplaza el banner de gracia. Verde suave, se cierra con X, no bloquea nada.</p>
+                </div>
+                <button onclick="replayBanner()" class="px-4 py-2 bg-amber-400 hover:bg-amber-500 text-slate-900 font-semibold rounded-lg transition">Reproducir</button>
+            </div>
+            <div id="mock-c" class="app-mock-bg relative h-96 overflow-hidden">
+                <!-- Banner arriba -->
+                <div id="banner-c" class="anim-banner bg-gradient-to-r from-emerald-50 to-amber-50 border-b border-emerald-200">
+                    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+                        <div class="flex-shrink-0 w-9 h-9 bg-emerald-500 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-emerald-900">
+                                ¡Gracias por tu pago! Tu suscripción está activa.
+                            </p>
+                            <p class="text-xs text-emerald-700/80">
+                                Seguí disfrutando de Bistro · Próximo pago: 25 ago 2026
+                            </p>
+                        </div>
+                        <button class="flex-shrink-0 p-2 hover:bg-emerald-100 rounded-lg transition text-emerald-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mock del contenido -->
+                <div class="p-8 space-y-3 opacity-40">
+                    <div class="h-6 bg-slate-300 rounded w-1/3"></div>
+                    <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                        <div class="h-24 bg-slate-200 rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 text-xs text-slate-600 flex gap-4 flex-wrap">
+                <span>✓ Ocupa el mismo lugar que el banner de gracia</span>
+                <span>✓ No interrumpe</span>
+                <span>✓ Persiste hasta cerrarlo o cambiar de pantalla</span>
+            </div>
+        </section>
+
+        <!-- Notas finales -->
+        <section class="bg-slate-800 text-slate-200 rounded-2xl p-6 space-y-3">
+            <h3 class="text-lg font-bold text-white">Recomendaciones</h3>
+            <ul class="text-sm space-y-2">
+                <li><span class="text-amber-400 font-semibold">A · Toast:</span> lo más liviano. Ideal si el flujo debe seguir sin fricción (usuario ya sabe que pagó, solo confirmación).</li>
+                <li><span class="text-amber-400 font-semibold">B · Modal:</span> más "celebratorio", útil si querés que el pago se sienta como un hito. Mostrar detalles del pago (monto, próxima fecha) reduce ansiedad.</li>
+                <li><span class="text-amber-400 font-semibold">C · Banner:</span> compromiso entre ambos. Persiste, visible, no bloquea. Encaja natural con el flujo actual porque reemplaza el mismo espacio del banner de gracia.</li>
+            </ul>
+            <p class="text-xs text-slate-400 mt-3">Los 3 usan el mismo mensaje base y datos. Solo cambia el envase.</p>
+        </section>
+
+    </div>
+
+    <script>
+        const replayToast = () => {
+            const el = document.getElementById('toast-a');
+            el.classList.remove('anim-toast');
+            const bar = el.querySelector('.anim-progress');
+            bar.classList.remove('anim-progress');
+            void el.offsetWidth;
+            el.classList.add('anim-toast');
+            bar.classList.add('anim-progress');
+        };
+        const replayModal = () => {
+            const el = document.getElementById('modal-b');
+            const check = el.querySelector('.anim-check');
+            el.classList.remove('anim-modal');
+            check.classList.remove('anim-check');
+            void el.offsetWidth;
+            el.classList.add('anim-modal');
+            check.classList.add('anim-check');
+        };
+        const replayBanner = () => {
+            const el = document.getElementById('banner-c');
+            el.classList.remove('anim-banner');
+            void el.offsetWidth;
+            el.classList.add('anim-banner');
+        };
+    </script>
+</body>
+</html>

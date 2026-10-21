@@ -1,0 +1,12 @@
+{
+  "name": "Review después de cada task",
+  "version": "1.0.0",
+  "description": "Después de completar una tarea de Spec, revisa el código contra requirements.md y design.md para detectar desviaciones",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Revisa el código que acabas de escribir. Verifica que: 1) Cumple con los requirements.md de este spec, 2) Sigue el design.md, 3) No introduce errores nuevos, 4) Sigue las convenciones del proyecto (early returns, Tailwind, tipos TS, handlers con handle*). Si hay desviaciones, corrígelas antes de continuar."
+  }
+}

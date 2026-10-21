@@ -1,0 +1,229 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Ampliar prompt de Gemini para extraer barcode por línea y phone del encabezado": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280658544
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280671737
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280899044
+      }
+    ],
+    "2.1 Actualizar interfaces en `lib/invoiceScan/types.ts`": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280658695
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280905279
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787281894527
+      }
+    ],
+    "2.2 Crear `lib/invoiceScan/barcodeValidation.ts`": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280658910
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787281899582
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787281978612
+      }
+    ],
+    "2.3 Actualizar parser en `hooks/useInvoiceScanDraft.ts`": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280659179
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787281983921
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787282464789
+      }
+    ],
+    "3.1 Modificar `ScanQuickProductForm.tsx` — Campos de proveedor y barcode": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280659314
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787282471567
+      },
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787282975882
+      }
+    ],
+    "3.2 Modificar `ScanLineResolverStep.tsx` — Pasar nuevas props": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280659479
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283030178
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283326311
+      }
+    ],
+    "4.1 Modificar `ScanSupplierStep.tsx` — Campo de teléfono editable": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280659632
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283332467
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283891963
+      }
+    ],
+    "5.1 Agregar botón \"Abrir formulario completo\" y navegación en `InvoiceScanScreen`": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280659780
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283897768
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284300957
+      }
+    ],
+    "5.2 Modificar `SimpleProductScreen.tsx` — Leer prefill y comportamiento desde escaneo": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280660026
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284308808
+      }
+    ],
+    "6.1 Modificar `lib/invoiceScan/buildPurchasePayload.ts`": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280660314
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284314487
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284650536
+      }
+    ],
+    "8. Checkpoint final": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280660599
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284679922
+      },
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284761711
+      }
+    ],
+    "1. Modificar edge function `scan-invoice-unified`": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787280899263
+      }
+    ],
+    "2. Tipos, parser y utilidades": [
+      {
+        "executionId": "10e03e70-ad21-4f49-baaa-18ea60ca241d",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787282464948
+      }
+    ],
+    "3. UI: Campo de proveedor y barcode en formulario rápido": [
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283326637
+      }
+    ],
+    "4. UI: Campo de teléfono en ScanSupplierStep": [
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787283892188
+      }
+    ],
+    "5. Integración: SimpleProductScreen y navegación": [
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284309075
+      }
+    ],
+    "6. Integración: Payload de finalización": [
+      {
+        "executionId": "5bbb84fd-9317-4583-bf4a-597e11e4d211",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787284650702
+      }
+    ]
+  }
+}

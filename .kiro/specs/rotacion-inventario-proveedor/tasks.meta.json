@@ -1,0 +1,227 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Ejecutar migración SQL en Supabase": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272741605
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272754692
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272923454
+      }
+    ],
+    "2.1 Crear hook `useSupplierProductConfig`": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272741779
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272934199
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787273330234
+      }
+    ],
+    "2.2 Extender interfaz `Supplier` en `useSuppliers`": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272742026
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787273334970
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787273643634
+      }
+    ],
+    "2.3 Refactorizar `getInventoryDaysLabel` para usar umbrales de proveedor": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272742307
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787273648641
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274003820
+      }
+    ],
+    "2.4 Crear función utilitaria `normalizeSupplierName` e `isProductOfSupplier`": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272742912
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274008981
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274134925
+      }
+    ],
+    "3.1 Crear componente `SupplierPicker`": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272743550
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274147222
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274530185
+      }
+    ],
+    "3.2 Crear componente `SupplierSettingsModal`": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272743895
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274535476
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274895548
+      }
+    ],
+    "3.3 Agregar dropdown de proveedor default en SimpleProductScreen": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272744207
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274900489
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787275361297
+      }
+    ],
+    "4.1 Integrar SupplierPicker y filtrado por proveedor": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272744527
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787275367337
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787275991773
+      }
+    ],
+    "4.2 Implementar lógica de desglose de diagnóstico por proveedor": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272744846
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787275997241
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787276707616
+      }
+    ],
+    "5.1 Checkpoint — Verificar integración completa": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272745160
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787276714744
+      },
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787277095214
+      }
+    ],
+    "1. Migración de base de datos": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787272923783
+      }
+    ],
+    "2. Hooks y utilidades": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787274135328
+      }
+    ],
+    "3. Componentes UI": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787275361655
+      }
+    ],
+    "4. Integración en ProductsScreen": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787276707966
+      }
+    ],
+    "5. Checkpoint de verificación": [
+      {
+        "executionId": "c5e37048-46ff-41fa-9629-8aa68a921489",
+        "chatSessionId": "sess_7750d475-be2d-4ece-b282-cd0679c5d25c",
+        "timestamp": 1787277095563
+      }
+    ]
+  }
+}

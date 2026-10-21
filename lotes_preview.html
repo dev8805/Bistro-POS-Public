@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Lotes - Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen p-4 md:p-8 font-sans">
+    
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Historial de Lotes de Inventario</h1>
+                <p class="text-gray-500 mt-1">Revisa, edita o anula ingresos de mercancía recientes.</p>
+            </div>
+            
+            <div class="flex gap-2">
+                <div class="relative">
+                    <input type="text" placeholder="Buscar producto o proveedor..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2">
+                    <i class="fas fa-filter"></i> <span class="hidden sm:inline">Filtrar</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-4">
+                <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                    <i class="fas fa-boxes text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-medium">Lotes Activos</p>
+                    <p class="text-2xl font-bold text-gray-800">142</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-4">
+                <div class="bg-green-100 p-3 rounded-full text-green-600">
+                    <i class="fas fa-dollar-sign text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-medium">Inversión en Lotes (Mes)</p>
+                    <p class="text-2xl font-bold text-gray-800">$1,450,000</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-4">
+                <div class="bg-orange-100 p-3 rounded-full text-orange-600">
+                    <i class="fas fa-exclamation-triangle text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-medium">Próximos a Vencer</p>
+                    <p class="text-2xl font-bold text-gray-800">3 <span class="text-sm font-normal text-gray-500">lotes</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 text-gray-600 text-sm border-b border-gray-200">
+                            <th class="p-4 font-medium">Fecha y Hora</th>
+                            <th class="p-4 font-medium">Producto</th>
+                            <th class="p-4 font-medium">Proveedor</th>
+                            <th class="p-4 font-medium">Costo Und.</th>
+                            <th class="p-4 font-medium">Cantidades (Disp / Inicial)</th>
+                            <th class="p-4 font-medium">Vencimiento</th>
+                            <th class="p-4 font-medium">Estado</th>
+                            <th class="p-4 font-medium text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        
+                        <!-- Lote 1: Intacto (Se puede borrar) -->
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-4">
+                                <div class="text-gray-800 font-medium">Hoy</div>
+                                <div class="text-gray-500 text-xs">10:30 AM</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="font-medium text-gray-800">Coca-Cola 600ml</div>
+                                <div class="text-gray-500 text-xs text-blue-600 hover:underline cursor-pointer">Ver historial del producto</div>
+                            </td>
+                            <td class="p-4 text-gray-600 text-sm">Postobón S.A.</td>
+                            <td class="p-4">
+                                <div class="text-gray-800 font-medium">$1,800</div>
+                                <div class="text-gray-500 text-xs">Total: $86,400</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-800">48</span>
+                                    <span class="text-gray-400">/ 48</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                    <div class="bg-blue-500 h-1.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </td>
+                            <td class="p-4 text-gray-600 text-sm">15 Dic 2026</td>
+                            <td class="p-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                    Nuevo (Intacto)
+                                </span>
+                            </td>
+                            <td class="p-4 text-center">
+                                <div class="flex justify-center gap-3">
+                                    <button class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar lote">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-gray-400 hover:text-red-600 transition-colors" title="Anular ingreso (Posible porque está intacto)">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Lote 2: En Uso (No se puede borrar, solo editar precio) -->
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="p-4">
+                                <div class="text-gray-800 font-medium">Ayer</div>
+                                <div class="text-gray-500 text-xs">04:15 PM</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="font-medium text-gray-800">Arroz Diana x 500g</div>
+                            </td>
+                            <td class="p-4 text-gray-600 text-sm">Distribuidora Central</td>
+                            <td class="p-4">
+                                <div class="text-gray-800 font-medium">$2,100</div>
+                                <div class="text-gray-500 text-xs">Total: $42,000</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-800">8</span>
+                                    <span class="text-gray-400">/ 20</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                    <div class="bg-yellow-400 h-1.5 rounded-full" style="width: 40%"></div>
+                                </div>
+                            </td>
+                            <td class="p-4 text-gray-600 text-sm">20 Ene 2027</td>
+                            <td class="p-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    En Uso
+                                </span>
+                            </td>
+                            <td class="p-4 text-center">
+                                <div class="flex justify-center gap-3">
+                                    <button class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar lote">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-gray-300 cursor-not-allowed" title="No se puede eliminar porque ya se han vendido unidades de este lote.">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Lote 3: Vencimiento Cercano -->
+                        <tr class="hover:bg-gray-50 transition-colors bg-red-50/30">
+                            <td class="p-4">
+                                <div class="text-gray-800 font-medium">18 Feb</div>
+                                <div class="text-gray-500 text-xs">09:00 AM</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="font-medium text-red-700">Leche Alquería Entera 1L <i class="fas fa-exclamation-circle ml-1"></i></div>
+                            </td>
+                            <td class="p-4 text-gray-600 text-sm">Alquería</td>
+                            <td class="p-4">
+                                <div class="text-gray-800 font-medium">$3,500</div>
+                                <div class="text-gray-500 text-xs">Total: $42,000</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-800">5</span>
+                                    <span class="text-gray-400">/ 12</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                    <div class="bg-red-500 h-1.5 rounded-full" style="width: 41%"></div>
+                                </div>
+                            </td>
+                            <td class="p-4 font-medium text-red-600">23 Feb 2026</td>
+                            <td class="p-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                    Vence Pronto
+                                </span>
+                            </td>
+                            <td class="p-4 text-center">
+                                <div class="flex justify-center gap-3">
+                                    <button class="text-gray-400 hover:text-blue-600 transition-colors" title="Editar lote">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-gray-300 cursor-not-allowed">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Lote 4: Agotado -->
+                        <tr class="hover:bg-gray-50 transition-colors opacity-75">
+                            <td class="p-4">
+                                <div class="text-gray-500 font-medium">10 Feb</div>
+                                <div class="text-gray-400 text-xs">11:20 AM</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="font-medium text-gray-600">Panela Cuadrada x 500g</div>
+                            </td>
+                            <td class="p-4 text-gray-500 text-sm">Sin proveedor</td>
+                            <td class="p-4">
+                                <div class="text-gray-600 font-medium">$2,800</div>
+                                <div class="text-gray-400 text-xs">Total: $28,000</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-500">0</span>
+                                    <span class="text-gray-400">/ 10</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                    <div class="bg-gray-300 h-1.5 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </td>
+                            <td class="p-4 text-gray-500 text-sm">-</td>
+                            <td class="p-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600 border border-gray-200">
+                                    Agotado
+                                </span>
+                            </td>
+                            <td class="p-4 text-center">
+                                <div class="flex justify-center gap-3">
+                                    <button class="text-gray-300 cursor-not-allowed">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-gray-300 cursor-not-allowed">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="bg-white px-4 py-3 border-t border-gray-200 flex items-center justify-between sm:px-6">
+                <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                    <div>
+                        <p class="text-sm text-gray-700">
+                            Mostrando <span class="font-medium">1</span> a <span class="font-medium">4</span> de <span class="font-medium">142</span> resultados
+                        </p>
+                    </div>
+                    <div>
+                        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Anterior</span>
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                1
+                            </a>
+                            <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                2
+                            </a>
+                            <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                3
+                            </a>
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <span class="sr-only">Siguiente</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tooltip Explanatory (Just for the preview) -->
+        <div class="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
+            <h3 class="text-lg font-bold text-blue-800 mb-2"><i class="fas fa-info-circle mr-2"></i>¿Cómo funciona la anulación?</h3>
+            <p class="text-blue-700 text-sm mb-2">
+                Si te equivocas ingresando unidades, puedes usar el botón de <i class="fas fa-trash-alt text-red-500 mx-1"></i> (Anular) <b>SÓLO SI</b> el estado del lote es "Nuevo (Intacto)". Esto significa que aún no has vendido ninguna de esas unidades equivocadas.
+            </p>
+            <p class="text-blue-700 text-sm">
+                Si el sistema ya vendió unidades de ese lote (Estado "En Uso"), el botón de basurero se bloquea para evitar descuadrar tus finanzas de ventas pasadas.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

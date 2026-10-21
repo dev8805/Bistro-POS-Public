@@ -1,0 +1,148 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Implementar estado de expansión, toggle, tarjeta pulsable y bloque expandido": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698306544
+      },
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698325388
+      },
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698664705
+      }
+    ],
+    "2.1 Crear el archivo de migración SQL": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698307093
+      },
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698702494
+      },
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698936883
+      }
+    ],
+    "3.1 Extender el tipo `BusinessDebt` y `fetchDebts` con join + transform + cache": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698307492
+      },
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701656925
+      }
+    ],
+    "4.1 Inserciones en `hooks/useDebts.ts` (`createDebt` y `addCreditorPayment`)": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698307882
+      },
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701675697
+      },
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785702146281
+      }
+    ],
+    "4.2 Inserciones en `hooks/useInventory.ts`": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698308285
+      },
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701657692
+      }
+    ],
+    "4.3 Inserciones de sincronización en `hooks/useOfflineSync.ts`": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698308812
+      },
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701658770
+      }
+    ],
+    "5.1 Mostrar el empleado dentro del bloque expandido": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698309109
+      }
+    ],
+    "6. Checkpoint final": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698309594
+      }
+    ],
+    "1. Detalle expandible del movimiento (Parte 1, solo UI en `screens/DebtsScreen.tsx`)": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698665273
+      }
+    ],
+    "2. Migración de base de datos: columna `created_by` en `business_debts` (base de la Parte 2)": [
+      {
+        "executionId": "a2506854-d4cc-427c-a70b-cf5a7cb1fbd0",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785698937643
+      }
+    ],
+    "3. Lectura del empleado en el fetch de deudas (`hooks/useDebts.ts`)": [
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701657293
+      }
+    ],
+    "5.1 Mostrar el empleado dentro del Modal_Detalle": [
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701674415
+      }
+    ],
+    "5. Visualización del empleado en el Modal_Detalle (Parte 2, extiende la Parte 1 en `screens/DebtsScreen.tsx`)": [
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785701674840
+      }
+    ],
+    "4. Poblar `created_by` en los puntos de inserción (Parte 2)": [
+      {
+        "executionId": "0ee57ed4-280d-4257-b8cd-fc11edf05c39",
+        "chatSessionId": "sess_619c3193-047b-41f3-90cd-8e5f619344a6",
+        "timestamp": 1785702146572
+      }
+    ]
+  }
+}
