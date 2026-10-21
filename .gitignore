@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Herramientas locales
+cloudflared.exe
+.claude/
+settings.local.json
+
+# Claves de firmado QZ (originales). El certificado/clave ya están embebidos
+# en lib/qzSigning.ts; estos archivos son la copia maestra para regenerar.
+.qz-signing/
+
+# Variables de entorno (contienen secretos) — el .env real NO se versiona.
+# El archivo sigue en disco para el build local; solo deja de trackearse en git.
+# .env.local y *.local ya quedan cubiertos por la regla "*.local" de arriba.
+.env
+!.env.example
+
+# Playwright MCP artifacts
+.playwright-mcp/
+
+# Árboles de trabajo y herramientas locales
+.worktrees/
+.video-tools/
+*.mp4
