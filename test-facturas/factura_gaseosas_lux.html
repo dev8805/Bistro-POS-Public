@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura Electrónica SA06940158 - Gaseosas Lux S.A.S.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #525659;
+            color: #000;
+            font-size: 9px;
+            line-height: 1.25;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .page {
+            background: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 30px 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 140px 1fr 220px 85px;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .logo-box {
+            text-align: center;
+            border-right: 1px solid #ddd;
+            padding-right: 10px;
+        }
+
+        .logo-title {
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #111;
+        }
+
+        .company-data {
+            font-size: 8.5px;
+            line-height: 1.3;
+        }
+        .company-data strong { font-size: 10px; }
+
+        .tax-info {
+            font-size: 8px;
+            text-align: right;
+            line-height: 1.25;
+            color: #222;
+        }
+
+        .qr-code {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .doc-type-bar {
+            text-align: center;
+            font-weight: bold;
+            font-size: 9.5px;
+            margin-top: 4px;
+            margin-bottom: 3px;
+        }
+
+        .cufe-text {
+            font-size: 7.5px;
+            word-break: break-all;
+            margin-bottom: 6px;
+            color: #222;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 31% 23% 46%;
+            border: 1px solid #000;
+            margin-bottom: 6px;
+        }
+
+        .info-col {
+            padding: 4px 6px;
+            border-right: 1px solid #000;
+        }
+        .info-col:last-child {
+            border-right: none;
+            padding: 0;
+        }
+
+        .info-col-title {
+            font-weight: bold;
+            font-size: 9px;
+            margin-bottom: 2px;
+        }
+
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8px;
+        }
+        .meta-table td {
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            padding: 2.5px 4px;
+        }
+        .meta-table tr:last-child td { border-bottom: none; }
+        .meta-table td:last-child { border-right: none; }
+        .meta-header {
+            font-weight: bold;
+            font-size: 8.5px;
+            text-align: center;
+            background: #f0f0f0;
+        }
+        .meta-lbl { font-size: 7.5px; color: #444; font-weight: normal; }
+
+        table.items-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.8px;
+            border: 1px solid #000;
+            margin-bottom: 6px;
+        }
+
+        table.items-table th {
+            border: 1px solid #000;
+            background: #e8e8e8;
+            padding: 3px 2px;
+            font-size: 7.5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table.items-table td {
+            border: 1px solid #ccc;
+            padding: 2px 3px;
+            white-space: nowrap;
+        }
+        table.items-table td.b-left { border-left: 1px solid #000; }
+        table.items-table td.b-right { border-right: 1px solid #000; }
+
+        .tar { text-align: right; }
+        .tac { text-align: center; }
+        .tal { text-align: left; }
+
+        .items-summary-row {
+            display: flex;
+            gap: 25px;
+            font-weight: bold;
+            font-size: 8.5px;
+            padding: 4px 6px;
+            border: 1px solid #000;
+            border-top: none;
+            background: #fafafa;
+            margin-bottom: 6px;
+        }
+
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 58% 42%;
+            border: 1px solid #000;
+            margin-bottom: 8px;
+        }
+
+        .legal-box {
+            padding: 6px;
+            border-right: 1px solid #000;
+            font-size: 7.5px;
+            line-height: 1.35;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .amount-in-words {
+            margin-top: 10px;
+            padding-top: 5px;
+            border-top: 1px solid #ccc;
+            font-weight: bold;
+            font-size: 8px;
+            text-transform: uppercase;
+        }
+
+        .totals-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8px;
+        }
+
+        .totals-table td {
+            padding: 2.2px 6px;
+            border-bottom: 1px solid #eee;
+        }
+        .totals-table tr:last-child td { border-bottom: none; }
+        .totals-table td.label {
+            font-weight: bold;
+            text-align: right;
+            width: 60%;
+        }
+        .totals-table td.val {
+            text-align: right;
+            font-weight: bold;
+        }
+        .totals-table tr.total-row {
+            background: #f0f0f0;
+            border-top: 1px solid #000;
+        }
+        .totals-table tr.total-row td {
+            font-size: 9px;
+            font-weight: 900;
+            padding: 4px 6px;
+        }
+
+        .footer-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5px;
+            color: #333;
+            margin-top: 4px;
+            border-top: 1px solid #ccc;
+            padding-top: 4px;
+        }
+
+        /* Página 2 */
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 180px;
+            margin-bottom: 30px;
+        }
+        .sig-cell {
+            border-top: 1px solid #000;
+            padding-top: 6px;
+            text-align: center;
+            font-size: 8.5px;
+            font-weight: bold;
+        }
+
+        .page-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 35px;
+            font-size: 8px;
+            color: #555;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; page-break-after: always; margin: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PÁGINA 1 -->
+<div class="page">
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-box">
+            <div class="logo-title">GASEOSAS LUX</div>
+        </div>
+        <div class="company-data">
+            <strong>Gaseosas Lux S.A.S.</strong><br>
+            NIT: 860001597<br>
+            Dirección de Despacho: CR 35 A 329<br>
+            Zipaquirá - Colombia<br>
+            Email: recepcionfe@postobon.com.co<br>
+            www.postobon.com
+        </div>
+        <div class="tax-info">
+            Somos grandes contribuyentes<br>
+            Agentes retenedores del IVA - Responsables de IVA<br>
+            Actividad Económica principal 1104<br>
+            Somos autorretenedores del impuesto de renta según<br>
+            Res. 3350 del 24 Abril de 2015
+        </div>
+        <div>
+            <!-- QR generado con SVG exacto -->
+            <svg class="qr-code" viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#ffffff"/>
+                <!-- Cuadro exterior e interior Sup-Izq -->
+                <rect x="5" y="5" width="28" height="28" fill="#000"/>
+                <rect x="9" y="9" width="20" height="20" fill="#fff"/>
+                <rect x="13" y="13" width="12" height="12" fill="#000"/>
+                <!-- Cuadro exterior e interior Sup-Der -->
+                <rect x="67" y="5" width="28" height="28" fill="#000"/>
+                <rect x="71" y="9" width="20" height="20" fill="#fff"/>
+                <rect x="75" y="13" width="12" height="12" fill="#000"/>
+                <!-- Cuadro exterior e interior Inf-Izq -->
+                <rect x="5" y="67" width="28" height="28" fill="#000"/>
+                <rect x="9" y="71" width="20" height="20" fill="#fff"/>
+                <rect x="13" y="75" width="12" height="12" fill="#000"/>
+                <!-- Patrones aleatorios QR representativo DIAN -->
+                <rect x="38" y="8" width="5" height="15" fill="#000"/>
+                <rect x="48" y="15" width="12" height="6" fill="#000"/>
+                <rect x="38" y="28" width="20" height="6" fill="#000"/>
+                <rect x="10" y="42" width="15" height="6" fill="#000"/>
+                <rect x="30" y="40" width="8" height="18" fill="#000"/>
+                <rect x="42" y="45" width="16" height="8" fill="#000"/>
+                <rect x="65" y="38" width="10" height="12" fill="#000"/>
+                <rect x="80" y="45" width="12" height="10" fill="#000"/>
+                <rect x="38" y="65" width="14" height="6" fill="#000"/>
+                <rect x="42" y="76" width="18" height="8" fill="#000"/>
+                <rect x="68" y="65" width="10" height="20" fill="#000"/>
+                <rect x="82" y="70" width="10" height="14" fill="#000"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="doc-type-bar">Representación Gráfica De Factura Electrónica De Venta</div>
+    <div class="cufe-text">
+        <strong>CUFE:</strong> 5e4b7cc49c8ddfd4c5be3755d2ac0f025ad8e4e4ff741dfecffacb7853301b4da5159306052324227807a034579c5255
+    </div>
+
+    <!-- Bloque de Adquirente y Metadatos -->
+    <div class="info-grid">
+        <div class="info-col">
+            <div class="info-col-title">CLIENTE: 79.509.701</div>
+            <div>JAVIER VERDUGO BARON JAVIER</div>
+            <div>VERDUGO JAVIER VER</div>
+            <div>CR 16 17 02</div>
+            <div>Tel: 3125765091</div>
+            <div>ZIPAQUIRÁ - Colombia</div>
+            <div><strong>Cód. Cliente:</strong> 034999</div>
+        </div>
+        <div class="info-col">
+            <div class="info-col-title">DESPACHADO A: 79.509.701</div>
+            <div>VERDUGO BARON JAVIER</div>
+            <div>CR 16 17 02</div>
+            <div>Tel: 3125765091</div>
+        </div>
+        <div class="info-col">
+            <table class="meta-table">
+                <tr>
+                    <td colspan="4" class="meta-header">
+                        FACTURA ELECTRÓNICA DE VENTA No. <strong>SA06940158</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-lbl">FECHA GENERACIÓN:</span><br>
+                        22/11/2024 08:53:57
+                    </td>
+                    <td>
+                        <span class="meta-lbl">PEDIDO:</span><br>
+                        SM034999
+                    </td>
+                    <td colspan="2">
+                        <span class="meta-lbl">NOMBRE VENDEDOR:</span><br>
+                        851-TRIVIÑO NIETO NICOLAS
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-lbl">FECHA EXPEDICIÓN:</span><br>
+                        22/11/2024
+                    </td>
+                    <td>
+                        <span class="meta-lbl">ORDEN DE COMPRA:</span><br>
+                        SM034999
+                    </td>
+                    <td colspan="2">
+                        <span class="meta-lbl">MEDIO DE PAGO:</span><br>
+                        Instrumento no definido
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-lbl">FECHA VENCIMIENTO:</span><br>
+                        22/12/2024
+                    </td>
+                    <td>
+                        <span class="meta-lbl">VEHÍCULO:</span><br>
+                        6240-1
+                    </td>
+                    <td>
+                        <span class="meta-lbl">ZONA:</span><br>
+                        10851
+                    </td>
+                    <td>
+                        <span class="meta-lbl">RV:</span><br>
+                        851
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <span class="meta-lbl">FORMA DE PAGO:</span> <strong>CRÉDITO: 30 días</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tabla con los 29 Ítems -->
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th style="width: 42px;">REFERENCIA</th>
+                <th>DESCRIPCIÓN</th>
+                <th style="width: 35px;">U.M.</th>
+                <th style="width: 32px;">CANT.</th>
+                <th style="width: 58px;">VALOR UNITARIO</th>
+                <th style="width: 58px;">TOTAL</th>
+                <th style="width: 58px;">VALOR DESCUENTO</th>
+                <th style="width: 35px;">%IVA</th>
+                <th style="width: 50px;">VLR. IVA</th>
+                <th style="width: 55px;">VLR. IC Y/O OTROS</th>
+                <th style="width: 60px;">VLR. TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tac b-left">5930</td>
+                <td>1 - Piña Colada H2O L300ml x6</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">20,512.38</td>
+                <td class="tar">20,512.38</td>
+                <td class="tar">7,706.50</td>
+                <td class="tac">5.00</td>
+                <td class="tar">639.29</td>
+                <td class="tar">2,736.00</td>
+                <td class="tar b-right">16,824.16</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">9329</td>
+                <td>2 - Mango Piña H2O L250ml x6</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">20,512.38</td>
+                <td class="tar">20,512.38</td>
+                <td class="tar">7,706.50</td>
+                <td class="tac">5.00</td>
+                <td class="tar">637.15</td>
+                <td class="tar">2,796.00</td>
+                <td class="tar b-right">16,817.78</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">9328</td>
+                <td>3 - Limon Jengibre H2O L260ml x6</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">20,512.38</td>
+                <td class="tar">20,512.38</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">779.31</td>
+                <td class="tar">5,838.00</td>
+                <td class="tar b-right">25,888.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">4453</td>
+                <td>4 - H2OH Limonada Pet 1.5x12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">33,613.45</td>
+                <td class="tar">33,613.45</td>
+                <td class="tar">9,452.18</td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,590.64</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">28,752.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2250</td>
+                <td>5 - H2OH Limon Pet 1.5x12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">33,613.45</td>
+                <td class="tar">33,613.45</td>
+                <td class="tar">9,452.18</td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,590.64</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">28,752.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">8034</td>
+                <td>6 - TORONCHELO H2OH 1.500 PET X12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">33,613.45</td>
+                <td class="tar">33,613.45</td>
+                <td class="tar">9,452.18</td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,590.64</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">28,752.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">6040</td>
+                <td>7 - * Agua Cristal P300mb24 SP</td>
+                <td class="tac">Caja</td>
+                <td class="tac">2.00</td>
+                <td class="tar">17,000.00</td>
+                <td class="tar">34,000.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">34,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">3006</td>
+                <td>8 - Hit Naranja Piña Lr12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">38,487.39</td>
+                <td class="tar">38,487.39</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">7,312.60</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">45,800.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">3007</td>
+                <td>9 - Hit Mango Lr12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">38,487.39</td>
+                <td class="tar">38,487.39</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">7,312.60</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">45,800.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">4205</td>
+                <td>10 - * Ag. Cristal Px6Lx12SmPtc</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">10,000.00</td>
+                <td class="tar">10,000.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">10,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">4407</td>
+                <td>11 - * Ag. Cristal BotGar Agarrc</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">24.00</td>
+                <td class="tar">13,350.00</td>
+                <td class="tar">320,400.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">320,400.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2054</td>
+                <td>12 - * Bretaña P16pack 10 oz</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">46,000.00</td>
+                <td class="tar">46,000.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">46,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2350</td>
+                <td>13 - Ginger Q Dry Pet 1.5x12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">2.00</td>
+                <td class="tar">37,781.51</td>
+                <td class="tar">75,563.03</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">14,356.97</td>
+                <td class="tar">10,080.00</td>
+                <td class="tar b-right">100,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2054</td>
+                <td>14 - * Bretaña Pet 1.5x12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">40,000.00</td>
+                <td class="tar">40,000.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">40,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">7057</td>
+                <td>15 - Naranja P. Pet 1.5l x12</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">6.00</td>
+                <td class="tar">3,151.26</td>
+                <td class="tar">18,907.56</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">3,592.44</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">22,500.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">0211</td>
+                <td>16 - Colombiana Pet 1.5Lx12 PE...</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">9.00</td>
+                <td class="tar">3,151.26</td>
+                <td class="tar">28,361.34</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">5,388.66</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">33,750.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">7055</td>
+                <td>17 - Uva Pet 1.5x12</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">6.00</td>
+                <td class="tar">3,151.26</td>
+                <td class="tar">18,907.56</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">3,592.44</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">22,500.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">0214</td>
+                <td>18 - Colombiana Pet 2.5l x8 PreExp...</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">30,840.34</td>
+                <td class="tar">30,840.34</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">5,859.66</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">36,700.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">0276</td>
+                <td>19 - Pepsi 3.125 L 2500x8 Ret...</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">30,840.34</td>
+                <td class="tar">30,840.34</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">5,859.66</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">36,700.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2771</td>
+                <td>20 - * Agua Cristal RGBx24GasRe</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">27,000.00</td>
+                <td class="tar">27,000.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">27,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">0940</td>
+                <td>21 - * Agua Cristal bolsa 6 ltr</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">40.00</td>
+                <td class="tar">3,350.00</td>
+                <td class="tar">134,000.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">134,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2300</td>
+                <td>22 - * Agua Cristal Con Gas 600Ml</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">1.00</td>
+                <td class="tar">30,100.00</td>
+                <td class="tar">30,100.00</td>
+                <td class="tar"></td>
+                <td class="tac"></td>
+                <td class="tar"></td>
+                <td class="tar"></td>
+                <td class="tar b-right">30,100.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">7028</td>
+                <td>23 - Hit Mango P250x12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">23,529.41</td>
+                <td class="tar">23,529.41</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,470.59</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">28,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">3187</td>
+                <td>24 - Hit Naranja Piña P250x12</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">23,529.41</td>
+                <td class="tar">23,529.41</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,470.59</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">28,000.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">8079</td>
+                <td>25 - Toronchelo H2OH P600x12</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">1.00</td>
+                <td class="tar">21,378.52</td>
+                <td class="tar">21,378.52</td>
+                <td class="tar">3,640.55</td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,461.37</td>
+                <td class="tar"></td>
+                <td class="tar b-right">26,197.35</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">8078</td>
+                <td>26 - Toronchelo H2OH P600x12</td>
+                <td class="tac">Unidad</td>
+                <td class="tac">4.00</td>
+                <td class="tar">1,821.01</td>
+                <td class="tar">7,284.04</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">1,383.97</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">8,668.01</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">2755</td>
+                <td>27 - 7 Seven Up H2OH 600x20</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">27,310.92</td>
+                <td class="tar">27,310.92</td>
+                <td class="tar">3,640.55</td>
+                <td class="tac">19.00</td>
+                <td class="tar">4,497.37</td>
+                <td class="tar"></td>
+                <td class="tar b-right">28,167.75</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">3081</td>
+                <td>28 - Mr Tea Limon Pet 1.5 x6</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">20,504.20</td>
+                <td class="tar">20,504.20</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">3,895.80</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">24,400.00</td>
+            </tr>
+            <tr>
+                <td class="tac b-left">3128</td>
+                <td>29 - Mr Tea Durazno pet 1.5X6</td>
+                <td class="tac">Caja</td>
+                <td class="tac">1.00</td>
+                <td class="tar">20,504.20</td>
+                <td class="tar">20,504.20</td>
+                <td class="tar"></td>
+                <td class="tac">19.00</td>
+                <td class="tar">3,895.80</td>
+                <td class="tar">0.00</td>
+                <td class="tar b-right">24,400.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="items-summary-row">
+        <div>Total Nro Líneas: 29</div>
+        <div>Total Unidades: 92</div>
+        <div>Total Cajas: 22</div>
+    </div>
+
+    <!-- Sección Inferior: Leyendas y Totales -->
+    <div class="bottom-section">
+        <div class="legal-box">
+            <div>
+                <p>En la venta de cerveza actuamos como mandatario.</p>
+                <p>El distribuidor de los productos enajenados de conformidad con esta factura de venta manifiesta que el impuesto al consumo ha sido declarado y pagado en el departamento correspondiente al lugar de emisión de la factura; por lo tanto los traslados de producto que pudiera hacer el comprador final a otro departamento no afectan la responsabilidad del distribuidor en cuanto al impuesto referido.</p>
+                <p>El original de esta factura de venta una vez aceptada constituye título valor.</p>
+            </div>
+            <div class="amount-in-words">
+                SON: UN MILLON DOSCIENTOS NOVENTA Y NUEVE MIL CUATROCIENTOS CUARENTA Y OCHO PESOS COP
+            </div>
+        </div>
+
+        <div>
+            <table class="totals-table">
+                <tr>
+                    <td class="label">SUB TOTAL</td>
+                    <td class="val">1,226,042.40</td>
+                </tr>
+                <tr>
+                    <td class="label">DESCUENTO</td>
+                    <td class="val">-33,891.78</td>
+                </tr>
+                <tr>
+                    <td class="label">IVA 5.00%</td>
+                    <td class="val">2,082.92</td>
+                </tr>
+                <tr>
+                    <td class="label">IVA 19.00%</td>
+                    <td class="val">94,150.52</td>
+                </tr>
+                <tr>
+                    <td class="label">IC / IBUA $0.00</td>
+                    <td class="val">0.00</td>
+                </tr>
+                <tr>
+                    <td class="label">IBUA $28.00</td>
+                    <td class="val">10,080.00</td>
+                </tr>
+                <tr>
+                    <td class="label">ICL $115.00</td>
+                    <td class="val">2,736.00</td>
+                </tr>
+                <tr>
+                    <td class="label">ICL $116.50</td>
+                    <td class="val">5,592.00</td>
+                </tr>
+                <tr>
+                    <td class="label">ADV 20.00%</td>
+                    <td class="val">2,746.39</td>
+                </tr>
+                <tr class="total-row">
+                    <td class="label">VLR. TOTAL FACTURA COP</td>
+                    <td class="val">1,299,448.47</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pie de página 1 -->
+    <div class="footer-bar">
+        <div><strong>Lugar de expedición:</strong> Zipaquirá</div>
+        <div><strong>Fecha Validación DIAN:</strong> 2024-11-22 08:55:01-05:00</div>
+        <div><strong>Proveedor Tecnológico:</strong> Carvajal Tecnología y Servicios S.A.S BIC - <strong>Nombre del SW:</strong> CEN Financiero - <strong>Nit:</strong> 890.321.151-0</div>
+    </div>
+    <div class="page-badge">Página 1 de 2</div>
+</div>
+
+<!-- PÁGINA 2 -->
+<div class="page">
+    <!-- Header Pág 2 -->
+    <div class="header">
+        <div class="logo-box">
+            <div class="logo-title">GASEOSAS LUX</div>
+        </div>
+        <div class="company-data">
+            <strong>Gaseosas Lux S.A.S.</strong><br>
+            NIT: 860001597<br>
+            Dirección de Despacho: CR 35 A 329<br>
+            Zipaquirá - Colombia<br>
+            Email: recepcionfe@postobon.com.co<br>
+            www.postobon.com
+        </div>
+        <div class="tax-info">
+            Somos grandes contribuyentes<br>
+            Agentes retenedores del IVA - Responsables de IVA<br>
+            Actividad Económica principal 1104<br>
+            Somos autorretenedores del impuesto de renta según<br>
+            Res. 3350 del 24 Abril de 2015
+        </div>
+        <div>
+            <svg class="qr-code" viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#ffffff"/>
+                <rect x="5" y="5" width="28" height="28" fill="#000"/>
+                <rect x="9" y="9" width="20" height="20" fill="#fff"/>
+                <rect x="13" y="13" width="12" height="12" fill="#000"/>
+                <rect x="67" y="5" width="28" height="28" fill="#000"/>
+                <rect x="71" y="9" width="20" height="20" fill="#fff"/>
+                <rect x="75" y="13" width="12" height="12" fill="#000"/>
+                <rect x="5" y="67" width="28" height="28" fill="#000"/>
+                <rect x="9" y="71" width="20" height="20" fill="#fff"/>
+                <rect x="13" y="75" width="12" height="12" fill="#000"/>
+                <rect x="38" y="8" width="5" height="15" fill="#000"/>
+                <rect x="48" y="15" width="12" height="6" fill="#000"/>
+                <rect x="38" y="28" width="20" height="6" fill="#000"/>
+                <rect x="10" y="42" width="15" height="6" fill="#000"/>
+                <rect x="30" y="40" width="8" height="18" fill="#000"/>
+                <rect x="42" y="45" width="16" height="8" fill="#000"/>
+                <rect x="65" y="38" width="10" height="12" fill="#000"/>
+                <rect x="80" y="45" width="12" height="10" fill="#000"/>
+                <rect x="38" y="65" width="14" height="6" fill="#000"/>
+                <rect x="42" y="76" width="18" height="8" fill="#000"/>
+                <rect x="68" y="65" width="10" height="20" fill="#000"/>
+                <rect x="82" y="70" width="10" height="14" fill="#000"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="doc-type-bar">Representación Gráfica De Factura Electrónica De Venta</div>
+    <div class="cufe-text">
+        <strong>CUFE:</strong> 5e4b7cc49c8ddfd4c5be3755d2ac0f025ad8e4e4ff741dfecffacb7853301b4da5159306052324227807a034579c5255
+    </div>
+
+    <!-- Bloque resumido página 2 -->
+    <div class="info-grid">
+        <div class="info-col">
+            <div class="info-col-title">CLIENTE: 79.509.701</div>
+            <div>JAVIER VERDUGO BARON JAVIER</div>
+            <div>VERDUGO JAVIER VER</div>
+            <div>CR 16 17 02</div>
+            <div>Tel: 3125765091</div>
+            <div>ZIPAQUIRÁ - Colombia</div>
+            <div><strong>Cód. Cliente:</strong> 034999</div>
+        </div>
+        <div class="info-col">
+            <div class="info-col-title">DESPACHADO A: 79.509.701</div>
+            <div>VERDUGO BARON JAVIER</div>
+            <div>CR 16 17 02</div>
+            <div>Tel: 3125765091</div>
+        </div>
+        <div class="info-col">
+            <table class="meta-table">
+                <tr>
+                    <td colspan="4" class="meta-header">
+                        FACTURA ELECTRÓNICA DE VENTA No. <strong>SA06940158</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-lbl">FECHA GENERACIÓN:</span><br>
+                        22/11/2024 08:53:57
+                    </td>
+                    <td>
+                        <span class="meta-lbl">PEDIDO:</span><br>
+                        SM034999
+                    </td>
+                    <td colspan="2">
+                        <span class="meta-lbl">NOMBRE VENDEDOR:</span><br>
+                        851-TRIVIÑO NIETO NICOLAS
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-lbl">FECHA EXPEDICIÓN:</span><br>
+                        22/11/2024
+                    </td>
+                    <td>
+                        <span class="meta-lbl">ORDEN DE COMPRA:</span><br>
+                        SM034999
+                    </td>
+                    <td colspan="2">
+                        <span class="meta-lbl">MEDIO DE PAGO:</span><br>
+                        Instrumento no definido
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="meta-lbl">FECHA VENCIMIENTO:</span><br>
+                        22/12/2024
+                    </td>
+                    <td>
+                        <span class="meta-lbl">VEHÍCULO:</span><br>
+                        6240-1
+                    </td>
+                    <td>
+                        <span class="meta-lbl">ZONA:</span><br>
+                        10851
+                    </td>
+                    <td>
+                        <span class="meta-lbl">RV:</span><br>
+                        851
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <span class="meta-lbl">FORMA DE PAGO:</span> <strong>CRÉDITO: 30 días</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; font-size: 8px; line-height: 1.5; color: #222;">
+        Autorización de facturación No. <strong>18764082887004</strong> Prefijo SA06921622-SA063000000 desde <strong>2024-11-08</strong> hasta <strong>2026-11-08</strong>
+    </div>
+
+    <!-- Firmas -->
+    <div class="signatures-grid">
+        <div class="sig-cell">Transportador</div>
+        <div class="sig-cell">Nombre de Quien Recibe</div>
+        <div class="sig-cell">Firma y Sello de Recibido</div>
+        <div class="sig-cell">Fecha de Recibido</div>
+    </div>
+
+    <div class="page-badge">Página 2 de 2</div>
+</div>
+
+</body>
+</html>

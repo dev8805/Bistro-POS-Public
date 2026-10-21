@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturas de Gasto — Test Escaneo IA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Courier New', monospace; background: #f3f4f6; padding: 20px; }
+        h1 { text-align: center; font-family: sans-serif; margin-bottom: 30px; color: #333; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .factura {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            font-size: 12px;
+            line-height: 1.6;
+            position: relative;
+        }
+        .factura::before {
+            content: attr(data-scenario);
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: #ef4444;
+            color: white;
+            font-family: sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .factura h2 { text-align: center; font-size: 14px; margin-bottom: 4px; text-transform: uppercase; }
+        .factura .nit { text-align: center; font-size: 11px; color: #555; margin-bottom: 8px; }
+        .factura .info { text-align: center; font-size: 10px; color: #777; margin-bottom: 12px; }
+        .factura hr { border: none; border-top: 1px dashed #999; margin: 10px 0; }
+        .factura .row { display: flex; justify-content: space-between; }
+        .factura .label { color: #555; }
+        .factura .total-row { display: flex; justify-content: space-between; font-weight: bold; font-size: 16px; margin-top: 6px; }
+        .factura .footer { text-align: center; font-size: 10px; color: #999; margin-top: 12px; }
+        .factura table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+        .factura table th { text-align: left; font-size: 10px; border-bottom: 1px solid #ccc; padding: 3px 0; }
+        .factura table td { padding: 3px 0; font-size: 11px; }
+        .factura table td:last-child { text-align: right; }
+        .page-break { page-break-after: always; }
+        @media print {
+            body { background: white; padding: 0; }
+            .grid { display: block; }
+            .factura { border: 2px solid #000; margin-bottom: 40px; page-break-inside: avoid; }
+            .factura::before { display: none; }
+            h1 { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 Facturas de Gasto para Test de Escaneo IA</h1>
+    <p style="text-align:center; font-family:sans-serif; color:#666; margin-bottom:30px; font-size:13px;">
+        Toma foto a cada factura desde la app para probar los diferentes escenarios de reconocimiento.
+    </p>
+
+    <div class="grid">
+
+        <!-- Factura 1: Arriendo — proveedor conocido por nombre, categoría existente -->
+        <div class="factura" data-scenario="1. Proveedor conocido + Categoría existente">
+            <h2>Don Juan</h2>
+            <div class="nit">NIT: 19.234.567-1</div>
+            <div class="info">Calle 45 #12-30, Villavicencio<br>Tel: 310 456 7890</div>
+            <hr>
+            <div class="row">
+                <span class="label">Recibo N°:</span>
+                <span>RC-0847</span>
+            </div>
+            <div class="row">
+                <span class="label">Fecha:</span>
+                <span>05/06/2026</span>
+            </div>
+            <hr>
+            <div class="row">
+                <span class="label">Concepto:</span>
+                <span>Canon de arrendamiento local comercial</span>
+            </div>
+            <div class="row">
+                <span class="label">Periodo:</span>
+                <span>Junio 2026</span>
+            </div>
+            <hr>
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span>$ 1.500.000</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Recibido conforme. Gracias por su pago.
+            </div>
+        </div>
+
+        <!-- Factura 2: Papelería — NIT nuevo, categoría existente -->
+        <div class="factura" data-scenario="2. NIT nuevo (no registrado) + Categoría existente">
+            <h2>Distribuidora Escolar del Meta S.A.S</h2>
+            <div class="nit">NIT: 901.345.678-9</div>
+            <div class="info">Av. Principal #8-15, Villavicencio · Tel: 608 662 3401</div>
+            <hr>
+            <div class="row">
+                <span class="label">Factura N°:</span>
+                <span>FV-12093</span>
+            </div>
+            <div class="row">
+                <span class="label">Fecha:</span>
+                <span>07-06-2026</span>
+            </div>
+            <div class="row">
+                <span class="label">Cliente:</span>
+                <span>MINIMARKET EL TRIUNFO</span>
+            </div>
+            <hr>
+            <table>
+                <tr><th>Descripción</th><th style="text-align:right">Valor</th></tr>
+                <tr><td>Resma papel carta x 500 hojas</td><td>$18.500</td></tr>
+                <tr><td>Cinta de embalaje transparente x3</td><td>$12.000</td></tr>
+                <tr><td>Bolsas plásticas surtidas x100</td><td>$8.500</td></tr>
+                <tr><td>Marcadores permanentes x4</td><td>$14.000</td></tr>
+            </table>
+            <hr>
+            <div class="row">
+                <span class="label">Subtotal:</span>
+                <span>$53.000</span>
+            </div>
+            <div class="row">
+                <span class="label">IVA 19%:</span>
+                <span>$10.070</span>
+            </div>
+            <div class="total-row">
+                <span>TOTAL A PAGAR:</span>
+                <span>$ 63.070</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Condiciones: Contado · Medio de pago: Efectivo<br>
+                ¡Gracias por su compra!
+            </div>
+        </div>
+
+        <!-- Factura 3: Servicio público — proveedor desconocido, categoría existente -->
+        <div class="factura" data-scenario="3. Proveedor desconocido + Categoría existente">
+            <h2>EAAV E.S.P.</h2>
+            <div class="nit">NIT: 822.000.145-2</div>
+            <div class="info">Empresa de Acueducto y Alcantarillado de Villavicencio</div>
+            <hr>
+            <div class="row">
+                <span class="label">Factura:</span>
+                <span>AAV-2026-06-984521</span>
+            </div>
+            <div class="row">
+                <span class="label">Fecha emisión:</span>
+                <span>01 Jun 2026</span>
+            </div>
+            <div class="row">
+                <span class="label">Periodo facturado:</span>
+                <span>Mayo 2026</span>
+            </div>
+            <div class="row">
+                <span class="label">Predio:</span>
+                <span>CL 45 #12-30 LOCAL 2</span>
+            </div>
+            <hr>
+            <div class="row">
+                <span class="label">Acueducto:</span>
+                <span>$42.300</span>
+            </div>
+            <div class="row">
+                <span class="label">Alcantarillado:</span>
+                <span>$31.700</span>
+            </div>
+            <div class="row">
+                <span class="label">Aseo:</span>
+                <span>$18.400</span>
+            </div>
+            <div class="row">
+                <span class="label">Otros cargos:</span>
+                <span>$2.600</span>
+            </div>
+            <hr>
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span>$ 95.000</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Fecha límite de pago: 15/06/2026<br>
+                Pague en bancos autorizados o PSE
+            </div>
+        </div>
+
+        <!-- Factura 4: Flete — proveedor conocido, categoría nueva -->
+        <div class="factura" data-scenario="4. Proveedor conocido + Categoría NUEVA">
+            <h2>Verduras del Llano</h2>
+            <div class="info">Transporte de mercancía — Cobro de flete</div>
+            <hr>
+            <div class="row">
+                <span class="label">Recibo:</span>
+                <span>FL-0023</span>
+            </div>
+            <div class="row">
+                <span class="label">Fecha:</span>
+                <span>08/06/2026</span>
+            </div>
+            <hr>
+            <div class="row">
+                <span class="label">Concepto:</span>
+                <span>Flete transporte mercancía</span>
+            </div>
+            <div class="row">
+                <span class="label">Ruta:</span>
+                <span>Central de abastos → Local</span>
+            </div>
+            <div class="row">
+                <span class="label">Vehículo:</span>
+                <span>Camioneta placa XYZ-123</span>
+            </div>
+            <hr>
+            <div class="total-row">
+                <span>VALOR FLETE:</span>
+                <span>$ 45.000</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Pagado en efectivo. Firma del conductor: ________
+            </div>
+        </div>
+
+        <!-- Factura 5: Mantenimiento — proveedor con nombre parecido, categoría existente -->
+        <div class="factura" data-scenario="5. Proveedor parcial + Categoría existente">
+            <h2>REFRIGERACIÓN Y MANTENIMIENTO JM</h2>
+            <div class="nit">NIT: 1.121.876.543-0</div>
+            <div class="info">Técnico en refrigeración · Cel: 315 789 0123</div>
+            <hr>
+            <div class="row">
+                <span class="label">Orden de servicio:</span>
+                <span>OS-456</span>
+            </div>
+            <div class="row">
+                <span class="label">Fecha:</span>
+                <span>2026-06-06</span>
+            </div>
+            <hr>
+            <table>
+                <tr><th>Servicio</th><th style="text-align:right">Valor</th></tr>
+                <tr><td>Revisión nevera exhibidora</td><td>$35.000</td></tr>
+                <tr><td>Recarga gas refrigerante R134a</td><td>$80.000</td></tr>
+                <tr><td>Cambio termostato</td><td>$45.000</td></tr>
+                <tr><td>Mano de obra</td><td>$60.000</td></tr>
+            </table>
+            <hr>
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span>$ 220.000</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Garantía: 30 días sobre repuestos instalados.<br>
+                Forma de pago: Efectivo
+            </div>
+        </div>
+
+        <!-- Factura 6: Sueldo — sin NIT visible, categoría SUELDOS -->
+        <div class="factura" data-scenario="6. Sin NIT + Categoría existente SUELDOS">
+            <h2 style="font-size:12px; letter-spacing: 1px;">RECIBO DE PAGO</h2>
+            <div class="info" style="margin-top:8px">Pago de nómina quincenal</div>
+            <hr>
+            <div class="row">
+                <span class="label">Fecha:</span>
+                <span>30/05/2026</span>
+            </div>
+            <div class="row">
+                <span class="label">Empleado:</span>
+                <span>María Fernanda López</span>
+            </div>
+            <div class="row">
+                <span class="label">Cargo:</span>
+                <span>Cajera</span>
+            </div>
+            <hr>
+            <div class="row">
+                <span class="label">Salario quincenal:</span>
+                <span>$700.000</span>
+            </div>
+            <div class="row">
+                <span class="label">Bonificación:</span>
+                <span>$50.000</span>
+            </div>
+            <div class="row">
+                <span class="label">Deducción EPS:</span>
+                <span>-$28.000</span>
+            </div>
+            <hr>
+            <div class="total-row">
+                <span>NETO A PAGAR:</span>
+                <span>$ 722.000</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Recibí conforme: ________________<br>
+                CC: 1.121.xxx.xxx
+            </div>
+        </div>
+
+        <!-- Factura 7: Recibo simple estilo "tirilla" — gas domiciliario -->
+        <div class="factura" data-scenario="7. Tirilla servicio gas + Categoría SERVICIOS">
+            <h2 style="font-size:11px;">LLANOGAS S.A. E.S.P.</h2>
+            <div class="nit">NIT: 800.100.275-6</div>
+            <div class="info">Servicio público de gas natural</div>
+            <hr>
+            <div class="row">
+                <span class="label">Cuenta contrato:</span>
+                <span>5504123</span>
+            </div>
+            <div class="row">
+                <span class="label">Fecha emisión:</span>
+                <span>28/05/2026</span>
+            </div>
+            <div class="row">
+                <span class="label">Periodo:</span>
+                <span>Abr 25 - May 27, 2026</span>
+            </div>
+            <div class="row">
+                <span class="label">Consumo (m³):</span>
+                <span>12,4</span>
+            </div>
+            <hr>
+            <div class="row">
+                <span class="label">Cargo fijo:</span>
+                <span>$4.890</span>
+            </div>
+            <div class="row">
+                <span class="label">Consumo:</span>
+                <span>$28.110</span>
+            </div>
+            <div class="row">
+                <span class="label">Contribución:</span>
+                <span>$5.280</span>
+            </div>
+            <hr>
+            <div class="total-row">
+                <span>TOTAL:</span>
+                <span>$ 38.280</span>
+            </div>
+            <hr>
+            <div class="footer">
+                Fecha de vencimiento: 12/06/2026<br>
+                Línea de atención: 018000-918-100
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:40px; font-family:sans-serif; color:#999; font-size:11px;">
+        <p>📌 Instrucciones: Toma una foto a cada factura (o haz screenshot) y usa "Escanear con IA" en el Registro de Gastos.</p>
+        <p style="margin-top:6px;">Escenarios cubiertos: proveedor conocido por nombre, por NIT, desconocido; categoría existente y nueva; con/sin NIT; diferentes formatos de fecha; recibo de nómina.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura Electrónica FE-10482</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+        }
+        .invoice-sheet {
+            background: #ffffff;
+            width: 800px;
+            padding: 40px 45px;
+            box-shadow: none;
+            position: relative;
+            font-size: 11.5px;
+            line-height: 1.4;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #0f3460;
+            padding-bottom: 16px;
+            margin-bottom: 15px;
+        }
+        .company-info h1 {
+            font-size: 20px;
+            font-weight: 900;
+            color: #0f3460;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        .company-info .nit {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 2px;
+        }
+        .company-info p {
+            color: #555;
+            font-size: 11px;
+            margin-top: 1px;
+        }
+        .invoice-badge {
+            border: 2px solid #0f3460;
+            border-radius: 6px;
+            padding: 10px 16px;
+            text-align: center;
+            background: #f8fafc;
+            min-width: 220px;
+        }
+        .invoice-badge .doc-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: #0f3460;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .invoice-badge .doc-number {
+            font-size: 18px;
+            font-weight: 900;
+            color: #dc2626;
+            margin: 3px 0;
+        }
+        .invoice-badge .dian-info {
+            font-size: 9px;
+            color: #64748b;
+            line-height: 1.2;
+        }
+        .client-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 15px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+        }
+        .client-col h3 {
+            font-size: 11px;
+            font-weight: 800;
+            color: #0f3460;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 2px;
+        }
+        .field-row {
+            display: flex;
+            margin-bottom: 3px;
+        }
+        .field-label {
+            width: 110px;
+            font-weight: 700;
+            color: #475569;
+        }
+        .field-val {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        table.items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        table.items-table th {
+            background: #0f3460;
+            color: #ffffff;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 8px 6px;
+            text-align: left;
+            letter-spacing: 0.3px;
+        }
+        table.items-table th.tar, table.items-table td.tar { text-align: right; }
+        table.items-table th.tac, table.items-table td.tac { text-align: center; }
+        table.items-table td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 11.5px;
+            color: #1e293b;
+        }
+        table.items-table tr:nth-child(even) td {
+            background-color: #fcfcfc;
+        }
+        .item-desc {
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .item-subtext {
+            font-size: 10px;
+            color: #64748b;
+        }
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .legal-notes {
+            font-size: 9.5px;
+            color: #475569;
+            line-height: 1.4;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 10px 12px;
+            background: #fafafa;
+        }
+        .cufe-box {
+            margin-top: 8px;
+            padding: 6px;
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            font-family: 'Courier New', monospace;
+            font-size: 8.5px;
+            word-break: break-all;
+            color: #334155;
+        }
+        .totals-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .totals-table td {
+            padding: 5px 8px;
+            font-size: 11.5px;
+        }
+        .totals-table td.label {
+            font-weight: 700;
+            color: #475569;
+            text-align: right;
+        }
+        .totals-table td.value {
+            font-weight: 700;
+            text-align: right;
+            color: #0f172a;
+            font-size: 12px;
+        }
+        .totals-table tr.total-highlight td {
+            background: #0f3460;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 900;
+            padding: 10px 8px;
+            border-radius: 4px;
+        }
+        .qr-placeholder {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+            padding: 8px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .qr-box {
+            width: 72px;
+            height: 72px;
+            border: 2px solid #000;
+            background: repeating-linear-gradient(45deg, #000, #000 3px, #fff 3px, #fff 6px);
+            border-radius: 4px;
+            shrink: 0;
+        }
+        .signature-line {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            padding-top: 10px;
+            font-size: 10px;
+            color: #64748b;
+        }
+        .sig-block {
+            width: 45%;
+            border-top: 1px solid #94a3b8;
+            padding-top: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-sheet" id="invoice">
+    <!-- Encabezado -->
+    <div class="header">
+        <div class="company-info">
+            <h1>DISTRIBUIDORA DE ABARROTES S.A.S.</h1>
+            <div class="nit">NIT: 901.458.789-2 · IVA Régimen Común</div>
+            <p><strong>Dirección:</strong> Av. Carrera 68 # 19-48 Bodega 4, Zona Industrial</p>
+            <p><strong>Teléfonos:</strong> (601) 489 5500 · 312 456 7890 · Bogotá D.C.</p>
+            <p><strong>Email:</strong> ventas@distribuidoraabarrotes.com.co</p>
+            <p><strong>Actividad Económica:</strong> 4631 (Comercio al por mayor de productos alimenticios)</p>
+        </div>
+        <div class="invoice-badge">
+            <div class="doc-title">Factura Electrónica de Venta</div>
+            <div class="doc-number">FE-10482</div>
+            <div class="dian-info">
+                Autorización DIAN N° 187640228190<br>
+                Vigencia: 2026-01-10 al 2027-01-10<br>
+                Prefijo FE del 10001 al 50000
+            </div>
+        </div>
+    </div>
+
+    <!-- Información del Cliente y Factura -->
+    <div class="client-section">
+        <div class="client-col">
+            <h3>Datos del Adquirente</h3>
+            <div class="field-row">
+                <span class="field-label">Cliente / Negocio:</span>
+                <span class="field-val">NEGOCIO 10000 (AUTOSERVICIO EL TRECE)</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">NIT / C.C.:</span>
+                <span class="field-val">1.020.304.500-1</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Dirección:</span>
+                <span class="field-val">Calle 45 # 13-28 Barrio Centro</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Ciudad:</span>
+                <span class="field-val">Bogotá D.C. · Tel: 310 890 1234</span>
+            </div>
+        </div>
+        <div class="client-col">
+            <h3>Detalle de Transacción</h3>
+            <div class="field-row">
+                <span class="field-label">Fecha Emisión:</span>
+                <span class="field-val">03/09/2026 09:45 AM</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Fecha Vencimiento:</span>
+                <span class="field-val">18/09/2026 (15 días)</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Forma de Pago:</span>
+                <span class="field-val">Crédito Comercial (15 Días)</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Vendedor:</span>
+                <span class="field-val">Ramiro Ospina · Ruta 14</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de Productos -->
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th class="tac" style="width: 35px;">#</th>
+                <th style="width: 75px;">Código</th>
+                <th>Descripción del Producto</th>
+                <th class="tac" style="width: 45px;">Cant</th>
+                <th class="tac" style="width: 55px;">U/M</th>
+                <th class="tar" style="width: 85px;">Vr. Unitario</th>
+                <th class="tar" style="width: 70px;">IVA</th>
+                <th class="tar" style="width: 95px;">Total Línea</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tac">1</td>
+                <td>770200101</td>
+                <td>
+                    <div class="item-desc">ARROZ DEL LLANO 500 G</div>
+                </td>
+                <td class="tac font-bold">25</td>
+                <td class="tac">UND</td>
+                <td class="tar">$ 2.150</td>
+                <td class="tar">0%</td>
+                <td class="tar font-bold">$ 53.750</td>
+            </tr>
+            <tr>
+                <td class="tac">2</td>
+                <td>770204502</td>
+                <td>
+                    <div class="item-desc">AZÚCAR MANUELITA 1 KG</div>
+                </td>
+                <td class="tac font-bold">20</td>
+                <td class="tac">UND</td>
+                <td class="tar">$ 3.950</td>
+                <td class="tar">0%</td>
+                <td class="tar font-bold">$ 79.000</td>
+            </tr>
+            <tr>
+                <td class="tac">3</td>
+                <td>770218903</td>
+                <td>
+                    <div class="item-desc">DIANA ACEITE PREMIUM X900ML</div>
+                </td>
+                <td class="tac font-bold">12</td>
+                <td class="tac">UND</td>
+                <td class="tar">$ 8.000</td>
+                <td class="tar">0%</td>
+                <td class="tar font-bold">$ 96.000</td>
+            </tr>
+            <tr>
+                <td class="tac">4</td>
+                <td>770301104</td>
+                <td>
+                    <div class="item-desc">FRIJOLES EL TRECE LIMA X 500GR</div>
+                </td>
+                <td class="tac font-bold">24</td>
+                <td class="tac">UND</td>
+                <td class="tar">$ 3.800</td>
+                <td class="tar">0%</td>
+                <td class="tar font-bold">$ 91.200</td>
+            </tr>
+            <tr>
+                <td class="tac">5</td>
+                <td>770218905</td>
+                <td>
+                    <div class="item-desc">LENTEJA DIANA 500G</div>
+                </td>
+                <td class="tac font-bold">24</td>
+                <td class="tac">UND</td>
+                <td class="tar">$ 2.200</td>
+                <td class="tar">0%</td>
+                <td class="tar font-bold">$ 52.800</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Totales y Bloque Legal -->
+    <div class="bottom-section">
+        <div class="legal-notes">
+            <p><strong>Valor en letras:</strong> TRESCIENTOS SETENTA Y DOS MIL SETECIENTOS CINCUENTA PESOS M/CTE.</p>
+            <p style="margin-top: 6px;">Esta factura electrónica de venta constituye título valor según los términos del Art. 774 del Código de Comercio. Bienes de primera necesidad de la canasta familiar excluidos de IVA según Art. 424 del Estatuto Tributario Nacional.</p>
+            
+            <div class="cufe-box">
+                <strong>CUFE:</strong> d8a54b9f02c61e7a4b889310cd394b8e2178ad94c1e0984fb62788102a9b348d89a712f5e41289c091bc74e921
+            </div>
+
+            <div class="qr-placeholder">
+                <div class="qr-box"></div>
+                <div>
+                    <strong style="font-size: 10px; color: #0f3460;">Documento Validado por la DIAN</strong><br>
+                    <span>Fecha de Validación: 03/09/2026 09:46:12</span><br>
+                    <span style="font-size: 8.5px; color: #64748b;">Consulte este documento con el código QR o en www.dian.gov.co</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <table class="totals-table">
+                <tr>
+                    <td class="label">Subtotal Bruto:</td>
+                    <td class="value">$ 372.750</td>
+                </tr>
+                <tr>
+                    <td class="label">Descuento Comercial:</td>
+                    <td class="value" style="color: #16a34a;">$ 0</td>
+                </tr>
+                <tr>
+                    <td class="label">Base Gravable (0%):</td>
+                    <td class="value">$ 372.750</td>
+                </tr>
+                <tr>
+                    <td class="label">Total IVA (0%):</td>
+                    <td class="value">$ 0</td>
+                </tr>
+                <tr>
+                    <td class="label">Retenciones:</td>
+                    <td class="value">$ 0</td>
+                </tr>
+                <tr class="total-highlight">
+                    <td class="label" style="color: #fff;">TOTAL FACTURA:</td>
+                    <td class="value" style="color: #fff;">$ 372.750</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Firmas -->
+    <div class="signature-line">
+        <div class="sig-block">
+            <strong>Entregado por:</strong> Distribuidora de Abarrotes S.A.S.<br>C.C. / Transportador
+        </div>
+        <div class="sig-block">
+            <strong>Recibido a conformidad:</strong> Negocio 10000<br>Firma, Sello y Fecha
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
