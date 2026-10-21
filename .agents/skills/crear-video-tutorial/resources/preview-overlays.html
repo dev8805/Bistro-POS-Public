@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview — Estilos de Overlays Bistro POS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: #fbbf24;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 48px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .preview-card {
+      background: #1e293b;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .preview-card h2 {
+      padding: 16px 20px;
+      font-size: 14px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #334155;
+    }
+
+    /* Simula el viewport de la app (1366x720 escalado) */
+    .viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1366 / 720;
+      background: linear-gradient(135deg, #1a2332 0%, #0f1923 100%);
+      overflow: hidden;
+    }
+
+    /* Fake app background para contexto */
+    .fake-app {
+      position: absolute;
+      inset: 0;
+      opacity: 0.3;
+      display: flex;
+    }
+
+    .fake-sidebar {
+      width: 60px;
+      background: #102218;
+      border-right: 1px solid #1e3a2e;
+    }
+
+    .fake-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .fake-header {
+      height: 32px;
+      background: #1e293b;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    .fake-card {
+      height: 80px;
+      background: #1e293b;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* ============================================ */
+    /* ESTILOS DE OVERLAYS                          */
+    /* ============================================ */
+
+    .overlay-base {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      max-width: 520px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .overlay-base .icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .overlay-base .text-main {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .overlay-base .text-secondary {
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* — TIP (💡) — */
+    .overlay-tip {
+      background: rgba(26, 26, 26, 0.92);
+      border: 2px solid #fbbf24;
+    }
+
+    /* — ADVERTENCIA (⚠️) — */
+    .overlay-warning {
+      background: rgba(26, 26, 26, 0.92);
+      border: 2px solid #f87171;
+    }
+
+    /* — CALLOUT (📌) — */
+    .overlay-callout {
+      background: rgba(26, 26, 26, 0.92);
+      border: 2px solid #60a5fa;
+    }
+
+    /* — DIAGRAMA (📊) — */
+    .overlay-diagram {
+      background: rgba(26, 26, 26, 0.92);
+      border: 2px solid #34d399;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 440px;
+    }
+
+    .overlay-diagram .diagram-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    .overlay-diagram .diagram-step {
+      background: #1e293b;
+      border: 1px solid #34d399;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #e2e8f0;
+      text-align: center;
+      flex: 1;
+    }
+
+    .overlay-diagram .diagram-arrow {
+      color: #34d399;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* — ETIQUETA (🏷️) — */
+    .overlay-label {
+      background: rgba(26, 26, 26, 0.92);
+      border: 2px solid #94a3b8;
+      padding: 10px 18px;
+      max-width: 300px;
+    }
+
+    .overlay-label .text-main {
+      font-size: 14px;
+    }
+
+    /* Flecha para etiqueta */
+    .label-arrow {
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background: #94a3b8;
+    }
+
+    .label-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: -4px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid #94a3b8;
+    }
+
+    /* Posiciones */
+    .pos-bottom-center {
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pos-center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .pos-top-right {
+      top: 50px;
+      right: 30px;
+    }
+
+    .pos-bottom-left {
+      bottom: 60px;
+      left: 30px;
+    }
+
+    .pos-top-center {
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Info panel */
+    .info-panel {
+      padding: 16px 20px;
+      border-top: 1px solid #334155;
+      font-size: 12px;
+      color: #64748b;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .info-panel span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .info-panel .tag {
+      background: #334155;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #94a3b8;
+    }
+
+    /* Full width card for diagram */
+    .full-width {
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎞️ Preview — Overlays Animados Bistro POS</h1>
+  <p class="subtitle">Estilos visuales para ayudas informativas en videos tutoriales · HyperFrames + Filmora</p>
+
+  <div class="grid">
+
+    <!-- ========== TIP ========== -->
+    <div class="preview-card">
+      <h2>💡 Tip — Info adicional útil</h2>
+      <div class="viewport">
+        <div class="fake-app">
+          <div class="fake-sidebar"></div>
+          <div class="fake-content">
+            <div class="fake-header"></div>
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+          </div>
+        </div>
+        <div class="overlay-base overlay-tip pos-bottom-center">
+          <span class="icon">💡</span>
+          <div>
+            <p class="text-main">Los puntos ocultan tu PIN por seguridad</p>
+            <p class="text-secondary">El sistema sí registra los dígitos correctamente</p>
+          </div>
+        </div>
+      </div>
+      <div class="info-panel">
+        <span>Borde: <span class="tag">amber-400</span></span>
+        <span>Posición: <span class="tag">centro-inferior</span></span>
+        <span>Uso: info no crítica</span>
+      </div>
+    </div>
+
+    <!-- ========== ADVERTENCIA ========== -->
+    <div class="preview-card">
+      <h2>⚠️ Advertencia — Restricción importante</h2>
+      <div class="viewport">
+        <div class="fake-app">
+          <div class="fake-sidebar"></div>
+          <div class="fake-content">
+            <div class="fake-header"></div>
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+          </div>
+        </div>
+        <div class="overlay-base overlay-warning pos-center">
+          <span class="icon">⚠️</span>
+          <div>
+            <p class="text-main">Cada usuario cambia solo su propio PIN</p>
+            <p class="text-secondary">El dueño no puede cambiar el PIN de otros empleados</p>
+          </div>
+        </div>
+      </div>
+      <div class="info-panel">
+        <span>Borde: <span class="tag">red-400</span></span>
+        <span>Posición: <span class="tag">centro</span></span>
+        <span>Uso: restricciones, precauciones</span>
+      </div>
+    </div>
+
+    <!-- ========== CALLOUT ========== -->
+    <div class="preview-card">
+      <h2>📌 Callout — Destacar concepto</h2>
+      <div class="viewport">
+        <div class="fake-app">
+          <div class="fake-sidebar"></div>
+          <div class="fake-content">
+            <div class="fake-header"></div>
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+          </div>
+        </div>
+        <div class="overlay-base overlay-callout pos-top-right">
+          <span class="icon">📌</span>
+          <div>
+            <p class="text-main">Este campo solo aparece con inventario activo</p>
+            <p class="text-secondary">Activalo en Ajustes → Módulos → Inventario</p>
+          </div>
+        </div>
+      </div>
+      <div class="info-panel">
+        <span>Borde: <span class="tag">blue-400</span></span>
+        <span>Posición: <span class="tag">superior-derecha</span></span>
+        <span>Uso: contextualizar algo fuera de vista</span>
+      </div>
+    </div>
+
+    <!-- ========== ETIQUETA ========== -->
+    <div class="preview-card">
+      <h2>🏷️ Etiqueta — Señalar elemento</h2>
+      <div class="viewport">
+        <div class="fake-app">
+          <div class="fake-sidebar"></div>
+          <div class="fake-content">
+            <div class="fake-header"></div>
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+          </div>
+        </div>
+        <div class="overlay-base overlay-label pos-bottom-left">
+          <span class="icon">🏷️</span>
+          <div>
+            <p class="text-main">Botón "Cambiar PIN"</p>
+            <p class="text-secondary">Solo visible en tu propio perfil</p>
+          </div>
+        </div>
+        <!-- Flecha apuntando hacia arriba -->
+        <div class="label-arrow" style="bottom: 130px; left: 120px;"></div>
+      </div>
+      <div class="info-panel">
+        <span>Borde: <span class="tag">slate-400</span></span>
+        <span>Posición: <span class="tag">inferior-izquierda</span></span>
+        <span>Uso: nombrar elementos, señalar botones</span>
+      </div>
+    </div>
+
+    <!-- ========== DIAGRAMA (full width) ========== -->
+    <div class="preview-card full-width">
+      <h2>📊 Diagrama — Explicar flujo o relación</h2>
+      <div class="viewport">
+        <div class="fake-app">
+          <div class="fake-sidebar"></div>
+          <div class="fake-content">
+            <div class="fake-header"></div>
+            <div class="fake-card"></div>
+            <div class="fake-card"></div>
+          </div>
+        </div>
+        <div class="overlay-base overlay-diagram pos-center">
+          <div>
+            <p class="text-main">📊 Así viaja tu PIN al servidor</p>
+            <p class="text-secondary">El PIN se encripta antes de salir de tu dispositivo</p>
+          </div>
+          <div class="diagram-flow">
+            <div class="diagram-step">Tu PIN<br><small style="color:#94a3b8">1234</small></div>
+            <span class="diagram-arrow">→</span>
+            <div class="diagram-step">Encriptado<br><small style="color:#94a3b8">bcrypt</small></div>
+            <span class="diagram-arrow">→</span>
+            <div class="diagram-step">Servidor<br><small style="color:#94a3b8">Supabase</small></div>
+            <span class="diagram-arrow">→</span>
+            <div class="diagram-step">Guardado<br><small style="color:#94a3b8">✓ seguro</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="info-panel">
+        <span>Borde: <span class="tag">emerald-400</span></span>
+        <span>Posición: <span class="tag">centro</span></span>
+        <span>Uso: flujos de datos, relaciones entre módulos, procesos internos</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Leyenda final -->
+  <div style="max-width: 1200px; margin: 48px auto 0; padding: 24px; background: #1e293b; border-radius: 12px;">
+    <h3 style="font-size: 16px; margin-bottom: 12px; color: #e2e8f0;">📐 Especificaciones comunes</h3>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-size: 13px; color: #94a3b8;">
+      <div>
+        <strong style="color: #e2e8f0;">Fondo</strong><br>
+        rgba(26, 26, 26, 0.92) + blur(8px)
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Texto principal</strong><br>
+        Inter 16-24px · semi-bold · blanco
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Texto secundario</strong><br>
+        Inter 13-18px · regular · slate-300
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Border-radius</strong><br>
+        12px (tarjetas) · 8px (pasos diagrama)
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Animación entrada</strong><br>
+        slide-up 300ms · ease-out (GSAP)
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Animación salida</strong><br>
+        fade-out 400ms (antes del final del clip)
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Resolución canvas</strong><br>
+        1366×720 (misma que grabación)
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Formato exportado</strong><br>
+        WebM VP9 con canal alpha
+      </div>
+      <div>
+        <strong style="color: #e2e8f0;">Montaje</strong><br>
+        Filmora → pista overlay → arrastrar .webm
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

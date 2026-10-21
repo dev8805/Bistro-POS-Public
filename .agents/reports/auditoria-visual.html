@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Auditoría Visual — Design System · Bistro POS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --amber:#fbbf24; --amber5:#f59e0b; --amber6:#d97706; --amber9:#78350f;
+    --green950:#102218; --green900:#1c2e24;
+    --slate50:#f8fafc; --slate100:#f1f5f9; --slate200:#e2e8f0; --slate400:#94a3b8; --slate500:#64748b; --slate900:#0f172a;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --card:#ffffff; --canvas:#f6f8f7;
+    --ok:#10b981; --warn:#f59e0b; --err:#ef4444; --info:#3b82f6;
+    --radius:14px; --shadow:0 2px 8px -2px rgba(0,0,0,.08),0 2px 4px -2px rgba(0,0,0,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Plus Jakarta Sans",sans-serif;color:var(--ink);background:var(--canvas);line-height:1.55;-webkit-font-smoothing:antialiased}
+  code,.mono{font-family:"JetBrains Mono",monospace;font-size:.85em}
+  a{color:var(--amber6)}
+
+  /* Layout */
+  .wrap{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+  nav{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--green950);color:#cbd5e1;padding:22px 16px}
+  nav .brand{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  nav .brand b{color:#fff;font-size:16px;font-weight:800}
+  nav .dot{width:14px;height:14px;border-radius:4px;background:var(--amber)}
+  nav .sub{font-size:11px;color:#64748b;margin-bottom:20px;padding-left:24px}
+  nav a{display:block;color:#94a3b8;text-decoration:none;font-size:13px;padding:7px 10px;border-radius:8px;transition:.15s}
+  nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+  nav a.group{color:#fbbf24;font-weight:700;margin-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none}
+  main{padding:0}
+  .inner{max-width:980px;margin:0 auto;padding:48px 40px 120px}
+
+  header.hero{background:linear-gradient(135deg,var(--green950),#1a3326);color:#fff;padding:56px 40px}
+  header.hero .inner{padding:0;max-width:980px;margin:0 auto}
+  header.hero h1{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  header.hero p{color:#cbd5e1;font-size:15px;max-width:620px}
+  header.hero .tagline{display:inline-flex;gap:8px;align-items:center;background:rgba(251,191,36,.15);color:var(--amber);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:18px}
+  .hero-stats{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+  .hero-stats .s b{display:block;font-size:28px;font-weight:800;color:#fff}
+  .hero-stats .s span{font-size:12px;color:#94a3b8}
+
+  section{margin-top:52px;scroll-margin-top:20px}
+  h2{font-size:24px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  h2 .num{background:var(--green950);color:var(--amber);width:30px;height:30px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+  h3{font-size:16px;font-weight:700;margin:26px 0 12px;color:var(--ink)}
+  .lead{color:var(--muted);font-size:14px;margin-bottom:18px}
+  p{margin-bottom:12px;font-size:14px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-bottom:16px}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--slate50);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  td .mono{color:var(--amber6)}
+
+  /* Swatches */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .sw .chip{height:70px;display:flex;align-items:flex-end;padding:8px}
+  .sw .chip .freq{background:rgba(0,0,0,.55);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
+  .sw .meta{padding:9px 11px}
+  .sw .meta b{font-size:12px;display:block}
+  .sw .meta .hex{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted)}
+  .sw .meta .role{font-size:11px;color:var(--muted);margin-top:3px}
+
+  /* Pills */
+  .pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700}
+  .pill.hi{background:#fee2e2;color:#b91c1c}
+  .pill.me{background:#fef3c7;color:#92400e}
+  .pill.lo{background:#dcfce7;color:#15803d}
+  .pill.ok{background:#dcfce7;color:#15803d}
+  .pill.bad{background:#fee2e2;color:#b91c1c}
+  .pill.new{background:#dbeafe;color:#1d4ed8}
+
+  .note{background:#fffbeb;border-left:4px solid var(--amber);padding:12px 16px;border-radius:0 10px 10px 0;font-size:13px;margin:14px 0}
+  .danger{background:#fef2f2;border-left:4px solid var(--err);padding:12px 16px;border-radius:0 10px 10px 0;font-size:13px;margin:14px 0}
+  .supos{display:inline-block;background:#ede9fe;color:#6d28d9;font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;letter-spacing:.03em}
+
+  pre{background:var(--green950);color:#e2e8f0;padding:18px;border-radius:12px;overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:12px;line-height:1.6;margin:14px 0}
+  pre .c{color:#64748b}
+  .fileref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);background:var(--slate50);padding:1px 6px;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="brand"><span class="dot"></span><b>Auditoría Visual</b></div>
+  <div class="sub">Bistro POS · Design System</div>
+  <a href="#resumen" class="group">Panorama</a>
+  <a href="#resumen">Resumen ejecutivo</a>
+  <a href="#top5">Los 5 problemas</a>
+  <a href="#stack" class="group">Fase 1 · Inventario</a>
+  <a href="#stack">1 · Stack y base</a>
+  <a href="#color">2 · Color</a>
+  <a href="#contraste">2.6 · Contraste WCAG</a>
+  <a href="#tipografia">3 · Tipografía</a>
+  <a href="#espaciado">4 · Espaciado y layout</a>
+  <a href="#formas">5 · Bordes, formas, profundidad</a>
+  <a href="#movimiento">6 · Movimiento</a>
+  <a href="#iconos">7 · Iconografía</a>
+  <a href="#componentes">8 · Componentes</a>
+  <a href="#pantallas">9 · Pantallas y flujos</a>
+  <a href="#accesibilidad">10 · Accesibilidad</a>
+  <a href="#deuda">11 · Deuda visual</a>
+  <a href="#excluidos">Excluidos (ocultos)</a>
+  <a href="#tokens" class="group">Fase 2 · Tokens</a>
+  <a href="#tokens">Propuesta de tokens</a>
+  <a href="#migracion">Plan de migración</a>
+  <a href="#preguntas">Preguntas para ti</a>
+</nav>
+<main>
+<header class="hero">
+  <div class="inner">
+    <span class="tagline">● Auditoría de solo lectura · solo frontend vivo</span>
+    <h1>Design System — Bistro POS</h1>
+    <p>Todo lo visual que existe hoy en la app, renderizado para que lo veas tal cual: colores, fuentes, sombras, radios y las inconsistencias que arrastra el proyecto.</p>
+    <div class="hero-stats">
+      <div class="s"><b>28</b><span>pantallas conectadas</span></div>
+      <div class="s"><b>~100</b><span>componentes</span></div>
+      <div class="s"><b>191×</b><span>un color a mano</span></div>
+      <div class="s"><b>5</b><span>colores que fallan WCAG</span></div>
+      <div class="s"><b>0</b><span>archivo de tokens</span></div>
+    </div>
+  </div>
+</header>
+<div class="inner">
+
+<section id="resumen">
+  <h2><span class="num">▸</span>Resumen ejecutivo</h2>
+  <div class="card">
+    <p>Bistro POS usa <b>React 19 + TypeScript + Vite 6</b>, con <b>Tailwind CSS cargado por CDN</b> y la configuración de tema escrita <i>inline</i> dentro de <span class="fileref">index.html</span> (no hay <span class="mono">tailwind.config.js</span> ni archivo central de tokens). Existe una base de tema decente (paleta ámbar "Warm Bistro", tipografía, sombras <span class="mono">card</span>), pero <b>está poco adoptada</b>: la mayoría de pantallas escribe colores, radios y sombras directamente a mano, creando mucha deuda visual.</p>
+    <div class="note"><b>En una frase:</b> hay el <i>esqueleto</i> de un sistema de diseño, pero casi nadie lo usa. Los valores se repiten a mano por todo el código, generando decenas de variantes casi iguales.</div>
+  </div>
+</section>
+
+<section id="top5">
+  <h2><span class="num">!</span>Los 5 problemas principales</h2>
+  <div class="card">
+    <table>
+      <tr><th>#</th><th>Problema</th><th>Evidencia</th><th>Impacto</th></tr>
+      <tr><td>1</td><td><b>Un solo color escrito 191 veces a mano.</b> El verde <span class="mono">#102218</span> (texto sobre ámbar) aparece literal 191 veces en vez de usar el token <span class="mono">text-text-onPrimary</span>. Cambiar la marca obliga a tocar 191 sitios.</td><td><span class="fileref">ProductCard.tsx:85</span> <span class="fileref">OfflineIndicator.tsx:31</span></td><td><span class="pill hi">ALTO</span></td></tr>
+      <tr><td>2</td><td><b>Caos de superficies oscuras.</b> El modo oscuro define 2 colores, pero el código usa ≥8 variantes casi idénticas (<span class="mono">#151e32</span>, <span class="mono">#0B1120</span>, <span class="mono">#0d1c14</span>…) sin criterio.</td><td>sección 2.3</td><td><span class="pill hi">ALTO</span></td></tr>
+      <tr><td>3</td><td><b>Tres sistemas de diseño paralelos.</b> Config Tailwind + clases inline + componentes 100% CSS-in-JS con paleta propia. Hay <b>dos sistemas de Toast</b> distintos conviviendo.</td><td><span class="fileref">ConfirmDialog.tsx</span> <span class="fileref">Toast.tsx</span></td><td><span class="pill hi">ALTO</span></td></tr>
+      <tr><td>4</td><td><b>Contraste insuficiente en colores de estado.</b> Texto blanco sobre success (2.54:1) y warning (2.15:1) <b>falla WCAG AA</b>. Solo funcionan con texto oscuro.</td><td>sección 2.6</td><td><span class="pill hi">ALTO</span></td></tr>
+      <tr><td>5</td><td><b>La config de tema está parcialmente muerta.</b> La sombra <span class="mono">shadow-card</span> solo se usa 6 veces (vs 405 de <span class="mono">shadow-sm</span>), hay alias "legacy" duplicados, y <span class="mono">prefers-reduced-motion</span> no existe pese a ~25 animaciones.</td><td>secciones 5.3, 6.4</td><td><span class="pill hi">ALTO</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="stack">
+  <h2><span class="num">1</span>Stack y base técnica</h2>
+  <table>
+    <tr><th>Aspecto</th><th>Qué hay</th><th>Dónde</th></tr>
+    <tr><td>Framework</td><td>React 19 + TypeScript, <span class="mono">createRoot</span> en StrictMode</td><td><span class="fileref">index.tsx:18-23</span></td></tr>
+    <tr><td>Build</td><td>Vite 6 (PWA + Capacitor Android)</td><td><span class="fileref">package.json</span></td></tr>
+    <tr><td>Sistema de estilos</td><td><b>Tailwind CSS vía CDN</b> (forms, typography, container-queries)</td><td><span class="fileref">index.html &lt;head&gt;</span></td></tr>
+    <tr><td>Config de tema</td><td><b>Inline</b> en index.html. NO existe <span class="mono">tailwind.config.js</span> ni archivo de tokens</td><td><span class="fileref">index.html</span></td></tr>
+    <tr><td>Gestor de temas</td><td><span class="mono">darkMode: "class"</span> declarado</td><td><span class="fileref">index.html</span></td></tr>
+    <tr><td>Router</td><td><b>Router casero por estado</b> (<span class="mono">currentScreen === Screen.X</span>), NO React Router</td><td><span class="fileref">App.tsx</span> · <span class="fileref">types.ts:5-40</span></td></tr>
+    <tr><td>Librería UI externa</td><td>Ninguna (ni MUI, Chakra, shadcn). "Design system" propio con <b>solo 3 archivos</b></td><td><span class="fileref">components/ui/</span></td></tr>
+    <tr><td>Íconos</td><td>Material Symbols Outlined (Google Fonts) · <b>1526 usos</b></td><td><span class="fileref">index.html</span></td></tr>
+  </table>
+  <div class="note"><b>Modo oscuro: <span class="supos">SUPOSICIÓN</span></b> — hay cientos de clases <span class="mono">dark:</span> en el código, pero <b>no se encontró ningún punto que active la clase <span class="mono">.dark</span></b> (no hay toggle ni detección conectada). El modo oscuro parece <i>latente</i>: programado en estilos pero nunca encendido para el usuario final. Esto significa que ~mitad del CSS <span class="mono">dark:*</span> podría estar sin uso real.</div>
+  <div class="danger"><b>Variables CSS / tokens:</b> No hay <span class="mono">:root { --token }</span> de diseño. Los únicos "tokens" son los nombres de la config Tailwind inline, usados de forma <b>desigual</b> conviviendo con miles de valores a mano. Además la config define cada color <b>dos veces</b> (anidado <span class="mono">background.light</span> + plano legacy <span class="mono">"background-light"</span>).</div>
+</section>
+
+<section id="color">
+  <h2><span class="num">2</span>Color</h2>
+  <p class="lead">Paleta oficial declarada en la config inline. Pasa el cursor para ver el rol de cada color.</p>
+
+  <h3>2.1 · Paleta oficial "Warm Bistro"</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#fbbf24"></div><div class="meta"><b>primary</b><span class="hex">#fbbf24</span><div class="role">Marca · amber-400</div></div></div>
+    <div class="sw"><div class="chip" style="background:#f59e0b"></div><div class="meta"><b>primary.hover</b><span class="hex">#f59e0b</span><div class="role">amber-500</div></div></div>
+    <div class="sw"><div class="chip" style="background:#d97706"></div><div class="meta"><b>primary.active</b><span class="hex">#d97706</span><div class="role">amber-600</div></div></div>
+    <div class="sw"><div class="chip" style="background:#fffbeb;border-bottom:1px solid #eee"></div><div class="meta"><b>primary.light</b><span class="hex">#fffbeb</span><div class="role">Fondo ámbar · amber-50</div></div></div>
+    <div class="sw"><div class="chip" style="background:#102218"></div><div class="meta"><b>background.dark / onPrimary</b><span class="hex">#102218</span><div class="role">Verde Bistro (identidad)</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1c2e24"></div><div class="meta"><b>surface.dark</b><span class="hex">#1c2e24</span><div class="role">green-900</div></div></div>
+    <div class="sw"><div class="chip" style="background:#f8fafc;border-bottom:1px solid #eee"></div><div class="meta"><b>background.light</b><span class="hex">#f8fafc</span><div class="role">Fondo claro · slate-50</div></div></div>
+    <div class="sw"><div class="chip" style="background:#ffffff;border-bottom:1px solid #eee"></div><div class="meta"><b>surface.light</b><span class="hex">#ffffff</span><div class="role">Superficie</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0f172a"></div><div class="meta"><b>text.main</b><span class="hex">#0f172a</span><div class="role">Texto principal · slate-900</div></div></div>
+    <div class="sw"><div class="chip" style="background:#64748b"></div><div class="meta"><b>text.secondary</b><span class="hex">#64748b</span><div class="role">slate-500</div></div></div>
+    <div class="sw"><div class="chip" style="background:#10b981"></div><div class="meta"><b>status.success</b><span class="hex">#10b981</span><div class="role">emerald-500</div></div></div>
+    <div class="sw"><div class="chip" style="background:#f59e0b"></div><div class="meta"><b>status.warning</b><span class="hex">#f59e0b</span><div class="role">amber-500</div></div></div>
+    <div class="sw"><div class="chip" style="background:#ef4444"></div><div class="meta"><b>status.error</b><span class="hex">#ef4444</span><div class="role">red-500</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3b82f6"></div><div class="meta"><b>status.info</b><span class="hex">#3b82f6</span><div class="role">blue-500</div></div></div>
+  </div>
+  <div class="note"><b>Falta un color secundario de marca.</b> No existe token <span class="mono">secondary</span> ni <span class="mono">accent</span> propio. El steering menciona "Secondary: Emerald Dark #102218", pero eso es en realidad el fondo/texto oscuro, no un acento secundario.</div>
+
+  <h3>2.2 · Colores "sueltos" (hardcodeados) — los más frecuentes</h3>
+  <p class="lead">Valores escritos a mano directamente en el JSX, muchos de los cuales <b>ya existen como token</b>.</p>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#102218"><span class="freq">×191</span></div><div class="meta"><b>= text.onPrimary</b><span class="hex">#102218</span><div class="role">Debería ser el token</div></div></div>
+    <div class="sw"><div class="chip" style="background:#151e32"><span class="freq">×40</span></div><div class="meta"><b>Superficie inventada</b><span class="hex">#151e32</span><div class="role">Azulada, fuera de paleta</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0f172a"><span class="freq">×23</span></div><div class="meta"><b>= text.main</b><span class="hex">#0f172a</span><div class="role">Ya es token</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0B1120"><span class="freq">×22</span></div><div class="meta"><b>Fondo inventado</b><span class="hex">#0B1120</span><div class="role">Azul muy oscuro</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0d1c14"><span class="freq">×18</span></div><div class="meta"><b>Superficie inventada</b><span class="hex">#0d1c14</span><div class="role">Verde oscuro</div></div></div>
+    <div class="sw"><div class="chip" style="background:#dc2626"><span class="freq">×17</span></div><div class="meta"><b>red-600 a mano</b><span class="hex">#dc2626</span><div class="role">hover de error</div></div></div>
+    <div class="sw"><div class="chip" style="background:#009459"><span class="freq">×14</span></div><div class="meta"><b>Verde éxito inventado</b><span class="hex">#009459</span><div class="role">≠ #10b981 oficial</div></div></div>
+    <div class="sw"><div class="chip" style="background:#fbbf24"><span class="freq">×11</span></div><div class="meta"><b>= primary ¡a mano!</b><span class="hex">#fbbf24</span><div class="role">El token escrito literal</div></div></div>
+  </div>
+
+  <h3>2.3 · Grupos de valores casi iguales (para unificar)</h3>
+  <p class="lead">El problema no es que haya muchos colores, sino que hay muchos colores <b>casi idénticos</b> que deberían ser uno solo. Míralos lado a lado:</p>
+
+  <div class="card">
+    <b style="font-size:13px">Verdes de "éxito" / marca — 6 variantes</b>
+    <div class="swatches" style="margin-top:10px">
+      <div class="sw"><div class="chip" style="background:#10b981"></div><div class="meta"><span class="hex">#10b981</span><div class="role"><span class="pill ok">token oficial</span></div></div></div>
+      <div class="sw"><div class="chip" style="background:#009459"></div><div class="meta"><span class="hex">#009459</span><div class="role">×14 inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#16a34a"></div><div class="meta"><span class="hex">#16a34a</span><div class="role">×10 green-600</div></div></div>
+      <div class="sw"><div class="chip" style="background:#007a49"></div><div class="meta"><span class="hex">#007a49</span><div class="role">×5</div></div></div>
+      <div class="sw"><div class="chip" style="background:#25D366"></div><div class="meta"><span class="hex">#25D366</span><div class="role">×5 WhatsApp (OK)</div></div></div>
+      <div class="sw"><div class="chip" style="background:#4dcba1"></div><div class="meta"><span class="hex">#4dcba1</span><div class="role">ClientsScreen</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <b style="font-size:13px">Superficies / fondos oscuros — 10+ variantes casi iguales</b>
+    <div class="swatches" style="margin-top:10px">
+      <div class="sw"><div class="chip" style="background:#102218"></div><div class="meta"><span class="hex">#102218</span><div class="role"><span class="pill ok">oficial</span></div></div></div>
+      <div class="sw"><div class="chip" style="background:#1c2e24"></div><div class="meta"><span class="hex">#1c2e24</span><div class="role"><span class="pill ok">oficial</span></div></div></div>
+      <div class="sw"><div class="chip" style="background:#151e32"></div><div class="meta"><span class="hex">#151e32</span><div class="role">inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#0B1120"></div><div class="meta"><span class="hex">#0B1120</span><div class="role">inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#0d1c14"></div><div class="meta"><span class="hex">#0d1c14</span><div class="role">inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1A2638"></div><div class="meta"><span class="hex">#1A2638</span><div class="role">inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#0c1912"></div><div class="meta"><span class="hex">#0c1912</span><div class="role">inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#0c0f16"></div><div class="meta"><span class="hex">#0c0f16</span><div class="role">inventado</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1d3a2a"></div><div class="meta"><span class="hex">#1d3a2a</span><div class="role">inventado</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <b style="font-size:13px">Off-whites claros — 5 variantes casi iguales (¿las distingues?)</b>
+    <div class="swatches" style="margin-top:10px">
+      <div class="sw"><div class="chip" style="background:#f8fafc;border-bottom:1px solid #eee"></div><div class="meta"><span class="hex">#f8fafc</span><div class="role"><span class="pill ok">token</span></div></div></div>
+      <div class="sw"><div class="chip" style="background:#f6f8f7;border-bottom:1px solid #eee"></div><div class="meta"><span class="hex">#f6f8f7</span><div class="role">body inline</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f0f4f3;border-bottom:1px solid #eee"></div><div class="meta"><span class="hex">#f0f4f3</span><div class="role">suelto</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f8fafb;border-bottom:1px solid #eee"></div><div class="meta"><span class="hex">#f8fafb</span><div class="role">suelto</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f8faf9;border-bottom:1px solid #eee"></div><div class="meta"><span class="hex">#f8faf9</span><div class="role">suelto</div></div></div>
+    </div>
+  </div>
+
+  <h3>2.4 · Gradientes, overlays y transparencias</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:linear-gradient(90deg,#4285F4,#9B72CB,#D96570)"></div><div class="meta"><b>Gradiente IA</b><div class="role">Colores Gemini · EvidenceUploader</div></div></div>
+    <div class="sw"><div class="chip" style="background:rgba(0,0,0,.4)"></div><div class="meta"><b>Overlay modal</b><span class="hex">black/40</span><div class="role">+ /50 + /60 (3 opacidades)</div></div></div>
+    <div class="sw"><div class="chip" style="background:rgba(30,30,30,.95)"></div><div class="meta"><b>Toast oscuro</b><span class="hex">rgba(30,30,30,.95)</span><div class="role">inline · Toast.tsx</div></div></div>
+  </div>
+  <p style="font-size:13px;color:var(--muted)">Overlays con 3 opacidades distintas para lo mismo (<span class="mono">black/40</span>, <span class="mono">/50</span>, <span class="mono">/60</span>) + blur variado (<span class="mono">backdrop-blur-sm</span>, <span class="mono">[3px]</span>, <span class="mono">blur(2px)</span> inline).</p>
+</section>
+
+<section id="contraste">
+  <h2><span class="num">✓</span>2.6 · Contraste WCAG (calculado real)</h2>
+  <p class="lead">Cada fila muestra el texto <b>realmente renderizado</b> sobre su fondo. El ratio se calculó con la fórmula oficial de luminancia. AA pide 4.5:1 (texto normal) o 3:1 (texto grande).</p>
+  <div class="swatches" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
+    <div class="sw"><div class="chip" style="background:#f8fafc;color:#0f172a;align-items:center;justify-content:center;font-weight:700;font-size:15px">Texto principal</div><div class="meta"><b>text.main / bg.light</b><div class="role"><b>17.06:1</b> <span class="pill ok">AAA</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#fbbf24;color:#102218;align-items:center;justify-content:center;font-weight:700;font-size:15px">Pagar ahora</div><div class="meta"><b>onPrimary / primary</b><div class="role"><b>9.95:1</b> <span class="pill ok">AAA</span> patrón correcto</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1c2e24;color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:15px">Texto claro</div><div class="meta"><b>white / surface.dark</b><div class="role"><b>14.33:1</b> <span class="pill ok">AAA</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#ffffff;color:#64748b;align-items:center;justify-content:center;font-weight:600;font-size:15px;border-bottom:1px solid #eee">Texto secundario</div><div class="meta"><b>text.secondary / white</b><div class="role"><b>4.76:1</b> <span class="pill ok">AA justo</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#ef4444;color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:15px">Error</div><div class="meta"><b>white / error</b><div class="role"><b>3.76:1</b> <span class="pill bad">falla AA normal</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#3b82f6;color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:15px">Info</div><div class="meta"><b>white / info</b><div class="role"><b>3.68:1</b> <span class="pill bad">falla AA normal</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#10b981;color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:15px">Éxito</div><div class="meta"><b>white / success</b><div class="role"><b>2.54:1</b> <span class="pill bad">FALLA total</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#f59e0b;color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:15px">Advertencia</div><div class="meta"><b>white / warning</b><div class="role"><b>2.15:1</b> <span class="pill bad">FALLA total</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#fbbf24;color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:15px">Texto blanco</div><div class="meta"><b>white / primary</b><div class="role"><b>1.67:1</b> <span class="pill bad">FALLA total</span></div></div></div>
+  </div>
+  <div class="danger"><b>Conclusión:</b> la pareja de marca (texto oscuro sobre ámbar) es excelente. Pero los <b>colores de estado solo son seguros con texto oscuro</b>. Cualquier badge o botón con <span class="mono">bg-emerald-400 text-white</span> es ilegible. <span class="fileref">AppToast</span> lo resuelve bien usando fondos <span class="mono">*-900/95</span> con texto <span class="mono">*-100</span>.</div>
+</section>
+
+<section id="tipografia">
+  <h2><span class="num">3</span>Tipografía</h2>
+  <h3>3.1 · Familias y carga</h3>
+  <div class="card">
+    <div style="font-family:'Plus Jakarta Sans';font-size:26px;font-weight:800">Plus Jakarta Sans — títulos y cuerpo</div>
+    <div class="role" style="color:var(--muted);font-size:13px">Token <span class="mono">font-display</span>. Se carga por <span class="mono">@fontsource</span> en index.tsx (NO por &lt;link&gt;)</div>
+  </div>
+  <div class="card">
+    <div style="font-family:'Noto Sans';font-size:22px;font-weight:700">Noto Sans — declarada pero casi sin uso</div>
+    <div class="role" style="color:var(--muted);font-size:13px">Token <span class="mono">font-body</span>. &lt;link&gt; Google Fonts (400;500;700). El body quedó en display, no en body.</div>
+  </div>
+  <div class="card">
+    <div style="font-family:'JetBrains Mono';font-size:20px;font-weight:500">JetBrains Mono — 1234567890</div>
+    <div class="role" style="color:var(--muted);font-size:13px">Monospace. &lt;link&gt; Google Fonts. <b>No tiene token</b> <span class="mono">font-mono</span> en la config.</div>
+  </div>
+  <div class="danger"><b>Riesgo de pesos:</b> el código usa <span class="mono">font-black</span> (900) <b>407 veces</b>, pero <span class="mono">@fontsource</span> solo carga hasta 800 → el navegador <b>simula</b> el peso 900 (fake-bold), degradando la nitidez.</div>
+
+  <h3>3.2 · Escala de tamaños</h3>
+  <div class="card">
+    <div style="font-size:24px;font-weight:700;line-height:1.3">text-2xl · 24px <span style="color:var(--muted);font-weight:400;font-size:13px">— Encabezados de pantalla</span></div>
+    <div style="font-size:20px;font-weight:700">text-xl · 20px <span style="color:var(--muted);font-weight:400;font-size:13px">— Títulos de sección</span></div>
+    <div style="font-size:18px;font-weight:600">text-lg · 18px <span style="color:var(--muted);font-weight:400;font-size:13px">— Subtítulos</span></div>
+    <div style="font-size:16px">text-base · 16px <span style="color:var(--muted);font-size:13px">— Cuerpo / inputs</span></div>
+    <div style="font-size:14px">text-sm · 14px <span style="color:var(--muted);font-size:13px">— Cuerpo por defecto, botones</span></div>
+    <div style="font-size:12px">text-caption · 12px <span style="color:var(--muted);font-size:13px">— Descripciones</span></div>
+    <div style="font-size:10px">text-2xs · 10px <span style="color:var(--muted);font-size:12px">— Badges, labels diminutos</span></div>
+  </div>
+  <div class="note"><b>No hay</b> tokens <span class="mono">display</span>, <span class="mono">h1–h6</span>, <span class="mono">overline</span>, <span class="mono">label</span>, ni escala sobre 24px. Los títulos grandes usan arbitrarios (<span class="mono">text-5xl</span>, <span class="mono">text-3xl</span>) y hay <b>muchísimos tamaños pixel sueltos</b>: <span class="mono">text-[11px]</span>, <span class="mono">[13px]</span>, <span class="mono">[21px]</span>… que rompen la escala.</div>
+
+  <h3>3.3 · Pesos usados (7 — tipografía muy "gorda")</h3>
+  <div class="card" style="display:flex;flex-wrap:wrap;gap:18px;align-items:baseline">
+    <span style="font-weight:400">normal 400 <span style="color:var(--muted);font-size:12px">(15)</span></span>
+    <span style="font-weight:500">medium 500 <span style="color:var(--muted);font-size:12px">(526)</span></span>
+    <span style="font-weight:600">semibold 600 <span style="color:var(--muted);font-size:12px">(608)</span></span>
+    <span style="font-weight:700">bold 700 <span style="color:var(--muted);font-size:12px">(1496)</span></span>
+    <span style="font-weight:800">extrabold 800 <span style="color:var(--muted);font-size:12px">(43)</span></span>
+    <span style="font-weight:900">black 900 <span style="color:var(--muted);font-size:12px">(407 ⚠ fake-bold)</span></span>
+  </div>
+</section>
+
+<section id="espaciado">
+  <h2><span class="num">4</span>Espaciado y layout</h2>
+  <p class="lead">Se usa la escala por defecto de Tailwind (múltiplos de 4px). No hay escala custom de spacing.</p>
+  <div class="card">
+    <b style="font-size:13px">Escala base (4px) — los más usados</b>
+    <div style="display:flex;gap:8px;align-items:flex-end;margin-top:12px;flex-wrap:wrap">
+      <div style="text-align:center"><div style="width:4px;height:4px;background:var(--amber)"></div><span style="font-size:10px;color:var(--muted)">1·4px</span></div>
+      <div style="text-align:center"><div style="width:8px;height:8px;background:var(--amber)"></div><span style="font-size:10px;color:var(--muted)">2·8px</span></div>
+      <div style="text-align:center"><div style="width:12px;height:12px;background:var(--amber)"></div><span style="font-size:10px;color:var(--muted)">3·12px</span></div>
+      <div style="text-align:center"><div style="width:16px;height:16px;background:var(--amber)"></div><span style="font-size:10px;color:var(--muted)">4·16px</span></div>
+      <div style="text-align:center"><div style="width:20px;height:20px;background:var(--amber)"></div><span style="font-size:10px;color:var(--muted)">5·20px</span></div>
+      <div style="text-align:center"><div style="width:24px;height:24px;background:var(--amber)"></div><span style="font-size:10px;color:var(--muted)">6·24px</span></div>
+    </div>
+    <div class="note" style="margin-top:14px">Aparecen <b>espaciados arbitrarios</b> sueltos (<span class="mono">p-[11px]</span>, <span class="mono">p-[13px]</span>, <span class="mono">size-[25px]</span>, <span class="mono">w-[29px]</span>) que rompen la escala de 4px — concentrados en <span class="fileref">ProductCard.tsx</span>.</div>
+  </div>
+
+  <h3>4.3 · Breakpoints</h3>
+  <table>
+    <tr><th>Nombre</th><th>Valor</th><th>Uso</th></tr>
+    <tr><td class="mono">xs</td><td>400px</td><td>Ajustes finos de nav/texto</td></tr>
+    <tr><td class="mono">sm</td><td>640px</td><td>Tablet pequeña</td></tr>
+    <tr><td class="mono">md</td><td>768px</td><td><b>Frontera móvil/desktop</b> (sidebar aparece)</td></tr>
+    <tr><td class="mono">lg</td><td>1024px</td><td>Desktop pleno</td></tr>
+    <tr><td class="mono">xl / 2xl</td><td>1280 / 1536px</td><td>—</td></tr>
+  </table>
+  <div class="note">Hay breakpoints <b>arbitrarios</b> fuera de la escala: <span class="mono">min-[380px]:</span>, <span class="mono">min-[431px]:</span> que fragmentan la responsividad.</div>
+</section>
+
+<section id="formas">
+  <h2><span class="num">5</span>Bordes, formas y profundidad</h2>
+
+  <h3>5.2 · Border-radius (frecuencia real)</h3>
+  <div class="swatches" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">
+    <div class="sw"><div class="chip" style="background:var(--amber);height:60px;border-radius:12px 12px 0 0"></div><div class="meta"><b>rounded-xl · 12px</b><div class="role">×816 el más usado</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--green900);height:60px;border-radius:9999px 9999px 0 0"></div><div class="meta"><b>rounded-full</b><div class="role">×700</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--amber5);height:60px;border-radius:8px 8px 0 0"></div><div class="meta"><b>rounded-lg · 8px</b><div class="role">×653</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--amber6);height:60px;border-radius:16px 16px 0 0"></div><div class="meta"><b>rounded-2xl · 16px</b><div class="role">×385</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--green950);height:60px;border-radius:6px 6px 0 0"></div><div class="meta"><b>rounded-md · 6px</b><div class="role">×72</div></div></div>
+  </div>
+  <div class="note"><b>Radios arbitrarios</b> que rompen la escala, casi todos en <span class="fileref">ProductCard.tsx</span>: <span class="mono">rounded-[20px]</span>, <span class="mono">[14px]</span>, <span class="mono">[21px]</span>, <span class="mono">[15px]</span>, <span class="mono">[8px]</span>, <span class="mono">[12px]</span>, <span class="mono">[6px]</span> + <span class="mono">[10px]/[16px]</span> inline en ConfirmDialog.</div>
+
+  <h3>5.3 · Sombras / elevación (frecuencia real)</h3>
+  <div class="swatches" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+    <div class="sw" style="box-shadow:0 1px 2px rgba(0,0,0,.05)"><div class="meta" style="padding:18px 11px"><b>shadow-sm</b><div class="role">×405 · base de facto</div></div></div>
+    <div class="sw" style="box-shadow:0 4px 6px -1px rgba(0,0,0,.1)"><div class="meta" style="padding:18px 11px"><b>shadow-lg</b><div class="role">×114</div></div></div>
+    <div class="sw" style="box-shadow:0 10px 15px -3px rgba(0,0,0,.1)"><div class="meta" style="padding:18px 11px"><b>shadow-xl</b><div class="role">×75</div></div></div>
+    <div class="sw" style="box-shadow:0 25px 50px -12px rgba(0,0,0,.25)"><div class="meta" style="padding:18px 11px"><b>shadow-2xl</b><div class="role">×147 · modales</div></div></div>
+    <div class="sw" style="box-shadow:0 2px 8px -2px rgba(0,0,0,.05),0 2px 4px -2px rgba(0,0,0,.02)"><div class="meta" style="padding:18px 11px"><b>shadow-card</b><div class="role"><span class="pill bad">×6 casi muerta</span></div></div></div>
+  </div>
+  <div class="danger"><b>Token de sombra casi muerto:</b> <span class="mono">shadow-card</span> y <span class="mono">shadow-card-hover</span> se diseñaron a propósito pero solo se usan 6 veces, vs 405 de <span class="mono">shadow-sm</span> genérica. La escala de elevación es <b>implícita y caótica</b>.</div>
+
+  <h3>5.6 · Z-index (7+ niveles sin convención)</h3>
+  <table>
+    <tr><th>Valor</th><th>Dónde</th></tr>
+    <tr><td class="mono">10–40</td><td>contenido, headers sticky, menús</td></tr>
+    <tr><td class="mono">z-50</td><td>MobileNavBar, overlays de pago/éxito</td></tr>
+    <tr><td class="mono">z-[55] / z-[60]</td><td>backdrop sidebar / Sidebar, drawer, OfflineIndicator</td></tr>
+    <tr><td class="mono">z-[100]</td><td>splash loader</td></tr>
+    <tr><td class="mono">9999 (inline)</td><td><span class="fileref">Toast.tsx</span></td></tr>
+    <tr><td class="mono">z-[99999]</td><td><span class="fileref">AppToast.tsx</span>, <span class="fileref">ConfirmDialog.tsx</span> — <b>dos Toasts compitiendo</b></td></tr>
+  </table>
+</section>
+
+<section id="movimiento">
+  <h2><span class="num">6</span>Movimiento</h2>
+  <p class="lead">~25 animaciones activas, repartidas entre la config inline, index.css y CSS-in-JS. El easing estándar de facto es <span class="mono">cubic-bezier(0.16, 1, 0.3, 1)</span>.</p>
+  <div class="card">
+    <b style="font-size:13px">Loaders presentes</b>
+    <div style="display:flex;gap:28px;align-items:center;margin-top:16px;flex-wrap:wrap">
+      <div style="text-align:center"><div class="spin" style="width:34px;height:34px;border:3px solid #fde68a;border-top-color:var(--amber6);border-radius:50%;margin:0 auto"></div><span style="font-size:11px;color:var(--muted)">ScreenLoader</span></div>
+      <div style="text-align:center"><div style="width:120px;height:14px;border-radius:7px;background:linear-gradient(90deg,#e2e8f0 25%,#f1f5f9 50%,#e2e8f0 75%);background-size:200% 100%;animation:shim 1.6s infinite"></div><span style="font-size:11px;color:var(--muted)">skeleton shimmer</span></div>
+    </div>
+  </div>
+  <div class="danger"><b>prefers-reduced-motion: NO existe.</b> Con ~25 animaciones activas, no respetar la preferencia de reducir movimiento es un <b>fallo de accesibilidad</b> para usuarios con sensibilidad al movimiento.</div>
+  <div class="note"><b>Animaciones duplicadas:</b> <span class="mono">slideInRight</span> y <span class="mono">slideInUpSubtle</span> están definidas <b>dos veces</b> (config inline + index.css) con duraciones/valores distintos (0.25s vs 0.4s; 15px vs 10px).</div>
+</section>
+
+<section id="iconos">
+  <h2><span class="num">7</span>Iconografía e imágenes</h2>
+  <table>
+    <tr><th>Elemento</th><th>Detalle</th></tr>
+    <tr><td>Librería de íconos</td><td><b>Material Symbols Outlined</b> (Google Fonts), 1526 usos. Estilo outline; relleno puntual con <span class="mono">FILL 1</span>. <b>Tamaños sin escala tokenizada</b>: 11,13,14,16,18,20,21,22,24,32,40px</td></tr>
+    <tr><td>Logo / favicons</td><td>PNGs en /public (<span class="mono">192px_fondoBlanco</span>, <span class="mono">512px_transparente</span>, <span class="mono">180px</span>). Variantes fondo blanco vs transparente</td></tr>
+    <tr><td>Avatares</td><td>Iniciales sobre <span class="mono">bg-primary</span> o foto como background-image. <b>No hay componente Avatar base</b>; sí <span class="mono">PresenceStack/List</span> (avatar group de presencia)</td></tr>
+    <tr><td>Imágenes de producto</td><td><span class="mono">object-cover</span> (móvil) vs <span class="mono">object-contain</span> (desktop) — <b>inconsistente</b>. Placeholder = ícono gris. <span class="mono">aspect-square</span> vs alto fijo <span class="mono">h-[105px]</span></td></tr>
+  </table>
+</section>
+
+<section id="componentes">
+  <h2><span class="num">8</span>Inventario de componentes</h2>
+  <p class="lead"><b>Reutilizable</b> = un archivo que varias pantallas importan. <b>Duplicado</b> = el mismo patrón re-escrito a mano en cada sitio (ej. botones ámbar que repiten <span class="mono">bg-primary … text-[#102218]</span> en vez de usar <span class="mono">AppButton</span>).</p>
+
+  <h3>Fichas de los componentes clave</h3>
+  <table>
+    <tr><th>Componente</th><th>Qué es</th><th>Variantes / estados</th><th>Estado</th></tr>
+    <tr><td><b>AppButton</b><br><span class="fileref">ui/AppButton.tsx</span></td><td>El único botón "oficial" del sistema</td><td>primary, secondary, danger, outline, ghost · <b>sin prop de tamaño</b> · loading con spinner</td><td><span class="pill me">reutilizable pero poco adoptado</span></td></tr>
+    <tr><td><b>PrinterSplitButton</b><br><span class="fileref">PrinterSplitButton.tsx</span></td><td>Split button: acción principal + flecha de opciones (imprimir)</td><td>—</td><td><span class="pill ok">reutilizable</span></td></tr>
+    <tr><td><b>Numpad / InventoryNumpad</b><br><span class="fileref">Numpad.tsx</span></td><td>Teclado numérico (bottom sheet) para montos</td><td>InventoryNumpad <b>duplica</b> la lógica/estilo. Usa paleta <span class="mono">zinc</span> en dark (≠ verde Bistro)</td><td><span class="pill me">duplicado</span></td></tr>
+    <tr><td><b>PhoneInput</b><br><span class="fileref">PhoneInput.tsx</span></td><td>Input de teléfono con prefijo país (Colombia)</td><td>—</td><td><span class="pill ok">reutilizable</span></td></tr>
+    <tr><td><b>Sidebar</b><br><span class="fileref">Sidebar.tsx</span></td><td>Navegación principal desktop (colapsable w-64/w-16) + drawer móvil</td><td>~900 líneas, submenús, perfil, badges de rol</td><td><span class="pill ok">fuente única</span></td></tr>
+    <tr><td><b>MobileNavBar</b><br><span class="fileref">MobileNavBar.tsx</span></td><td>Bottom navigation flotante móvil</td><td>Activo = <span class="mono">bg-amber-400 text-slate-950</span> (≠ "activo" del Sidebar)</td><td><span class="pill ok">reutilizable</span></td></tr>
+    <tr><td><b>ProductCard</b><br><span class="fileref">ProductCard.tsx</span></td><td>Tarjeta de producto del POS</td><td>variantes mobile/desktop · hardcodea radios, colores (#111814, #102218), tamaños pixel</td><td><span class="pill me">reutilizable pero muy "a mano"</span></td></tr>
+    <tr><td><b>ConfirmDialog</b><br><span class="fileref">ConfirmDialog.tsx</span></td><td>Diálogo de confirmación</td><td><b>100% CSS-in-JS</b> con paleta propia (#1f2937, #6b7280, #e5e7eb) y animaciones propias</td><td><span class="pill bad">no respeta tokens</span></td></tr>
+    <tr><td><b>InfoTooltip</b><br><span class="fileref">InfoTooltip.tsx</span></td><td>Tooltip de ayuda ("?") con reposicionamiento</td><td>—</td><td><span class="pill ok">reutilizable</span></td></tr>
+    <tr><td><b>AppToast</b><br><span class="fileref">AppToast.tsx</span></td><td>Sistema de notificaciones <b>actual/bueno</b></td><td>success/error/warning/info · alto contraste · role="alert"</td><td><span class="pill ok">bueno</span></td></tr>
+    <tr><td><b>Toast</b> (legacy)<br><span class="fileref">Toast.tsx</span></td><td>Sistema de Toast <b>duplicado</b></td><td>100% inline, rgba(30,30,30,.95), z 9999</td><td><span class="pill bad">a eliminar</span></td></tr>
+    <tr><td><b>GracePeriodBanner</b><br><span class="fileref">GracePeriodBanner.tsx</span></td><td>Banner fijo superior de suscripción en gracia</td><td>normal (ámbar) / urgente (rojo) · expone <span class="mono">--grace-banner-h</span></td><td><span class="pill ok">reutilizable</span></td></tr>
+    <tr><td><b>ErrorBoundary</b><br><span class="fileref">ErrorBoundary.tsx</span></td><td>Captura errores de render</td><td>—</td><td><span class="pill ok">reutilizable</span></td></tr>
+    <tr><td><b>SalesChart</b><br><span class="fileref">SalesChart.tsx</span></td><td>Gráfico de ventas del dashboard</td><td>animaciones barRise / donutDraw</td><td><span class="pill ok">reutilizable</span></td></tr>
+  </table>
+
+  <h3>Checklist: ¿qué existe y qué falta?</h3>
+  <table>
+    <tr><th>Categoría</th><th>Existe ✓ / Falta ✗</th></tr>
+    <tr><td><b>Acciones</b></td><td>✓ Botón (AppButton), split button (PrinterSplitButton) · ✗ icon button dedicado (se arman inline), ✗ enlace/Link, ✗ FAB genérico, ✗ button group/segmented, ✗ Switch (se dibujan a mano)</td></tr>
+    <tr><td><b>Formularios</b></td><td>✓ PhoneInput, Numpad, PriceInputModal, QuantityInputModal, date range picker (dashboard) · ✗ Input/Textarea/Select tokenizado (nativos repetidos), ✗ combobox genérico (SupplierPicker/CategorySelector ad-hoc), ✗ Slider, ✗ OTPInput dedicado, ✗ checkbox/radio (a mano), ✗ SearchInput, ✗ Labels/help/error como componentes</td></tr>
+    <tr><td><b>Navegación</b></td><td>✓ Sidebar, MobileNavBar, GlobalSellTabs · ✗ Tabs genérico, ✗ DropdownMenu genérico, ✗ Breadcrumbs, ✗ Paginación, ✗ Stepper visual (el wizard de facturas no lo usa), ✗ Drawer genérico</td></tr>
+    <tr><td><b>Contenedores</b></td><td>✓ ProductCard, CustomPlanCard, ConfirmDialog, InfoTooltip, banners · ✗ <b>Card base</b> (cada card es un div repetido), ✗ <b>Modal base</b> (~30 modales independientes), ✗ Accordion genérico, ✗ Popover genérico, ✗ Divider (div manual)</td></tr>
+    <tr><td><b>Feedback</b></td><td>✓ AppToast, ErrorBoundary, spinners, skeleton shimmer · ✗ Alert genérico, ✗ <b>Badge/Chip</b> (a mano), ✗ Progress bar genérico, ✗ Skeleton parametrizable, ✗ EmptyState, ✗ páginas 404/500</td></tr>
+    <tr><td><b>Datos</b></td><td>✓ CartItemRow, listas, stat cards (ad-hoc), SalesChart, PresenceStack (avatar group) · ✗ Table genérico, ✗ Timeline, ✗ Avatar base</td></tr>
+    <tr><td><b>Contenido</b></td><td>✓ markdown (react-markdown en RAG), RagSourceCard · ✗ componentes de heading/párrafo, ✗ hero (LandingScreen desconectado), ✗ footer de app</td></tr>
+  </table>
+  <div class="note"><b>El dato que lo resume todo:</b> la carpeta <span class="fileref">components/ui/</span> — que debería ser la base del design system — tiene <b>solo 3 archivos</b> (AppButton, DocumentScanner, ProductThumb) para ~100 componentes. Falta casi todo primitivo base (Card, Modal, Input, Badge, EmptyState).</div>
+</section>
+
+<section id="pantallas">
+  <h2><span class="num">9</span>Pantallas y flujos (solo las conectadas)</h2>
+  <p class="lead">La "ruta" es el valor del enum <span class="mono">Screen</span> que las monta en App.tsx. <b>28 pantallas conectadas</b> + 4 guardas/públicas.</p>
+  <table>
+    <tr><th>Pantalla</th><th>Screen</th><th>Rol</th></tr>
+    <tr><td>LoginScreen / RegisterScreen / ForgotPasswordScreen</td><td class="mono">LOGIN / REGISTER / FORGOT</td><td>Autenticación (SMS OTP + Google)</td></tr>
+    <tr><td>HomeScreen</td><td class="mono">HOME</td><td>Inicio móvil (hub)</td></tr>
+    <tr><td>SellScreen</td><td class="mono">SELL</td><td>POS principal (montado durante pago/éxito)</td></tr>
+    <tr><td>MenuScreen</td><td class="mono">MENU / QUICK_ORDER</td><td>Catálogo/menú de venta</td></tr>
+    <tr><td>PaymentScreen → SuccessScreen</td><td class="mono">PAYMENT / SUCCESS</td><td>Cobro/checkout → venta exitosa</td></tr>
+    <tr><td>PhotoOrderScreen</td><td class="mono">PHOTO_ORDER</td><td>Venta por foto/escáner</td></tr>
+    <tr><td>DashboardScreen</td><td class="mono">DASHBOARD</td><td>KPIs y gráficos</td></tr>
+    <tr><td>SalesScreen / ActivityScreen</td><td class="mono">SALES / ACTIVITY</td><td>Historial de ventas / visor de eventos</td></tr>
+    <tr><td>ClientsScreen / DebtsScreen</td><td class="mono">CLIENTS / DEBTS</td><td>Cuentas por cobrar / por pagar</td></tr>
+    <tr><td>EmployeesScreen</td><td class="mono">EMPLOYEES</td><td>Personal, roles, permisos, nómina</td></tr>
+    <tr><td>ProductsScreen / InventoryScreen</td><td class="mono">PRODUCTS / INVENTORY</td><td>Catálogo / inventario (gated por plan)</td></tr>
+    <tr><td>Simple/Processed/ServiceProductScreen</td><td class="mono">CREATE_PRODUCT_*</td><td>Creación de productos</td></tr>
+    <tr><td>Create/EditPromotionScreen</td><td class="mono">CREATE/EDIT_PROMOTION</td><td>Promociones</td></tr>
+    <tr><td>InvoiceCreateScreen</td><td class="mono">CREATE_FROM_INVOICE</td><td>Crear productos desde factura (IA)</td></tr>
+    <tr><td>ProfileScreen</td><td class="mono">PROFILE</td><td>Perfil</td></tr>
+    <tr><td>Subscription Plans / Management</td><td class="mono">SUBSCRIPTION_*</td><td>Planes y gestión de suscripción</td></tr>
+    <tr><td>RagChatScreen</td><td class="mono">RAG_CHAT</td><td>Asistente IA</td></tr>
+    <tr><td>CashRegisterScreen</td><td class="mono">CASH_REGISTER</td><td><b>Panel lateral</b> (no pantalla) de apertura/cierre de turno</td></tr>
+  </table>
+  <div class="note"><b>Flujos clave:</b> Login → (OTP/Google) → SELL · Venta: SELL/MENU → carrito → PAYMENT → SUCCESS · Caja: panel lateral obligatorio para vender · Estados especiales por pantalla: Suspense+ScreenLoader (cargando), empty states inline (vacío), ErrorBoundary (error), ProtectedRoute/badge PRO (sin permisos), OfflineIndicator (sin conexión).</div>
+</section>
+
+<section id="accesibilidad">
+  <h2><span class="num">10</span>Accesibilidad y UX</h2>
+  <table>
+    <tr><th>Aspecto</th><th>Hallazgo</th><th>Veredicto</th></tr>
+    <tr><td>Contraste</td><td>Marca OK; colores de estado solo seguros con texto oscuro; text.secondary pasa AA al límite</td><td><span class="pill me">parcial</span></td></tr>
+    <tr><td>Toque mínimo 44px</td><td>Botones +/− de ProductCard son <b>25px y 29px</b>; "?" de InfoTooltip 16px. Numpad (56px) y MobileNavBar sí cumplen</td><td><span class="pill bad">falla</span></td></tr>
+    <tr><td>Foco visible</td><td>index.css fuerza <span class="mono">outline:none !important</span> en inputs (compensado con ring + :focus-visible). En botones, <span class="mono">focus:outline-none</span> casi universal → riesgo de foco invisible donde falta ring</td><td><span class="pill me">riesgo</span></td></tr>
+    <tr><td>ARIA</td><td>Correcto en AppToast (role=alert), ConfirmDialog (role=dialog, aria-modal), GracePeriodBanner, OfflineIndicator. Cobertura razonable pero no uniforme</td><td><span class="pill me">parcial</span></td></tr>
+    <tr><td>Jerarquía de headings</td><td>No estandarizada (uso libre de h2/h3 + tamaños pixel) → riesgo de saltos de nivel</td><td><span class="pill me">riesgo</span></td></tr>
+    <tr><td>prefers-reduced-motion</td><td>Ausente, con ~25 animaciones</td><td><span class="pill bad">falla</span></td></tr>
+    <tr><td>Tono de voz</td><td>Español cercano y claro, botones cortos ("Pagar", "Aplicar"), emojis en títulos (🎉, ⚠️)</td><td><span class="pill ok">bien</span></td></tr>
+  </table>
+</section>
+
+<section id="deuda">
+  <h2><span class="num">11</span>Inconsistencias y deuda visual (priorizada)</h2>
+  <div class="card">
+    <h3 style="margin-top:0;color:#b91c1c">🔴 Impacto ALTO</h3>
+    <table>
+      <tr><td><span class="mono">#102218</span> hardcodeado 191 veces en vez de token. Cambio de marca inviable sin reemplazo masivo</td></tr>
+      <tr><td>≥8 superficies oscuras casi iguales sin criterio → el dark se ve distinto según pantalla</td></tr>
+      <tr><td>Dos sistemas de Toast compitiendo en z-index ~9999/99999</td></tr>
+      <tr><td>ConfirmDialog 100% CSS-in-JS con paleta propia → no respeta ningún token</td></tr>
+      <tr><td>Colores de estado fallan contraste con blanco (success 2.54, warning 2.15, primary 1.67)</td></tr>
+      <tr><td>Botón ámbar duplicado a mano en decenas de pantallas en vez de AppButton</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0;color:#92400e">🟡 Impacto MEDIO</h3>
+    <table>
+      <tr><td>Z-index sin escala (10/20/30/40/50/55/60/70/80/100/9999/99999)</td></tr>
+      <tr><td>Radios arbitrarios fuera de escala conviviendo con rounded-lg/xl/2xl</td></tr>
+      <tr><td>Tokens de sombra muertos (shadow-card 6 usos vs 405 shadow-sm)</td></tr>
+      <tr><td>5 off-whites casi iguales + body con background-color #f6f8f7 suelto</td></tr>
+      <tr><td>Verdes de éxito múltiples (#009459, #16a34a, #007a49, #10b981)</td></tr>
+      <tr><td><b>Clases que no existen usadas:</b> <span class="mono">border-border-light/dark</span>, <span class="mono">text-primary-text</span> → caen en nada</td></tr>
+      <tr><td>Animaciones duplicadas con valores distintos; disabled opacity 30/50/70; active scale .90/.95/.97/.98</td></tr>
+      <tr><td>Tamaños de texto/ícono pixel sueltos rompen la escala</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0;color:#15803d">🟢 Impacto BAJO</h3>
+    <table>
+      <tr><td>Dos mecanismos de carga de fuentes (&lt;link&gt; + @fontsource)</td></tr>
+      <tr><td>font-black (900) usado 407 veces sin cargar el peso 900 → fake-bold</td></tr>
+      <tr><td>Alias legacy duplicados en la config de colores</td></tr>
+      <tr><td>object-cover vs object-contain en imágenes de producto</td></tr>
+      <tr><td>Breakpoints arbitrarios min-[380px], min-[431px]</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="excluidos">
+  <h2><span class="num">×</span>Excluidos (desconectados u ocultos)</h2>
+  <p class="lead">Según tu regla "lo que está desconectado u oculto no cuenta", esto quedó <b>fuera</b> del inventario principal.</p>
+  <table>
+    <tr><th>Elemento</th><th>Por qué se excluye</th></tr>
+    <tr><td><b>LandingScreen</b></td><td><b>Código muerto:</b> se hace lazy pero nunca se renderiza en ningún JSX</td></tr>
+    <tr><td><b>BulkUploadScreen</b> (importación Excel)</td><td>Oculta temporalmente · sin entrada de menú viva</td></tr>
+    <tr><td><b>ContingencyDocScreen</b></td><td>Entrada de menú detrás de <span class="mono">{false &amp;&amp; …}</span> · inalcanzable por UI</td></tr>
+    <tr><td><b>TrainingScreen</b></td><td>Ítem de menú con <span class="mono">access: false</span> · <span class="supos">SUPOSICIÓN</span>: en desarrollo</td></tr>
+    <tr><td><b>Screen.TABLES / MENU standalone</b></td><td><b>DEPRECATED</b> · redirigen a SELL</td></tr>
+    <tr><td><b>PDFs de impresión</b> (ReceiptPDF, etc.)</td><td>Usan @react-pdf · son documentos, no UI de pantalla</td></tr>
+    <tr><td><b>/mockups, /rediseño home, /rediseño pos</b></td><td><span class="supos">SUPOSICIÓN</span>: bocetos previos, no frontend vivo</td></tr>
+    <tr><td><b>Modo oscuro</b> (dark:*)</td><td><span class="supos">SUPOSICIÓN</span>: latente, sin toggle que active <span class="mono">.dark</span></td></tr>
+  </table>
+</section>
+
+<section id="tokens">
+  <h2><span class="num">▸</span>Fase 2 · Propuesta de tokens</h2>
+  <p class="lead">Sistema en 3 niveles. La mayoría <b>mantiene</b> la identidad actual; las <span class="pill new">mejoras</span> consolidan lo disperso sin romper la marca.</p>
+  <div class="card" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <div><b style="color:var(--amber6)">1 · Primitivos</b><p style="font-size:12px;color:var(--muted)">Valores crudos con nombre neutro. <span class="mono">color.amber.400 = #fbbf24</span>. No se usan directo.</p></div>
+    <div><b style="color:var(--amber6)">2 · Semánticos</b><p style="font-size:12px;color:var(--muted)">Por intención. <span class="mono">color.action.primary</span>, <span class="mono">color.text.muted</span>. Es lo que usan las pantallas.</p></div>
+    <div><b style="color:var(--amber6)">3 · De componente</b><p style="font-size:12px;color:var(--muted)">Ajustes finos. <span class="mono">button.primary.bg</span>, <span class="mono">card.radius</span>.</p></div>
+  </div>
+
+  <h3>Color semántico propuesto (lo que usarán las pantallas)</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#f8fafc;border-bottom:1px solid #eee"></div><div class="meta"><b>bg.canvas</b><span class="hex">#f8fafc</span><div class="role"><span class="pill new">unifica off-whites</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#ffffff;border-bottom:1px solid #eee"></div><div class="meta"><b>bg.surface</b><span class="hex">#ffffff</span><div class="role">mantiene</div></div></div>
+    <div class="sw"><div class="chip" style="background:#f1f5f9;border-bottom:1px solid #eee"></div><div class="meta"><b>bg.sunken</b><span class="hex">#f1f5f9</span><div class="role"><span class="pill new">nuevo</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#0f172a"></div><div class="meta"><b>text.default</b><span class="hex">#0f172a</span><div class="role">mantiene</div></div></div>
+    <div class="sw"><div class="chip" style="background:#64748b"></div><div class="meta"><b>text.muted</b><span class="hex">#64748b</span><div class="role">mantiene</div></div></div>
+    <div class="sw"><div class="chip" style="background:#94a3b8"></div><div class="meta"><b>text.disabled</b><span class="hex">#94a3b8</span><div class="role"><span class="pill new">define el disabled</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#102218"></div><div class="meta"><b>text.onPrimary</b><span class="hex">#102218</span><div class="role"><span class="pill new">reemplaza 191 hardcodes</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#e2e8f0;border-bottom:1px solid #ddd"></div><div class="meta"><b>border.default</b><span class="hex">#e2e8f0</span><div class="role">slate-200</div></div></div>
+    <div class="sw"><div class="chip" style="background:#fbbf24"></div><div class="meta"><b>action.primary</b><span class="hex">#fbbf24</span><div class="role">mantiene</div></div></div>
+    <div class="sw"><div class="chip" style="background:#10b981"></div><div class="meta"><b>feedback.success</b><span class="hex">#10b981</span><div class="role"><span class="pill new">unifica verdes</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#ef4444"></div><div class="meta"><b>feedback.error</b><span class="hex">#ef4444</span><div class="role">mantiene</div></div></div>
+    <div class="sw"><div class="chip" style="background:#10b981;color:#0f172a;align-items:center;justify-content:center;font-weight:700;font-size:13px">texto oscuro</div><div class="meta"><b>feedback.on-fill</b><span class="hex">#0f172a</span><div class="role"><span class="pill new">arregla contraste</span></div></div></div>
+  </div>
+
+  <h3>Radios, sombras y z-index propuestos</h3>
+  <table>
+    <tr><th>Grupo</th><th>Tokens</th><th>Nota</th></tr>
+    <tr><td>Radios</td><td class="mono">sm 6 · md 8 · lg 12 · xl 16 · 2xl 20 · full</td><td>Absorben los <span class="mono">rounded-[12/14/15/20/21px]</span> arbitrarios <span class="pill new">mejora</span></td></tr>
+    <tr><td>Sombras</td><td class="mono">sm · card · card.hover · modal</td><td>Reviven card/card-hover + toman la de ConfirmDialog <span class="pill new">mejora</span></td></tr>
+    <tr><td>Z-index</td><td class="mono">sticky 20 · dropdown 30 · drawer 60 · banner 70 · modal 80 · toast 90 · splash 100</td><td>Reemplaza 9999/99999 <span class="pill new">mejora</span></td></tr>
+  </table>
+
+  <h3>Entregables técnicos incluidos en el reporte markdown</h3>
+  <table>
+    <tr><th>Entregable</th><th>Para qué</th></tr>
+    <tr><td>JSON formato W3C Design Tokens (<span class="mono">$value</span>, <span class="mono">$type</span>)</td><td>Fuente de verdad portable (Style Dictionary, Figma Tokens)</td></tr>
+    <tr><td>Variables CSS <span class="mono">:root</span> + <span class="mono">.dark</span></td><td>Usar directo en el CSS, con tema oscuro consolidado a 3 superficies</td></tr>
+    <tr><td><span class="mono">tailwind.config.js</span> consolidado</td><td>Reemplaza la config inline, añade tokens faltantes (border, mono), elimina alias legacy</td></tr>
+    <tr><td>Bloque <span class="mono">@media (prefers-reduced-motion)</span></td><td>Arregla el fallo de accesibilidad de movimiento</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--muted)">El código completo de los 4 entregables está en el markdown <span class="fileref">auditoria-design-system-tokens.md</span>, listo para copiar.</p>
+</section>
+
+<section id="migracion">
+  <h2><span class="num">→</span>Plan de migración (12 pasos, sin "big bang")</h2>
+  <p class="lead">Cada paso deja la app funcionando. Verificar con <span class="mono">npm run build</span> tras cada bloque.</p>
+  <table>
+    <tr><th>#</th><th>Paso</th><th>Por qué</th></tr>
+    <tr><td>1</td><td>Salir del CDN de Tailwind → build local (PostCSS + tailwind.config.js)</td><td>El CDN no purga CSS ni cachea bien; no es apto para producción</td></tr>
+    <tr><td>2</td><td>Definir tokens que ya se usan pero no existen (border, primary.text, surface.sunken…)</td><td>Arregla las clases que hoy caen en nada</td></tr>
+    <tr><td>3</td><td>Cargar bien Plus Jakarta Sans (una sola vía) y dejar de usar font-black 900</td><td>Elimina el fake-bold</td></tr>
+    <tr><td>4</td><td>Unificar grises/off-whites + quitar el background-color del body</td><td>Automatizable con buscar/reemplazar</td></tr>
+    <tr><td>5</td><td>Reemplazar #102218 hardcodeado (191 casos) por tokens</td><td>El mayor foco de deuda</td></tr>
+    <tr><td>6</td><td>Consolidar superficies oscuras a 2-3 niveles</td><td>Dark coherente</td></tr>
+    <tr><td>7</td><td>Unificar verdes de éxito (dejar #25D366 solo para WhatsApp)</td><td>—</td></tr>
+    <tr><td>8</td><td>Eliminar el Toast duplicado (migrar a AppToast)</td><td>Un solo sistema de notificación</td></tr>
+    <tr><td>9</td><td>Tokenizar ConfirmDialog (CSS-in-JS → Tailwind)</td><td>Que respete tema y dark</td></tr>
+    <tr><td>10</td><td>Normalizar z-index, radios arbitrarios y escala active/disabled</td><td>—</td></tr>
+    <tr><td>11</td><td>Accesibilidad: reduced-motion, toque ≥44px, focus-visible en botones</td><td>Arregla fallos WCAG</td></tr>
+    <tr><td>12</td><td>Crear primitivos faltantes (Card, Modal, Badge, EmptyState, Input) en components/ui</td><td>Reduce la duplicación</td></tr>
+  </table>
+</section>
+
+<section id="preguntas">
+  <h2><span class="num">?</span>Preguntas para ti (decisiones de diseño)</h2>
+  <p class="lead">Antes del rediseño, necesito que decidas esto. Condiciona la Fase 2 y el rumbo visual.</p>
+  <div class="card">
+    <ol style="padding-left:20px;font-size:14px;line-height:1.8">
+      <li><b>Modo oscuro:</b> ¿debe estar activo para el usuario final (toggle o automático), o es solo latente? De esto depende si pulimos todo el CSS <span class="mono">dark:*</span> o lo retiramos para aligerar.</li>
+      <li><b>Color secundario de marca:</b> hoy no existe un "secundario" real. ¿Introducimos uno (ej. esmeralda como acento) o la marca es monocromática ámbar?</li>
+      <li><b>Público (POS para tiendas en Colombia):</b> ¿priorizamos <b>densidad</b> (más info, cajeros rápidos) o <b>amplitud/toque</b> (botones grandes)? Afecta tamaños, espaciado y los 44px.</li>
+      <li><b>Tono tipográfico:</b> la app usa pesos muy altos (bold/black por doquier). ¿Mantenemos el look "fuerte" o lo suavizamos a semibold?</li>
+      <li><b>Referencias visuales:</b> ¿apps que te gusten como norte (Square, Loyverse, Shopify POS)? Las carpetas /rediseño ¿son la dirección deseada?</li>
+      <li><b>Marca "Warm Bistro":</b> ¿el ámbar es definitivo o puede cambiar? (Si puede, el paso 5 es aún más urgente.)</li>
+      <li><b>Emojis en UI</b> (🎉, ⚠️): ¿se mantienen como tono cercano o se reemplazan por íconos Material?</li>
+    </ol>
+  </div>
+  <div class="note" style="margin-top:20px"><b>Nota de método:</b> todos los conteos provienen de barridos reales sobre <span class="mono">components/*.tsx</span> + <span class="mono">screens/*.tsx</span> (excluyendo tests). Los ratios WCAG se calcularon con la fórmula oficial de luminancia. Lo no comprobable va marcado como <span class="supos">SUPOSICIÓN</span>.</div>
+</section>
+
+</div><!-- /inner -->
+</main>
+</div><!-- /wrap -->
+<style>
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .spin{animation:spin .8s linear infinite}
+  @keyframes shim{0%{background-position:200% center}100%{background-position:-200% center}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}
+  @media (max-width:860px){.wrap{grid-template-columns:1fr}nav{position:static;height:auto}.inner{padding:28px 18px 80px}}
+</style>
+<script>
+  // Scrollspy: resalta el enlace de la sección visible
+  const links = [...document.querySelectorAll('nav a[href^="#"]')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.style.background = '');
+        const a = map.get(e.target.id);
+        if (a) { a.style.background = 'rgba(251,191,36,.18)'; a.style.color = '#fff'; }
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
