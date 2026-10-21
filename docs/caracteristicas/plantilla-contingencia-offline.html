@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comanda de Contingencia Offline - BistroPOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 10mm;
+            margin: 10mm auto;
+            border: 1px #D3D3D3 solid;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10mm;
+            height: 277mm;
+            /* Full page content height */
+        }
+
+        .ticket {
+            border: 2px dashed #333;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .ticket::before {
+            content: "✂";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .header-item {
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th {
+            border-bottom: 2px solid #000;
+            text-align: left;
+            padding: 5px;
+        }
+
+        td {
+            border-bottom: 1px solid #ddd;
+            padding: 8px 5px;
+            font-size: 14px;
+        }
+
+        .col-cant {
+            width: 15%;
+            text-align: center;
+        }
+
+        .col-prod {
+            width: 60%;
+        }
+
+        .col-val {
+            width: 25%;
+            text-align: right;
+        }
+
+        .footer {
+            margin-top: auto;
+            border-top: 2px solid #000;
+            padding-top: 10px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .checkbox {
+            width: 14px;
+            height: 14px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .line-input {
+            border-bottom: 1px solid #000;
+            flex-grow: 1;
+            margin-left: 5px;
+        }
+
+        @media print {
+            body {
+                background: none;
+            }
+
+            .page {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                width: auto;
+                height: auto;
+            }
+
+            .grid-container {
+                gap: 5mm;
+                height: 100vh;
+            }
+
+            .ticket {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="grid-container">
+            <!-- Ticket 1 -->
+            <div class="ticket">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-cant">CANT.</th>
+                            <th class="col-prod">PRODUCTO / DETALLE</th>
+                            <th class="col-val">VALOR ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 10 Filas vacías para rellenar -->
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <div class="payment-methods">
+                        <span><span class="checkbox"></span> Efectivo</span>
+                        <span><span class="checkbox"></span> Transf.</span>
+                        <span><span class="checkbox"></span> Crédito</span>
+                    </div>
+                    <div class="client-info">
+                        <strong>Cliente:</strong><span class="line-input"></span>
+                    </div>
+                    <div class="client-info" style="margin-top: 10px;">
+                        <strong>TOTAL APROX $:</strong><span class="line-input" style="width: 50%;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket 2 -->
+            <div class="ticket">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-cant">CANT.</th>
+                            <th class="col-prod">PRODUCTO / DETALLE</th>
+                            <th class="col-val">VALOR ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <div class="payment-methods">
+                        <span><span class="checkbox"></span> Efectivo</span>
+                        <span><span class="checkbox"></span> Transf.</span>
+                        <span><span class="checkbox"></span> Crédito</span>
+                    </div>
+                    <div class="client-info">
+                        <strong>Cliente:</strong><span class="line-input"></span>
+                    </div>
+                    <div class="client-info" style="margin-top: 10px;">
+                        <strong>TOTAL APROX $:</strong><span class="line-input" style="width: 50%;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket 3 -->
+            <div class="ticket">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-cant">CANT.</th>
+                            <th class="col-prod">PRODUCTO / DETALLE</th>
+                            <th class="col-val">VALOR ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <div class="payment-methods">
+                        <span><span class="checkbox"></span> Efectivo</span>
+                        <span><span class="checkbox"></span> Transf.</span>
+                        <span><span class="checkbox"></span> Crédito</span>
+                    </div>
+                    <div class="client-info">
+                        <strong>Cliente:</strong><span class="line-input"></span>
+                    </div>
+                    <div class="client-info" style="margin-top: 10px;">
+                        <strong>TOTAL APROX $:</strong><span class="line-input" style="width: 50%;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket 4 -->
+            <div class="ticket">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-cant">CANT.</th>
+                            <th class="col-prod">PRODUCTO / DETALLE</th>
+                            <th class="col-val">VALOR ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="footer">
+                    <div class="payment-methods">
+                        <span><span class="checkbox"></span> Efectivo</span>
+                        <span><span class="checkbox"></span> Transf.</span>
+                        <span><span class="checkbox"></span> Crédito</span>
+                    </div>
+                    <div class="client-info">
+                        <strong>Cliente:</strong><span class="line-input"></span>
+                    </div>
+                    <div class="client-info" style="margin-top: 10px;">
+                        <strong>TOTAL APROX $:</strong><span class="line-input" style="width: 50%;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

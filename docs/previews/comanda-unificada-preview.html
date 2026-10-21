@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comanda 80mm — Tamaño unificado (Nivel 2)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #4b5563;
+    font-family: system-ui, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 28px 10px 60px; gap: 16px;
+  }
+
+  .aviso {
+    color: #f9fafb; font-size: 14px; max-width: 460px; text-align: center;
+    line-height: 1.5; background: rgba(0,0,0,.25);
+    padding: 12px 16px; border-radius: 10px;
+  }
+  .aviso b { color: #fbbf24; }
+
+  .regla {
+    width: 80mm; height: 16px; position: relative;
+    border-left: 1px solid #fbbf24; border-right: 1px solid #fbbf24;
+  }
+  .regla::before {
+    content: "← 80 mm (ancho del rollo) →";
+    position: absolute; inset: 0; color: #fbbf24; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ----- Papel térmico a escala real ----- */
+  .papel {
+    width: 80mm; background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    padding: 4mm; color: #111;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5mm; line-height: 3mm;
+  }
+
+  .pre { white-space: pre; }
+  .bold { font-weight: 700; }
+  .center { text-align: center; }
+  .titulo { font-weight: 700; letter-spacing: .5mm; }
+
+  .rule-double { border-top: 0.6mm double #111; margin: 1.5mm 0; }
+  .rule-dashed { border-top: 0.4mm dashed #444; margin: 1.5mm 0; }
+
+  /* TODO (producto y modificación): ancho normal + alto x2, negrita */
+  .linea {
+    font-weight: 700; height: 6mm; line-height: 3mm;
+    transform: scaleY(2); transform-origin: left top;
+    white-space: pre;
+  }
+  /* separación extra porque scaleY no empuja el flujo */
+  .sep { height: 3mm; }
+</style>
+</head>
+<body>
+
+  <div class="aviso">
+    Tamaño <b>unificado Nivel 2</b> a escala real (80&nbsp;mm). Míralo al <b>100% de zoom</b>.<br>
+    Producto y modificaciones: <b>ancho normal + alto x2</b>, negrita. Mismo tamaño, nunca se corta.
+  </div>
+
+  <div class="regla"></div>
+
+  <div class="papel">
+    <div class="center titulo">*** COMANDA ***</div>
+    <div style="height:1.5mm"></div>
+
+    <div class="pre bold">Orden: 1234</div>
+    <div class="pre">Mesa: Mesa 5</div>
+    <div class="pre">Cliente: Juan Pérez</div>
+    <div class="pre">Hora: 14:32</div>
+    <div class="pre">Cajero: María</div>
+
+    <div class="rule-double"></div>
+
+    <!-- Item 1: nombre corto -->
+    <div class="linea">2x HAMBURGUESA</div><div class="sep"></div>
+    <div class="linea">  &gt;&gt; Término medio</div><div class="sep"></div>
+    <div class="linea">  SIN cebolla</div><div class="sep"></div>
+    <div class="linea">  * Extra queso</div><div class="sep"></div>
+
+    <div class="rule-dashed"></div>
+
+    <!-- Item 2: nombre largo (cabe igual en 1 línea) -->
+    <div class="linea">1x ENSALADA CESAR CON POLLO Y ADEREZO</div><div class="sep"></div>
+    <div class="linea">  * Sin aderezo aparte</div><div class="sep"></div>
+
+    <div class="rule-dashed"></div>
+
+    <!-- Item 3 -->
+    <div class="linea">3x COCA COLA</div><div class="sep"></div>
+
+    <div class="rule-double"></div>
+    <div class="center">3 productos</div>
+  </div>
+
+  <div class="aviso">
+    Producto y modificación quedan <b>del mismo tamaño</b>. Se distinguen por la cantidad al frente
+    (<b>2x …</b>) vs la sangría + prefijo (<b>&nbsp;&nbsp;&gt;&gt;&nbsp;</b>, <b>&nbsp;&nbsp;SIN&nbsp;</b>, <b>&nbsp;&nbsp;*&nbsp;</b>).
+  </div>
+
+</body>
+</html>

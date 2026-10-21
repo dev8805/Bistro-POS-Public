@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comanda 80mm — Niveles de autoajuste</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #4b5563;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 10px 60px;
+    gap: 18px;
+  }
+
+  .aviso {
+    color: #f9fafb;
+    font-size: 14px;
+    max-width: 460px;
+    text-align: center;
+    line-height: 1.5;
+    background: rgba(0,0,0,.25);
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
+  .aviso b { color: #fbbf24; }
+
+  .regla {
+    width: 80mm;
+    height: 16px;
+    position: relative;
+    border-left: 1px solid #fbbf24;
+    border-right: 1px solid #fbbf24;
+  }
+  .regla::before {
+    content: "← 80 mm (ancho del rollo) →";
+    position: absolute; inset: 0;
+    color: #fbbf24; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .etiqueta {
+    width: 80mm;
+    color: #fbbf24;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: -8px;
+  }
+  .etiqueta span { color: #cbd5e1; font-weight: 400; }
+
+  /* ----- Papel térmico a escala real ----- */
+  .papel {
+    width: 80mm;
+    background: #fff;
+    box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    padding: 4mm;                       /* margen → 72mm útiles */
+    color: #111;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5mm;                   /* texto normal de la térmica */
+    line-height: 3mm;
+  }
+  .papel.mala { outline: 2px dashed #ef4444; }
+
+  .pre { white-space: pre; }
+  .bold { font-weight: 700; }
+
+  /* NIVEL: producto ancho x2 + alto x2 */
+  .x2x2 {
+    font-size: 5mm; line-height: 6mm; font-weight: 700;
+    white-space: pre;
+  }
+
+  /* NIVEL: producto ancho normal + alto x2 (scaleY simula doble alto) */
+  .x1altox2 {
+    font-weight: 700; height: 6mm; line-height: 3mm;
+    transform: scaleY(2); transform-origin: left top;
+    white-space: pre;
+  }
+
+  /* MAL EJEMPLO: nombre largo forzado a ancho x2 → se parte */
+  .x2x2wrap {
+    font-size: 5mm; line-height: 6mm; font-weight: 700;
+    white-space: pre-wrap; word-break: break-word;
+  }
+
+  /* Modificación: doble alto, ancho normal */
+  .mod {
+    font-weight: 700; height: 6mm; line-height: 3mm;
+    transform: scaleY(2); transform-origin: left top;
+    white-space: pre;
+  }
+
+  .rule-dashed { border-top: 0.4mm dashed #444; margin: 1.5mm 0; }
+</style>
+</head>
+<body>
+
+  <div class="aviso">
+    Autoajuste <b>Idea A</b> a tamaño real (80&nbsp;mm). Míralo al <b>100% de zoom</b>.<br>
+    El ancho se adapta para que el nombre <b>nunca se corte</b>; el alto siempre queda en x2.
+  </div>
+
+  <div class="regla"></div>
+
+  <!-- NIVEL 1 -->
+  <div class="etiqueta">NIVEL 1 — nombre ≤ 24 chars → ancho x2 · alto x2 <span>(lo más grande)</span></div>
+  <div class="papel">
+    <div class="x2x2">2x HAMBURGUESA</div>
+    <div class="rule-dashed"></div>
+    <div class="x2x2">3x JUGO DE MORA</div>
+  </div>
+
+  <!-- NIVEL 2 -->
+  <div class="etiqueta">NIVEL 2 — nombre 25–48 chars → ancho normal · alto x2 <span>(cabe en 1 línea, sigue alto)</span></div>
+  <div class="papel">
+    <div class="x1altox2">1x ENSALADA CESAR CON POLLO Y ADEREZO</div>
+    <div class="rule-dashed" style="margin-top:3mm"></div>
+    <div class="x1altox2">2x SANDWICH DE POLLO CRUJIENTE TOCINETA</div>
+  </div>
+
+  <!-- Comparativa: por qué el largo NO va en ancho x2 -->
+  <div class="etiqueta" style="color:#fca5a5">✗ Si forzáramos ese nombre largo a ancho x2 → se parte en varias líneas</div>
+  <div class="papel mala">
+    <div class="x2x2wrap">1x ENSALADA CESAR CON POLLO Y ADEREZO</div>
+  </div>
+
+  <!-- Comanda completa de ejemplo mezclando niveles -->
+  <div class="etiqueta" style="color:#86efac">Comanda real mezclando los dos niveles</div>
+  <div class="papel">
+    <div class="pre bold">Orden: 1234   Mesa: 5   14:32</div>
+    <div class="rule-dashed"></div>
+    <div class="x2x2">2x HAMBURGUESA</div>
+    <div class="mod">  &gt;&gt; Término medio</div>
+    <div class="mod">  SIN cebolla</div>
+    <div class="rule-dashed" style="margin-top:3mm"></div>
+    <div class="x1altox2">1x ENSALADA CESAR CON POLLO Y ADEREZO</div>
+    <div class="mod" style="margin-top:3mm">  * Sin aderezo aparte</div>
+    <div class="rule-dashed" style="margin-top:3mm"></div>
+    <div class="x2x2">3x COCA COLA</div>
+  </div>
+
+  <div class="aviso">
+    <b>Resumen:</b> nombre corto = letra grande y ancha · nombre largo = misma altura (doble) pero ancho normal para que entre completo en una línea.
+  </div>
+
+</body>
+</html>

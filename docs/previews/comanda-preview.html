@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview Comanda 80mm</title>
+<style>
+  /*
+   * Simulación a TAMAÑO REAL de una comanda térmica de 80mm.
+   * Ancho de impresión real: 72mm (48 columnas). Cada carácter ≈ 1.5mm de ancho.
+   * Fuente normal de la térmica ≈ 3mm de alto → texto x2 ≈ 6mm.
+   * Para ver el tamaño físico aproximado: abrir en el navegador al 100% de zoom.
+   */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #4b5563;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px 60px;
+    gap: 14px;
+  }
+
+  .aviso {
+    color: #f9fafb;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    max-width: 420px;
+    text-align: center;
+    line-height: 1.5;
+    background: rgba(0,0,0,.25);
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
+  .aviso b { color: #fbbf24; }
+
+  /* Regla de 80mm para referencia física */
+  .regla {
+    width: 80mm;
+    height: 18px;
+    position: relative;
+    border-left: 1px solid #fbbf24;
+    border-right: 1px solid #fbbf24;
+  }
+  .regla::before {
+    content: "← 80 mm (ancho del rollo) →";
+    position: absolute;
+    inset: 0;
+    color: #fbbf24;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* El papel: 80mm de ancho, área de impresión 72mm centrada */
+  .papel {
+    width: 80mm;
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    padding: 6mm 4mm;            /* 4mm de margen lateral → 72mm útiles */
+    color: #111;
+  }
+
+  /* Texto NORMAL de la térmica: ~2.5mm font, 48 columnas en 72mm */
+  .papel { font-size: 2.5mm; line-height: 3mm; }
+
+  .center { text-align: center; }
+  .bold   { font-weight: 700; }
+
+  .titulo { font-weight: 700; letter-spacing: .5mm; }
+
+  .rule-double { border-top: 0.6mm double #111; margin: 1.5mm 0; }
+  .rule-dashed { border-top: 0.4mm dashed #444; margin: 1.5mm 0; }
+
+  /* NIVEL 1 — Producto: doble ancho + alto (x2) */
+  .producto {
+    font-size: 5mm;
+    line-height: 6mm;
+    font-weight: 700;
+    white-space: pre-wrap;
+  }
+
+  /* NIVEL 2 — Modificación: doble ALTO, ancho normal (scaleY(2)) */
+  .mod {
+    font-weight: 700;
+    height: 6mm;                 /* reserva el alto duplicado */
+    line-height: 3mm;
+    transform: scaleY(2);
+    transform-origin: left top;
+    white-space: pre;
+  }
+
+  .pre { white-space: pre; }
+</style>
+</head>
+<body>
+
+  <div class="aviso">
+    Vista a <b>tamaño real aproximado</b> de una comanda de <b>80&nbsp;mm</b>.<br>
+    Para juzgar el tamaño físico, mira esta página al <b>100% de zoom</b>.
+  </div>
+
+  <div class="regla"></div>
+
+  <div class="papel">
+    <div class="center titulo">*** COMANDA ***</div>
+    <div style="height:2mm"></div>
+
+    <div class="pre bold">Orden: 1234</div>
+    <div class="pre">Mesa: Mesa 5</div>
+    <div class="pre">Cliente: Juan Pérez</div>
+    <div class="pre">Hora: 14:32</div>
+    <div class="pre">Cajero: María</div>
+
+    <div class="rule-double"></div>
+
+    <!-- Item 1 -->
+    <div class="producto">2x HAMBURGUESA CLASICA</div>
+    <div class="mod">  &gt;&gt; Término medio</div>
+    <div class="mod">  SIN cebolla</div>
+    <div class="mod">  * Extra queso</div>
+
+    <div class="rule-dashed"></div>
+
+    <!-- Item 2 -->
+    <div class="producto">1x PAPAS FRITAS</div>
+    <div class="mod">  &gt;&gt; Con sal</div>
+
+    <div class="rule-dashed"></div>
+
+    <!-- Item 3 -->
+    <div class="producto">3x COCA COLA</div>
+
+    <div class="rule-double"></div>
+    <div class="center">3 productos</div>
+  </div>
+
+  <div class="aviso">
+    <b>Jerarquía:</b> producto x2 (alto+ancho) · modificaciones x2 alto · datos de orden en tamaño normal.
+  </div>
+
+</body>
+</html>
